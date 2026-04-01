@@ -14,29 +14,71 @@ const translations = {
             "cart": "Cart"
         },
         "hero": {
+            "badge": "New Season Collection",
             "title": "Fresh Flowers for Every Occasion",
             "subtitle": "Beautiful bouquets crafted with love",
             "cta_shop": "Shop Flowers",
-            "cta_whatsapp": "Order on WhatsApp"
+            "cta_whatsapp": "Order on WhatsApp",
+            "scroll": "Scroll"
         },
-        "featured": {
-            "label": "Seasonal Picks",
-            "title": "Our Featured Collections",
-            "products": {
-                "p1_title": "Perfect Blush",
-                "p1_desc": "A dreamy arrangement of peonies and ranunculus for tender moments.",
-                "p2_title": "Garden Symphony",
-                "p2_desc": "Hand-picked wildflowers to bring nature's melody to your home.",
-                "p3_title": "Midnight Orchid",
-                "p3_desc": "Deep purple, sophisticated orchids with sculpted emerald leaves.",
-                "p4_title": "Sunset Glow",
-                "p4_desc": "Warm tones of amber and burnt orange capturing the magic of dusk.",
-                "p5_title": "Pure Serenity",
-                "p5_desc": "A monochrome masterpiece of white lilies, roses, and baby's breath.",
-                "p6_title": "Velvet Protea",
-                "p6_desc": "Proteas and exotic succulents for a bold, architectural statement."
-            },
-            "cta_order": "Order via WhatsApp"
+        "natural": {
+            "label": "Fresh & Seasonal",
+            "title": "Natural Blooms",
+            "desc": "Fresh flowers delivered daily from our farms — roses, orchids, and seasonal arrangements tailored for every moment.",
+            "p1": "Dawn Rose", "p1d": "Delicate pink peonies for graceful moments.",
+            "p2": "Garden Symphony", "p2d": "Wildflowers that bring nature's melody to your home.",
+            "p3": "Midnight Orchid", "p3d": "Deep purple orchids with emerald green leaves.",
+            "p4": "Serenity Pure", "p4d": "White lilies and gypsophila in perfect harmony."
+        },
+        "artificial": {
+            "label": "Timeless Beauty",
+            "title": "Artificial Collection",
+            "desc": "Premium silk and velvet flowers that look real and last forever — zero maintenance required.",
+            "hero_label": "Best Seller",
+            "hero_title": "Sunset Silk Collection",
+            "p1": "Velvet Protea", "p1d": "Bold and extraordinary architectural piece.",
+            "p2": "Silk Rose Dome", "p2d": "Luxury silk roses in a stunning dome arrangement.",
+            "p3": "Wild Meadow Mix", "p3d": "Permanent lush greenery for your space."
+        },
+        "baby": {
+            "label": "Welcome Little Ones",
+            "title": "Newborn Gifts",
+            "desc": "Celebrate new life with charming floral arrangements and curated gift sets.",
+            "c1_label": "For Her", "c1": "Pink Blossom Set",
+            "c2_label": "For Him", "c2": "Blue & Green Basket",
+            "c3_label": "Neutral", "c3": "Golden Welcome Box",
+            "order": "Order Gift"
+        },
+        "vases": {
+            "label": "For Every Space",
+            "title": "Vases & Vessels",
+            "desc": "Ceramic, glass, and artisanal vases curated to frame any arrangement or stand alone as decor.",
+            "p1": "Travertine Column", "p1d": "Tall marble-finish vase for dramatic stems.",
+            "p2": "Blown Glass Globe", "p2d": "Hand-blown organic shaped artisanal glass.",
+            "p3": "Terracotta Trio", "p3d": "Set of 3 layered terracotta pots.",
+            "p4": "Matte Cylinder", "p4d": "Matte black ceramic for modern interiors."
+        },
+        "balloons": {
+            "label": "Let's Celebrate",
+            "title": "Balloons & Decor",
+            "desc": "Helium bundles, foil sets, and party decor delivered to your door — ready for joy.",
+            "p1": "Princess Pink Bundle", "p1d": "12 Helium balloons + Crown foil.",
+            "p2": "Midnight Stars Set", "p2d": "Blue & Silver celebration helium kit.",
+            "p3": "Golden Anniversary", "p3d": "Golden numbers + confetti spheres.",
+            "p4": "Birthday Arch Kit", "p4d": "Full DIY arch kit for events and parties."
+        },
+        "gifts": {
+            "label": "Thoughtful Gifting",
+            "title": "Gifts for All",
+            "desc": "Curated gift sets for him and her — from luxury hampers to floral pairings.",
+            "for_women": "For Her",
+            "for_men": "For Him",
+            "w1": "Roses & Chocolate Box", "w1d": "Belgian chocolates with a dozen red roses.",
+            "w2": "Luxury Spa Basket", "w2d": "Flowers + Candles + Body care kit.",
+            "w3": "Perfume & Orchid", "w3d": "Fine fragrance paired with dark orchids.",
+            "m1": "Premium Hamper", "m1d": "Dates, Nuts, and Tropical blooms.",
+            "m2": "Noir & Oudh Bundle", "m2d": "Dark moody florals with Oudh fragrance set.",
+            "m3": "Trophy & Blooms", "m3d": "Achievement gift with structured floral design."
         },
         "howItWorks": {
             "title": "A Curated Journey",
@@ -48,25 +90,20 @@ const translations = {
             "step3_title": "Swift Delivery",
             "step3_desc": "Rapid, boutique-standard delivery ensuring your flowers arrive in pristine state."
         },
-        "testimonials": {
-            "title": "Shared Moments of Joy",
-            "subtitle": "Our arrangements have been part of countless celebrations, proposals, and heartfelt gestures.",
-            "t1_text": "\"The most exquisite arrangement I've ever received. The attention to detail is truly unparalleled.\"",
-            "t2_text": "\"Ordering through WhatsApp was so effortless. They helped me pick the perfect bouquet for my anniversary.\"",
-            "t3_text": "\"The Garden Symphony was exactly as pictured. Fresh, aromatic, and simply divine.\""
+        "instagram": {
+            "title": "Follow Our Beauty"
         },
         "footer": {
             "brand_desc": "Curating nature's finest moments for your everyday space.",
+            "shop": "Shop",
             "discover": "Discover",
             "contact": "Contact",
             "policy": "Policy",
             "journal": "The Journal",
-            "journal_desc": "Join our list for seasonal floral guides and exclusive arrivals.",
+            "journal_desc": "Join our list for seasonal floral guides.",
             "email_placeholder": "Your Email",
             "subscribe": "Subscribe",
-            "contact_us": "Contact Us",
-            "shipping": "Shipping Policy",
-            "sustainability": "Sustainability",
+            "address": "Riyadh, Saudi Arabia",
             "links": {
                 "contact_us": "Contact Us",
                 "shipping": "Shipping Policy",
@@ -77,9 +114,11 @@ const translations = {
             "copyright": "© 2024 Unique Flowers. The Digital Florist’s Atelier."
         },
         "catalog": {
+            "label": "Our Collection",
             "title": "The Curated Catalog",
             "subtitle": "Discover our seasonal arrangements, artisanal vases, and curated gifts designed for the refined home.",
-            "search_placeholder": "Search our botanical library...",
+            "desc": "From fresh farm blooms to everlasting silk arrangements, find the perfect piece for your space.",
+            "all": "All Pieces",
             "collections": "Collections",
             "all_pieces": "All Pieces",
             "natural": "Natural Flowers",
@@ -92,7 +131,26 @@ const translations = {
             "ready_delivery": "Ready for Delivery",
             "gift_wrap": "Gift Wrap Available",
             "new": "New",
-            "limited": "Limited"
+            "limited": "Limited",
+            "search_placeholder": "Search our botanical library..."
+        },
+        "catalog_page": {
+            "home": "Home",
+            "collections": "Collections",
+            "location": "Our Location",
+            "whatsapp_support": "WhatsApp Support",
+            "terms": "Terms & Conditions",
+            "mobile": {
+                "home": "Home",
+                "whatsapp": "Support"
+            },
+            "favorites": "My Favorites",
+            "p1_title": "The Serene Blush",
+            "p1_type": "Natural Flowers",
+            "p2_title": "Terra Cotta Silhouette",
+            "p2_type": "Artisanal Vases",
+            "p3_title": "Eternal White Orchid",
+            "p3_type": "Artificial Flowers"
         },
         "product": {
             "exclusive": "Exclusive Seasonal Collection",
@@ -103,7 +161,7 @@ const translations = {
             "petite": "Petite",
             "signature": "Signature",
             "grand": "Grand",
-            "include_card": "Include Hand-written Card (+$5)",
+            "include_card": "Include Hand-written Card (+5 SAR)",
             "eco_wrap": "Eco-friendly Premium Wrapping",
             "pay_online": "Complete Payment Online",
             "same_day": "Same Day Delivery",
@@ -129,55 +187,7 @@ const translations = {
             "journal_sub": "Journal Subscription",
             "journal_ritual": "Receive seasonal floral trends and care rituals in your inbox.",
             "email_addr": "Email address",
-            "join": "Join",
-            "catalog": {
-                "label": "Our Collection",
-                "title": "Explore Botanical Gallery",
-                "desc": "From fresh farm blooms to everlasting silk arrangements, find the perfect piece for your space.",
-                "all": "All Pieces"
-            },
-            "common": {
-                "order_wa": "WhatsApp",
-                "shop_now": "Shop Now"
-            }
-        },
-        "catalog_page": {
-            "brand_tagline": "The Digital Florist",
-            "home": "Home",
-            "order_whatsapp": "Order Via WhatsApp",
-            "categories": "Categories",
-            "favorites": "My Favorites",
-            "support": "Support",
-            "start_bouquet": "Start a Bouquet",
-            "spring_title": "Spring Curations",
-            "spring_desc": "Our floral designers have hand-selected these arrangements to evoke the delicate awakening of the season. Each bloom is sourced ethically from private gardens.",
-            "men": "Men",
-            "women": "Women",
-            "newborns": "Newborns",
-            "p1_title": "The Heirloom Peony",
-            "p1_type": "Fresh Arrangement",
-            "p2_title": "Alabaster Sculpt",
-            "p2_type": "Handcrafted Vase",
-            "p3_title": "Midnight Orchid",
-            "p3_type": "Premium Floral",
-            "p4_title": "Tuscan Sun Dried",
-            "p4_type": "Eternal Collection",
-            "p5_title": "Emerald Ribbed Glass",
-            "p5_type": "Bespoke Vases",
-            "p6_title": "Cotton Candy Gala",
-            "p6_type": "Celebration Kit",
-            "footer_atelier": "The Digital Florist’s Atelier.",
-            "contact_support": "Contact & Support",
-            "whatsapp_support": "WhatsApp Support",
-            "location": "Our Location",
-            "legal_social": "Legal & Social",
-            "terms": "Terms & Conditions",
-            "mobile": {
-                "home": "Home",
-                "catalog": "Catalog",
-                "whatsapp": "WhatsApp",
-                "profile": "Profile"
-            }
+            "join": "Join"
         },
         "gift_page": {
             "hero_title": "Curated Collections for Every Moment",
@@ -213,9 +223,9 @@ const translations = {
             "finish_title": "Balloons & Curated Vases",
             "v1_title": "The Smoked Pillar",
             "v1_desc": "Hand-blown artisanal glass",
-            "v2_title": "Terra Organic",
             "b1_title": "Champagne Float",
             "enquire": "Enquire",
+            "v2_title": "Terra Organic",
             "footer_desc": "Crafting botanical narratives for life’s most meaningful moments. The Digital Florist’s Atelier.",
             "atelier": "The Atelier"
         },
@@ -226,15 +236,15 @@ const translations = {
             "full_name": "Full Name",
             "name_placeholder": "Florence Nightingale",
             "phone": "Phone Number",
-            "phone_placeholder": "+44 7700 900000",
+            "phone_placeholder": "+966 50 000 0000",
             "sms_code": "SMS Verification Code",
             "code_placeholder": "Enter 6-digit code",
             "address": "Street Address",
             "addr_placeholder": "The Rose Cottage, Floral Lane",
             "city": "City",
-            "city_placeholder": "London",
+            "city_placeholder": "Riyadh",
             "postcode": "Postcode",
-            "post_placeholder": "W1 1AB",
+            "post_placeholder": "12345",
             "confirm_btn": "Confirm Order & Pay via WhatsApp",
             "secure": "Safe & Secure Floral Transactions",
             "summary": "Order Summary",
@@ -243,6 +253,30 @@ const translations = {
             "total": "Total",
             "guarantee": "Every bouquet is hand-curated by our master florists and delivered in temperature-controlled sustainable packaging.",
             "back_shop": "Back to Shop"
+        },
+        "common": {
+            "view_all": "View All",
+            "shop_now": "Shop Now",
+            "order_wa": "WhatsApp",
+            "price_prefix": "",
+            "price_suffix": " SAR"
+        },
+        "featured": {
+            "cta_order": "Order via WhatsApp"
+        },
+        "catalog_items": {
+            "p1_t": "Ethereal Blush", "p1_d": "Dreamy pastel peonies and ranunculus.",
+            "p2_t": "Garden Serenade", "p2_d": "Wild blooms for nature lovers.",
+            "p3_t": "Midnight Orchid", "p3_d": "Deep purple architectural orchids.",
+            "p4_t": "Velvet Protea Silk", "p4_d": "Permanent architectural statement.",
+            "p5_t": "Sunset Silk Bunch", "p5_d": "Everlasting warm sunset hues.",
+            "p6_t": "Pink Blossom Cradle", "p6_d": "Soft peonies + baby essentials.",
+            "p7_t": "Azure Sky Welcome", "p7_d": "Blue hydrangeas + wooden keepsakes.",
+            "p8_t": "Travertine Column", "p8_d": "Marble-finish tall artisanal vase.",
+            "p9_t": "Blown Glass Globe", "p9_d": "Organic shaped hand-blown glass.",
+            "p10_t": "Princess Bouquet", "p10_d": "Helium crown foil + pink set.",
+            "p11_t": "Rose & Chocolate Box", "p11_d": "Premium luxury gift combo.",
+            "p12_t": "Executive Noir Set", "p12_d": "Bold arrangement for him."
         }
     },
     "ar": {
@@ -256,63 +290,100 @@ const translations = {
             "gifts": "هدايا",
             "vases": "فازات",
             "balloons": "بالونات",
-            "baby": "مواليد",
+            "baby": "هدايا مواليد",
             "cart": "السلة"
         },
         "hero": {
-            "title": "زهور نضرة لكل مناسبة",
-            "subtitle": "باقات جميلة صنعت بكل حب",
-            "cta_shop": "تسوق الزهور",
-            "cta_whatsapp": "طلب عبر واتساب"
+            "badge": "مجموعة الموسم الجديد",
+            "title": "ورود طازجة لكل مناسبة",
+            "subtitle": "باقات رائعة مصنوعة بعناية وحب",
+            "cta_shop": "تسوق الآن",
+            "cta_whatsapp": "اطلب عبر واتساب",
+            "scroll": "انتقل"
         },
-        "featured": {
-            "label": "اختيارات الموسم",
-            "title": "مجموعاتنا المميزة",
-            "products": {
-                "p1_title": "بيرفكت بلاش",
-                "p1_desc": "تنسيق حالم من زهور الفاوانيا والرنunculus للحظات الرقيقة.",
-                "p2_title": "سيمفونية الحديقة",
-                "p2_desc": "زهور برية تم اختيارها يدوياً لتجلب ألحان الطبيعة إلى منزلك.",
-                "p3_title": "أوركيد منتصف الليل",
-                "p3_desc": "أوركيد أرجواني عميق وراقٍ مع أوراق زمردية منحوتة.",
-                "p4_title": "غروب الشمس",
-                "p4_desc": "ألوان العنبر الدافئة والبرتقالي المحروق التي تجسد سحر الغسق.",
-                "p5_title": "صفاء تام",
-                "p5_desc": "تحفة فنية أحادية اللون من الزنابك البيضاء والورود ونفس الطفل.",
-                "p6_title": "بروتيا مخملية",
-                "p6_desc": "زهور البروتيا والنباتات الغريبة لبيان معماري جريء."
-            },
-            "cta_order": "طلب عبر واتساب"
+        "natural": {
+            "label": "طازجة وموسمية",
+            "title": "الورد الطبيعي",
+            "desc": "زهور طازجة يومياً من المزارع — ورد وأوركيد وترتيبات موسمية مصممة لكل لحظة.",
+            "p1": "وردة الفجر", "p1d": "فاونيا وردية رقيقة لأجمل اللحظات.",
+            "p2": "سيمفونية الحديقة", "p2d": "زهور برية تجلب موسيقى الطبيعة إلى منزلك.",
+            "p3": "أوركيد منتصف الليل", "p3d": "أوركيد بنفسجي داكن مع أوراق زمردية.",
+            "p4": "نقاء الهدوء", "p4d": "زنابق بيضاء وزهر العروس في تناسق رائع."
+        },
+        "artificial": {
+            "label": "جمال أبدي",
+            "title": "الورد الصناعي",
+            "desc": "زهور حريرية وقماشية فاخرة تبدو حقيقية وتدوم للأبد — بدون أي عناية.",
+            "hero_label": "الأكثر مبيعاً",
+            "hero_title": "مجموعة حرير الغروب",
+            "p1": "بروتيا مخملية", "p1d": "قطعة معمارية جريئة واستثنائية.",
+            "p2": "قبة ورد الحرير", "p2d": "ورد حريري فاخر في ترتيب قبة رائع.",
+            "p3": "مزيج المرج البري", "p3d": "مرج دائم وخضير لمنزلك."
+        },
+        "baby": {
+            "label": "رحب بالصغار",
+            "title": "هدايا المواليد",
+            "desc": "احتفل بالمواليد الجدد بهدايا زهرية ساحرة وسلات هدايا جميلة.",
+            "c1_label": "للبنت", "c1": "طقم الزهرة الوردية",
+            "c2_label": "للولد", "c2": "سلة الأزرق والأخضر",
+            "c3_label": "محايد", "c3": "صندوق الترحيب الذهبي",
+            "order": "اطلب هدية"
+        },
+        "vases": {
+            "label": "لكل مكان",
+            "title": "الفازات والأواني",
+            "desc": "فازات سيراميك وزجاج وحرفية منسقة لإطار أي ترتيب زهري أو كقطعة ديكور مستقلة.",
+            "p1": "عمود التراڤرتين", "p1d": "فازة طويلة بلمسة رخامية مثالية للسيقان الدرامية.",
+            "p2": "كرة الزجاج المنفوخ", "p2d": "زجاج حرفي منفوخ يدوياً بشكل عضوي.",
+            "p3": "طقم تيراكوتا", "p3d": "3 أواني تيراكوتا بأحجام متدرجة.",
+            "p4": "أسطوانة مطفأة", "p4d": "سيراميكأسود مطفأ للديكور العصري."
+        },
+        "balloons": {
+            "label": "الحفلات والمناسبات",
+            "title": "البالونات والديكور",
+            "desc": "باقات هيليوم وبالونات فويل وطقم ديكور حفلات كاملة توصل إلى بابك — جاهزة للاحتفال.",
+            "p1": "باقة الأميرة الوردية", "p1d": "12 بالونة هيليوم + بالونة تاج فويل.",
+            "p2": "طقم النجوم الزرقاء", "p2d": "طقم هيليوم احتفالي بنجوم فويل.",
+            "p3": "الذكرى الذهبية", "p3d": "بالونات أرقام ذهبية + كرات كونفيتي.",
+            "p4": "طوق عيد الميلاد", "p4d": "طقم تصميم قوس كامل للحفلات والفعاليات."
+        },
+        "gifts": {
+            "label": "لمن تحب",
+            "title": "هدايا للجميع",
+            "desc": "مجموعات هدايا منسقة بعناية للرجال والسيدات — من السلات الفاخرة إلى الورد والشوكولاتة.",
+            "for_women": "للسيدات",
+            "for_men": "للرجال",
+            "w1": "صندوق الورد والشوكولاتة", "w1d": "شوكولاتة بلجيكية مع دزينة ورد أحمر.",
+            "w2": "سلة السبا الفاخرة", "w2d": "زهور + شموع + طقم عناية بالجسم.",
+            "w3": "عطر وأوركيد", "w3d": "عطر فاخر مع أوركيد داكن.",
+            "m1": "صندوق هدايا بريميوم", "m1d": "تمر ومكسرات وزهور استوائية — هدية متكاملة.",
+            "m2": "باقة داكنة وعود", "m2d": "زهور داكنة جريئة مع طقم عطر عود.",
+            "m3": "كأس وزهور", "m3d": "هدية إنجاز مع زهور منظمة أنيقة."
         },
         "howItWorks": {
-            "title": "رحلة منسقة",
-            "subtitle": "تبسيط إهداء الزهور الفاخرة من مشاغلنا إلى عتبة داركم.",
-            "step1_title": "اختر الباقة",
-            "step1_desc": "تصفح مجموعتنا المختارة موسمياً من أرقى التنسيقات النباتية.",
-            "step2_title": "تواصل واتساب",
-            "step2_desc": "مساعدة شخصية مباشرة لتخصيص اختيارك ووضع اللمسات الأخيرة.",
+            "title": "رحلة الاختيار",
+            "subtitle": "من مشغلنا إلى باب منزلك.",
+            "step1_title": "اختر باقتك",
+            "step1_desc": "تصفح مجموعتنا المنسقة من الترتيبات النباتية الفاخرة.",
+            "step2_title": "تواصل عبر واتساب",
+            "step2_desc": "مساعدة شخصية لتخصيص اختيارك وتأكيد تفاصيل الطلب.",
             "step3_title": "توصيل سريع",
-            "step3_desc": "خدمة توصيل سريعة تضمن وصول زهورك في حالة ممتازة."
+            "step3_desc": "خدمة توصيل سريعة تضمن وصول زهورك بأفضل حال."
         },
-        "testimonials": {
-            "title": "لحظات مشتركة من الفرح",
-            "subtitle": "كانت تنسيقاتنا جزءاً من احتفالات لا تحصى ومقترحات زواج ولفتات نابعة من القلب.",
-            "t1_text": "\"أجمل تنسيق تلقيته على الإطلاق. الاهتمام بالتفاصيل لا يضاهى حقاً.\"",
-            "t2_text": "\"الطلب عبر الواتساب كان سهلاً للغاية. ساعدوني في اختيار الباقة المثالية لذكرى زواجي.\"",
-            "t3_text": "\"تنسيق 'سيمفونية الحديقة' كان تماماً مثل الصورة. طازج، عطري، ورائع بكل بساطة.\""
+        "instagram": {
+            "title": "تابع جمالنا"
         },
         "footer": {
-            "brand_desc": "ننسق أفضل لحظات الطبيعة لمساحتك اليومية.",
+            "brand_desc": "ننسق أجمل لحظات الطبيعة لمساحتك اليومية.",
+            "shop": "تسوق",
             "discover": "اكتشف",
-            "contact": "اتصل بنا",
-            "policy": "السياسة",
+            "contact": "تواصل",
+            "policy": "السياسات",
             "journal": "المجلة",
-            "journal_desc": "انضم إلى قائمتنا للحصول على أدلة الزهور الموسمية والوصول الحصري.",
+            "journal_desc": "انضم لقائمتنا للحصول على أدلة الزهور الموسمية.",
             "email_placeholder": "بريدك الإلكتروني",
-            "subscribe": "اشترك",
-            "contact_us": "اتصل بنا",
-            "shipping": "سياسة الشحن",
-            "sustainability": "الاستدامة",
+            "subscribe": "اشتراك",
+            "address": "الرياض، المملكة العربية السعودية",
             "links": {
                 "contact_us": "اتصل بنا",
                 "shipping": "سياسة الشحن",
@@ -320,17 +391,19 @@ const translations = {
                 "instagram": "إنستغرام",
                 "pinterest": "بينتيريست"
             },
-            "copyright": "© 2024 يونيك فلاورز. صُنع لحياة منسقة."
+            "copyright": "© ٢٠٢٤ يونيك فلاورز. صُنع لحياة راقية."
         },
         "catalog": {
+            "label": "مجموعتنا",
             "title": "الكتالوج المنسق",
-            "subtitle": "اكتشف تنسيقاتنا الموسمية، الفازات الفنية، والهدايا المختارة المصممة للمنازل الراقية.",
-            "search_placeholder": "ابحث في مكتبتنا النباتية...",
+            "subtitle": "اكتشف تنسيقاتنا الموسمية، وفازاتنا الحرفية، وهدايانا المنسقة المصممة للمنزل الراقي.",
+            "desc": "من زهور المزارع النضرة إلى التنسيقات الحريرية الدائمة، اعثر على القطعة المثالية لمساحتك.",
+            "all": "كل القطع",
             "collections": "المجموعات",
             "all_pieces": "كل القطع",
-            "natural": "زهور طبيعية",
-            "artificial": "زهور صناعية",
-            "gifts": "هدايا مفصلة",
+            "natural": "ورد طبيعي",
+            "artificial": "ورد صناعي",
+            "gifts": "هدايا مخصصة",
             "vases": "فازات مصنوعة يدوياً",
             "balloons": "بالونات فاخرة",
             "sort_by": "ترتيب حسب",
@@ -338,35 +411,54 @@ const translations = {
             "ready_delivery": "جاهز للتوصيل",
             "gift_wrap": "تغليف الهدايا متاح",
             "new": "جديد",
-            "limited": "محدود"
+            "limited": "محدود",
+            "search_placeholder": "ابحث في مكتبتنا النباتية..."
+        },
+        "catalog_page": {
+            "home": "الرئيسية",
+            "collections": "المجموعات",
+            "location": "موقعنا",
+            "whatsapp_support": "دعم الواتساب",
+            "terms": "الشروط والأحكام",
+            "mobile": {
+                "home": "الرئيسية",
+                "whatsapp": "الدعم"
+            },
+            "favorites": "مفضلاتي",
+            "p1_title": "بلاك بلاش الرقيق",
+            "p1_type": "ورد طبيعي",
+            "p2_title": "نحت التيراكوتا",
+            "p2_type": "فازات حرفية",
+            "p3_title": "أوركيد أبيض خالد",
+            "p3_type": "ورد صناعي"
         },
         "product": {
             "exclusive": "مجموعة موسمية حصرية",
-            "ethereal_title": "باقة النضارة الأثيرية",
-            "ethereal_tagline": "سيمفونية من القوام الناعم والألوان الرقيقة، مصممة للحظات الصفاء التام.",
-            "ethereal_desc": "اختار منسقو الزهور لدينا أفضل ورود (أوهارا)، وسحباً من الهيدرانجيا الثلجية، وزنابق (وايت أورينتال) المهيبة لابتكار هذه التحفة الفنية.",
+            "ethereal_title": "باقة إيثريال بلاش",
+            "ethereal_tagline": "سيمفونية مختارة من الأنسجة الناعمة والتدرجات الرقيقة، مصممة للحظات من الصفاء التام.",
+            "ethereal_desc": "اختار خبراء الزهور لدينا أجود أنواع ورود أوهارا، وسحب الهيدرانجيا الثلجية، وزنابق أورينتال البيضاء المهيبة لإنهاء هذه التحفة الفنية.",
             "select_size": "اختر الحجم",
             "petite": "صغير",
-            "signature": "المميز",
+            "signature": "توقيع",
             "grand": "كبير",
-            "include_card": "إضافة بطاقة مكتوبة بخط اليد (+5$)",
-            "eco_wrap": "تغليف فاخر صديق للبيئة",
+            "include_card": "تضمين بطاقة مكتوبة بخط اليد (+٥ ر.س)",
+            "eco_wrap": "تغليف بريميوم صديق للبيئة",
             "pay_online": "إتمام الدفع عبر الإنترنت",
             "same_day": "توصيل في نفس اليوم",
-            "sustainable": "مصدر مستدام",
-            "art_title": "فن النضارة الأثيرية",
-            "art_desc": "كل تنسيق هو قطعة فريدة من الفن الحي. نحن لا ننسق الزهور فحسب، بل نؤلف القصص. هذا التنسيق مستوحى من ضوء الفجر الأول الذي يضرب حديقة مغطاة بالندى في أوائل يونيو.",
-            "step1": "ورود الحديقة منزوعة الأشواك ومنسقة بعناية لأطول عمر ممكن في الفازة.",
+            "sustainable": "مصادر مستدامة",
+            "art_title": "فن إيثريال بلاش",
+            "art_desc": "كل تنسيق هو قطعة فريدة من الفن الحي. نحن لا نضع الزهور فحسب؛ بل نصيغ القصص. إيثريال بلاش مستوحى من ضوء الفجر الأول الذي يلامس حديقة مغطاة بالندى في أوائل يونيو.",
+            "step1": "تم نزع الأشواك بعناية وتجهيز ورود الحديقة لأقصى عمر للفازة.",
             "step2": "زنابق أورينتال عطرية تتفتح تدريجياً على مدار 7-10 أيام.",
-            "step3": "مغلفة بورق الحرير الطبيعي وشريط الكتان المميز لدينا.",
-            "related_label": "قد ينال إعجابك أيضاً",
+            "step3": "مغلفة في ورق الحرير الطبيعي وشريط الكتان المميز لدينا.",
+            "related_label": "قد يعجبك أيضاً",
             "related_title": "تنسيقات مكملة",
             "view_collection": "عرض المجموعة",
             "r1_title": "خيال أخضر",
-            "r1_tag": "خضر وأبيض",
+            "r1_tag": "أخضر وأبيض",
             "r2_title": "مخمل منتصف الليل",
             "r2_tag": "قرمزي عميق",
-            "r3_title": "ساعة الشمس الذهبية",
+            "r3_title": "ساعة ذهبية",
             "r3_tag": "أصفر وذهبي",
             "r4_title": "صفاء تام",
             "r4_tag": "أبيض بسيط",
@@ -375,45 +467,7 @@ const translations = {
             "journal_sub": "اشتراك المجلة",
             "journal_ritual": "احصل على اتجاهات الزهور الموسمية وطقوس العناية في صندوق بريدك.",
             "email_addr": "عنوان البريد الإلكتروني",
-            "join": "انضم الآن"
-        },
-        "catalog_page": {
-            "brand_tagline": "بائع الزهور الرقمي",
-            "home": "الرئيسية",
-            "order_whatsapp": "طلب عبر الواتساب",
-            "categories": "الفئات",
-            "favorites": "مفضلاتي",
-            "support": "الدعم",
-            "start_bouquet": "ابدأ باقة",
-            "spring_title": "اختيارات الربيع",
-            "spring_desc": "اختار منسقو الزهور لدينا هذه التنسيقات لتعكس يقظة الموسم الرقيقة. كل زهرة مستمدة بشكل أخلاقي من حدائق خاصة.",
-            "men": "رجال",
-            "women": "نساء",
-            "newborns": "مواليد",
-            "p1_title": "بيوني المتوارث",
-            "p1_type": "تنسيق طازج",
-            "p2_title": "نحت المرمر",
-            "p2_type": "فازة مصنوعة يدوياً",
-            "p3_title": "أوركيد منتصف الليل",
-            "p3_type": "زهور فاخرة",
-            "p4_title": "توسكان المجفف",
-            "p4_type": "مجموعة خالدة",
-            "p5_title": "زجاج الزمرد المحزز",
-            "p5_type": "فازات مخصصة",
-            "p6_title": "حفل غزل البنات",
-            "p6_type": "مجموعة الاحتفال",
-            "footer_atelier": "مشغل بائع الزهور الرقمي.",
-            "contact_support": "الاتصال والدعم",
-            "whatsapp_support": "دعم الواتساب",
-            "location": "موقعنا",
-            "legal_social": "قانوني واجتماعي",
-            "terms": "الشروط والأحكام",
-            "mobile": {
-                "home": "الرئيسية",
-                "catalog": "الكتالوج",
-                "whatsapp": "واتساب",
-                "profile": "الملف الشخصي"
-            }
+            "join": "انضم"
         },
         "gift_page": {
             "hero_title": "مجموعات منسقة لكل لحظة",
@@ -424,13 +478,13 @@ const translations = {
             "g1_title": "مهد براعم الخجل",
             "g1_desc": "الفاوانيا وأساسيات القطن العضوي",
             "g2_title": "ترحيب السماء الزرقاء",
-            "g2_desc": "الهيدرانجيا والذكرى الخشبية",
+            "g2_desc": "الهيدرانجيا والتحف الخشبية",
             "g3_title": "صندوق الحياد الأثيري",
             "g3_desc": "الزنابق البيضاء وأحلام الكتان",
             "sig_series": "سلسلة التوقيع",
             "him_title": "مجموعة السادة",
             "him_desc": "راقية، جريئة، ومصنوعة بدقة. تجمع مجموعاتنا للرجال بين النباتات المعمارية والملحقات الفاخرة لبيان من الفخامة الهادئة.",
-            "him_p1_title": "التنفيذي نوار",
+            "him_p1_title": "الأسود التنفيذي",
             "him_p1_desc": "العصاريات والمنتجات الجلدية",
             "him_p2_title": "محمية الغابة",
             "him_p2_desc": "تنسيق دائم الخضرة ونكهات عتيقة",
@@ -449,9 +503,9 @@ const translations = {
             "finish_title": "بالونات وفازات منسقة",
             "v1_title": "العمود المدخن",
             "v1_desc": "زجاج حرفي منفوخ يدوياً",
-            "v2_title": "تيرا أورجانيك",
             "b1_title": "عوامة الشمبانيا",
             "enquire": "استفسار",
+            "v2_title": "تيرا أورجانيك",
             "footer_desc": "صياغة الروايات النباتية للحظات الحياة الأكثر مغزى. مشغل بائع الزهور الرقمي.",
             "atelier": "المشغل"
         },
@@ -480,15 +534,29 @@ const translations = {
             "guarantee": "يتم تنسيق كل باقة يدوياً من قبل خبراء الزهور لدينا وتسليمها في تغليف مستدام يتم التحكم في درجة حرارته.",
             "back_shop": "العودة للمتجر"
         },
-        "catalog": {
-            "label": "مجموعتنا",
-            "title": "استكشف المعرض النباتي",
-            "desc": "من زهور المزارع النضرة إلى التنسيقات الحريرية الدائمة، اعثر على القطعة المثالية لمساحتك.",
-            "all": "كل القطع"
-        },
         "common": {
+            "view_all": "عرض الكل",
+            "shop_now": "تسوق الآن",
             "order_wa": "واتساب",
-            "shop_now": "تسوق الآن"
+            "price_prefix": "",
+            "price_suffix": " ر.س"
+        },
+        "featured": {
+            "cta_order": "طلب عبر الواتساب"
+        },
+        "catalog_items": {
+            "p1_t": "باقة إيثريال بلاش", "p1_d": "فاوانيا وحوذان بألوان الباستيل الحالمة.",
+            "p2_t": "سيرينيد الحديقة", "p2_d": "زهور برية لعشاق الطبيعة.",
+            "p3_t": "أوركيد منتصف الليل", "p3_d": "أوركيد بنفسجي داكن بتصميم معماري.",
+            "p4_t": "حرير بروتيا المخملي", "p4_d": "بيان معماري دائم.",
+            "p5_t": "باقة حرير الغروب", "p5_d": "تدرجات ألوان غروب دافئة ومستمرة العيش.",
+            "p6_t": "مهد براعم الخجل", "p6_d": "فاوانيا ناعمة + أساسيات الطفل.",
+            "p7_t": "ترحيب السماء الزرقاء", "p7_d": "هيدرانجيا زرقاء + تذكارات خشبية.",
+            "p8_t": "عمود الترافرتين", "p8_d": "فازة حرفية طويلة بلمسة رخامية.",
+            "p9_t": "كرة الزجاج المنفوخ", "p9_d": "زجاج حرفي منفوخ يدوياً بشكل عضوي.",
+            "p10_t": "باقة الأميرة", "p10_d": "تاج هيليوم فويل + طقم وردي.",
+            "p11_t": "صندوق الزهور والشوكولاتة", "p11_d": "مجموعة هدايا فاخرة مميزة.",
+            "p12_t": "طقم نوار التنفيذي", "p12_d": "تنسيق جريء للرجال."
         }
     }
 };
@@ -500,6 +568,7 @@ function applyTranslations(lang) {
     document.documentElement.lang = lang;
     document.documentElement.dir = t.dir;
 
+    // Inject Dynamic Styles for Fonts
     let styleEl = document.getElementById('i18n-styles');
     if (!styleEl) {
         styleEl = document.createElement('style');
@@ -510,32 +579,54 @@ function applyTranslations(lang) {
         body, .font-body, .font-label { 
             font-family: ${t.font} !important; 
         }
-        h1, h2, h3, h4, .font-headline, .font-serif { 
+        h1, h2, h3, h4, h5, h6, .font-headline, .font-serif, .font-noto-serif { 
             font-family: ${t.headingFont} !important; 
         }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+        }
+        /* RTL Spacing Fixes */
+        html[lang="ar"] .nav-links { flex-direction: row-reverse; }
+        html[lang="ar"] .nav-actions { flex-direction: row-reverse; }
+        html[lang="ar"] .footer-cols { direction: rtl; }
+        html[lang="ar"] .cat-hero-content { text-align: right; }
     `;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const keys = key.split('.');
-        let translation = t;
-        for (const k of keys) {
-            translation = translation ? translation[k] : null;
+
+        // Handle both flat keys and nested keys
+        let translation = t[key];
+
+        if (translation === undefined) {
+            const keys = key.split('.');
+            translation = t;
+            for (const k of keys) {
+                translation = translation ? translation[k] : null;
+            }
         }
 
         if (translation) {
             if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
                 el.placeholder = translation;
             } else {
-                el.innerText = translation;
+                el.innerHTML = translation;
             }
         }
     });
 
-    document.getElementById('lang-en')?.classList.toggle('bg-white', lang === 'en');
-    document.getElementById('lang-en')?.classList.toggle('dark:bg-zinc-700', lang === 'en');
-    document.getElementById('lang-ar')?.classList.toggle('bg-white', lang === 'ar');
-    document.getElementById('lang-ar')?.classList.toggle('dark:bg-zinc-700', lang === 'ar');
+    // Brand elements often have specific IDs or roles
+    const brandElements = document.querySelectorAll('[data-i18n="nav.brand"]');
+    const brandName = t["nav"]["brand"];
+    brandElements.forEach(el => {
+        el.textContent = brandName;
+    });
+
+    // Special case for price formatting if needed
+    // document.querySelectorAll('.product-price').forEach(el => { ... });
+
+    // Dispatch event so pages can react
+    document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang, t } }));
 }
 
 function setLanguage(lang) {
