@@ -35,6 +35,83 @@
         .fav-active { font-variation-settings: 'FILL' 1 !important; color: #715956; }
         body { font-family: 'Manrope', sans-serif; background-color: #fbf9f5; }
 
+        /* ── ENHANCED NAVBAR ── */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .navbar-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+        .nav-brand {
+            font-family: 'Newsreader', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 600;
+            color: #1d1b1b;
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0; padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #715956; }
+
+        /* ── Mobile Bottom Nav ── */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            z-index: 999;
+            padding: 12px 1rem calc(12px + env(safe-area-inset-bottom));
+            justify-content: space-around;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.03);
+        }
+        .mb-nav-item {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 4px; text-decoration: none; color: #888;
+        }
+        .mb-nav-item.active { color: #715956; }
+        .mb-nav-item span { font-size: 24px; }
+        .mb-nav-item label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-bottom-nav { display: flex; }
+            #navbar .cart-btn, #navbar .nav-icon-btn[aria-label="Favorites"] { display: none; }
+            body { padding-bottom: 80px; }
+        }
+
         /* ── Toast Notifications ── */
         .toast-container {
             position: fixed;
@@ -69,8 +146,29 @@
         html[lang="ar"] .toast-container { right: auto; left: 24px; }
     </style>
 </head>
-<body class="antialiased min-h-screen">
-    <header class="bg-stone-50/80 backdrop-blur-md sticky top-0 z-50">
+<body class="antialiased">
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mb-nav-item">
+            <span class="material-symbols-outlined">home</span>
+            <label data-i18n="nav.home">Home</label>
+        </a>
+        <a href="product_Catlog.html" class="mb-nav-item">
+            <span class="material-symbols-outlined">grid_view</span>
+            <label data-i18n="nav.catalog">Catalog</label>
+        </a>
+        <a href="favorites.html" class="mb-nav-item active">
+            <span class="material-symbols-outlined">favorite</span>
+            <label data-i18n="nav.fav">Wishlist</label>
+        </a>
+        <a href="cart.html" class="mb-nav-item">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <label data-i18n="nav.cart">Cart</label>
+        </a>
+    </nav>
+
+    <!-- Header / Nav -->
+    <header id="navbar" class="navbar">
         <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
             <div class="flex items-center gap-4">
                 <img alt="Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOinAq84cURd_sO40JILLII7p1ZoDf3oltenOaYrUQSziF44EpGebqFlAnkf831NjF7X0NlVlHB7mV0CJ67SZHkN-W7iWKWm8i4aDF8wGVRLL8-vjxLU_Ktndlfr6j6rtMRcXx-QJJagE0WkHZ0cvyF8WCs2cQ6d-e_1ezE4qgbMC7-PKqmHIA8o18Nsb0kTsoa4TPafz1Sbvd1i1BuUnTzYdh0gZMcucaAls8iw1L4SRgmpKdZzVSDPN8cktK1RRRfcdmyFmb0Nm" />
@@ -93,7 +191,7 @@
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <main class="max-w-7xl mx-auto px-4 py-32">
         <h1 class="font-headline text-4xl mb-12 italic" data-i18n="fav.title">My Favorites</h1>
         
         <div id="fav-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -107,6 +205,14 @@
     </main>
 
     <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            }
+        });
+
         let favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
 
         function renderFavorites() {
