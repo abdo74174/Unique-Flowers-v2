@@ -6,9 +6,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Checkout | Unique Flowers</title>
+    <script src="translations.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Cairo:wght@200..1000&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -105,34 +106,40 @@
                 <img alt="Unique Flowers Logo" class="h-10 w-10 object-contain"
                     data-alt="Minimalist floral emblem logo featuring a stylized single rose in soft earth tones and delicate lines"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOinAq84cURd_sO40JILLII7p1ZoDf3oltenOaYrUQSziF44EpGebqFlAnkf831NjF7X0NlVlHB7mV0CJ67SZHkN-W7iWKWm8i4aDF8wGVRLL8-vjxLU_Ktndlfr6j6rtMRcXx-QJJagE0WkHZ0cvyF8WCs2cQ6d-e_1ezE4qgbMC7-PKqmHIA8o18Nsb0kTsoa4TPafz1Sbvd1i1BuUnTzYdh0gZMcucaAls8iw1L4SRgmpKdZzVSDPN8cktK1RRRfcdmyFmb0Nm" />
-                <span class="text-2xl font-headline text-stone-900 italic tracking-tighter">Unique Flowers</span>
+                <span class="text-2xl font-headline text-stone-900 italic tracking-tighter" data-i18n="nav.brand">Unique Flowers</span>
             </div>
-            <a class="flex items-center gap-2 text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors"
-                href="#">
-                <span class="material-symbols-outlined text-sm">arrow_back</span>
-                Back to Shop
-            </a>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center bg-zinc-100 dark:bg-zinc-800 rounded-full p-1 h-8">
+                    <button onclick="setLanguage('en')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-en">EN</button>
+                    <button onclick="setLanguage('ar')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-ar">AR</button>
+                </div>
+                <a class="flex items-center gap-2 text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors"
+                    href="index.html" data-i18n="checkout.back_shop">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    Back to Shop
+                </a>
+            </div>
         </div>
     </header>
     <main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <!-- Column 1: Delivery Details -->
             <div class="lg:col-span-7">
-                <h1 class="font-headline text-4xl mb-2 italic">Checkout</h1>
-                <p class="font-body text-stone-500 mb-10">We'll send your code via SMS now.</p>
+                <h1 class="font-headline text-4xl mb-2 italic" data-i18n="checkout.title">Checkout</h1>
+                <p class="font-body text-stone-500 mb-10" data-i18n="checkout.sms_notice">We'll send your code via SMS now.</p>
                 <form class="space-y-8">
                     <div class="space-y-6">
-                        <h2 class="font-headline text-2xl text-secondary">Delivery Details</h2>
+                        <h2 class="font-headline text-2xl text-secondary" data-i18n="checkout.del_details">Delivery Details</h2>
                         <div class="grid grid-cols-1 gap-6">
                             <div class="relative">
-                                <label class="block font-body text-sm text-stone-500 mb-1">Full Name</label>
+                                <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.full_name">Full Name</label>
                                 <input
                                     class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
-                                    placeholder="Florence Nightingale" type="text" />
+                                    placeholder="Florence Nightingale" type="text" data-i18n="checkout.name_placeholder" />
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative">
-                                    <label class="block font-body text-sm text-stone-500 mb-1">Phone Number</label>
+                                    <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.phone">Phone Number</label>
                                     <input
                                         class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
                                         placeholder="+44 7700 900000" type="tel" />
