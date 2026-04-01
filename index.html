@@ -1,566 +1,1928 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
+<html class="light" lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    <title>The Botanical Editorial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Cairo:wght@200..1000&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cairo:wght@200..1000&display=swap"
         rel="stylesheet" />
-    <script src="translations.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "on-tertiary-fixed-variant": "#8b1900",
-                        "on-tertiary-fixed": "#3d0600",
-                        "surface-tint": "#3d6750",
-                        "outline-variant": "#c1c8c1",
-                        "on-primary": "#ffffff",
-                        "inverse-primary": "#a4d1b4",
-                        "surface-container-low": "#f8f2f2",
-                        "on-tertiary-container": "#ffe7e1",
-                        "on-secondary-fixed": "#1f1a1b",
-                        "secondary-container": "#ebe0e0",
-                        "on-secondary": "#ffffff",
-                        "primary-fixed-dim": "#a4d1b4",
-                        "tertiary": "#a01f00",
-                        "surface": "#fdf8f7",
-                        "tertiary-fixed": "#ffdad2",
-                        "on-primary-fixed-variant": "#254f39",
-                        "surface-dim": "#ded9d8",
-                        "primary-container": "#49735b",
-                        "background": "#fdf8f7",
-                        "inverse-surface": "#323030",
-                        "tertiary-container": "#cc2a00",
-                        "surface-container": "#f2edec",
-                        "secondary-fixed-dim": "#cec4c4",
-                        "secondary": "#645d5d",
-                        "tertiary-fixed-dim": "#ffb4a3",
-                        "surface-container-high": "#ece7e6",
-                        "on-error": "#ffffff",
-                        "surface-container-highest": "#e6e1e1",
-                        "on-tertiary": "#ffffff",
-                        "surface-container-lowest": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "error": "#ba1a1a",
                         "primary": "#315a44",
-                        "surface-bright": "#fdf8f7",
-                        "outline": "#717973",
-                        "on-primary-fixed": "#002112",
-                        "on-surface-variant": "#414943",
-                        "surface-variant": "#e6e1e1",
-                        "secondary-fixed": "#ebe0e0",
+                        "primary-container": "#49735b",
+                        "on-primary": "#ffffff",
                         "on-primary-container": "#c8f6d8",
-                        "on-secondary-container": "#6a6363",
-                        "primary-fixed": "#bfedd0",
-                        "inverse-on-surface": "#f5f0ef",
-                        "on-secondary-fixed-variant": "#4c4546",
-                        "on-background": "#1d1b1b",
+                        "surface": "#fdf8f7",
+                        "surface-container": "#f2edec",
+                        "surface-container-low": "#f8f2f2",
+                        "surface-container-lowest": "#ffffff",
                         "on-surface": "#1d1b1b",
-                        "on-error-container": "#93000a"
+                        "on-surface-variant": "#414943",
+                        "outline": "#717973",
+                        "outline-variant": "#c1c8c1",
+                        "secondary": "#645d5d",
+                        "tertiary": "#a01f00",
                     },
                     fontFamily: {
-                        "headline": ["Noto Serif"],
-                        "body": ["Plus Jakarta Sans"],
-                        "label": ["Plus Jakarta Sans"]
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "arabic": ["Cairo", "sans-serif"],
                     },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
             },
         }
     </script>
     <style>
+        :root {
+            --primary: #315a44;
+            --primary-dark: #1e3d2d;
+            --gold: #c9a84c;
+            --gold-light: #f0d080;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html[lang="ar"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html[lang="ar"] {
+            direction: rtl;
+        }
+
+        html[lang="ar"] .nav-links {
+            flex-direction: row-reverse;
+        }
+
+        html[lang="ar"] .nav-actions {
+            flex-direction: row-reverse;
+        }
+
+        html[lang="ar"] .footer-grid {
+            direction: rtl;
+        }
+
+        html[lang="ar"] h1,
+        html[lang="ar"] h2,
+        html[lang="ar"] h3,
+        html[lang="ar"] h4 {
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 0;
+        }
+
+        html[lang="ar"] p,
+        html[lang="ar"] span,
+        html[lang="ar"] a,
+        html[lang="ar"] button {
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 0;
+        }
+
+        html[lang="ar"] .tracking-wide,
+        html[lang="ar"] .tracking-widest,
+        html[lang="ar"] .tracking-tight {
+            letter-spacing: 0;
+        }
+
+        html[lang="ar"] .category-card-title {
+            font-size: 1.3rem;
+        }
+
+        html[lang="ar"] .nav-brand {
+            font-family: 'Cairo', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        html[lang="ar"] .hero-badge {
+            letter-spacing: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html[lang="ar"] .section-label {
+            letter-spacing: 0.05em;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .font-noto-serif {
-            font-family: 'Noto Serif', serif;
-        }
-
-        .font-plus-jakarta-sans {
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .bg-primary-gradient {
             background: linear-gradient(135deg, #315a44 0%, #49735b 100%);
         }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(49, 90, 68, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(49, 90, 68, 0.08);
+        }
+
+        .navbar-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .nav-brand {
+            font-family: 'Noto Serif', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #1e3d2d;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #414943;
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding-bottom: 2px;
+            border-bottom: 1.5px solid transparent;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #315a44;
+            border-bottom-color: #315a44;
+        }
+
+        html[lang="ar"] .nav-links a {
+            font-size: 0.9rem;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: #f0eeec;
+            border-radius: 999px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            color: #717973;
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .lang-btn.active {
+            background: #315a44;
+            color: white;
+            box-shadow: 0 2px 8px rgba(49, 90, 68, 0.3);
+        }
+
+        .nav-icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #315a44;
+            transition: all 0.2s ease;
+        }
+
+        .nav-icon-btn:hover {
+            background: rgba(49, 90, 68, 0.08);
+        }
+
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #315a44;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .cart-btn:hover {
+            background: #1e3d2d;
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(0, 0, 0, 0.35) 0%, rgba(30, 61, 45, 0.55) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 1.5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: #a4d1b4;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .6;
+                transform: scale(1.3)
+            }
+        }
+
+        /* Category Sections */
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: #315a44;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Category Grid Card */
+        .cat-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .cat-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cat-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .cat-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media(max-width:1024px) {
+            .cat-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cat-grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:640px) {
+
+            .cat-grid-2,
+            .cat-grid-3,
+            .cat-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(49, 90, 68, 0.14);
+        }
+
+        .product-card-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            display: block;
+        }
+
+        .product-card:hover .product-card-img {
+            transform: scale(1.06);
+        }
+
+        .product-card-body {
+            padding: 1.25rem;
+        }
+
+        .product-card-title {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.1rem;
+            color: #1d1b1b;
+            margin-bottom: 0.4rem;
+        }
+
+        html[lang="ar"] .product-card-title {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .product-card-desc {
+            font-size: 0.82rem;
+            color: #717973;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.1rem;
+            color: #315a44;
+            font-weight: 700;
+        }
+
+        html[lang="ar"] .product-price {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .order-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(49, 90, 68, 0.08);
+            color: #315a44;
+            border: none;
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap;
+        }
+
+        html[lang="ar"] .order-btn {
+            letter-spacing: 0;
+            font-size: 0.8rem;
+            text-transform: none;
+        }
+
+        .order-btn:hover {
+            background: #315a44;
+            color: white;
+        }
+
+        /* Category hero cards (big banners) */
+        .cat-hero {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        .cat-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            display: block;
+        }
+
+        .cat-hero:hover img {
+            transform: scale(1.05);
+        }
+
+        .cat-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 55%);
+        }
+
+        .cat-hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+        }
+
+        html[lang="ar"] .cat-hero-content {
+            text-align: right;
+        }
+
+        .cat-hero-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        html[lang="ar"] .cat-hero-label {
+            letter-spacing: 0.05em;
+        }
+
+        .cat-hero-title {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.6rem;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        html[lang="ar"] .cat-hero-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.7rem;
+        }
+
+        .cat-hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 9px 20px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap;
+        }
+
+        html[lang="ar"] .cat-hero-cta {
+            letter-spacing: 0;
+            font-family: 'Cairo', sans-serif;
+            text-transform: none;
+        }
+
+        .cat-hero:hover .cat-hero-cta {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section divider */
+        .section-divider {
+            width: 48px;
+            height: 2px;
+            background: #315a44;
+            display: block;
+        }
+
+        /* How it works */
+        .step-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 8px 24px rgba(49, 90, 68, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .step-icon:hover {
+            box-shadow: 0 12px 32px rgba(49, 90, 68, 0.18);
+            transform: translateY(-3px);
+        }
+
+        /* Testimonial */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(49, 90, 68, 0.06);
+            border: 1px solid rgba(193, 200, 193, 0.3);
+        }
+
+        html[lang="ar"] .testimonial-card {
+            text-align: right;
+        }
+
+        /* Instagram grid */
+        .insta-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .insta-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.7s ease;
+            filter: grayscale(20%);
+            display: block;
+        }
+
+        .insta-item:hover img {
+            transform: scale(1.08);
+            filter: grayscale(0);
+        }
+
+        .insta-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(49, 90, 68, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .insta-item:hover .insta-overlay {
+            opacity: 1;
+        }
+
+        /* Whatsapp FAB */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #315a44, #49735b);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(49, 90, 68, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        html[lang="ar"] .whatsapp-fab {
+            right: auto;
+            left: 2.5rem;
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 12px 32px rgba(49, 90, 68, 0.45);
+        }
+
+        /* Scroll animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: white;
+            flex-direction: column;
+            padding: 5rem 2rem 2rem;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 1rem 0;
+            font-family: 'Noto Serif', serif;
+            font-size: 1.5rem;
+            color: #1d1b1b;
+            text-decoration: none;
+            border-bottom: 1px solid #f0eeec;
+            transition: color 0.2s ease;
+        }
+
+        html[lang="ar"] .mobile-nav-links a {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .mobile-nav-links a:hover {
+            color: #315a44;
+        }
+
+        /* Responsive navbar */
+        @media(max-width:1100px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media(max-width:640px) {
+            .navbar-inner {
+                padding: 0 1.5rem;
+            }
+
+            .cart-btn span.cart-label {
+                display: none;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
-    <!-- TopNavBar Navigation Shell -->
-    <nav
-        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
-        <div class="text-2xl font-serif italic text-emerald-900 dark:text-emerald-50 tracking-tighter" data-i18n="nav.brand">
-            The Botanical Editorial
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-            <a class="text-emerald-900 dark:text-emerald-50 border-b-2 border-emerald-800/30 pb-1 font-semibold font-noto-serif tracking-tight leading-relaxed"
-                href="product_category.html" data-i18n="nav.natural">Natural</a>
-            <a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors font-noto-serif tracking-tight leading-relaxed"
-                href="product_Catlog.html" data-i18n="nav.artificial">Artificial</a>
-            <a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors font-noto-serif tracking-tight leading-relaxed"
-                href="gift_Collections.html" data-i18n="nav.gifts">Gifts</a>
-            <a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors font-noto-serif tracking-tight leading-relaxed"
-                href="#" data-i18n="nav.vases">Vases</a>
-            <a class="text-zinc-500 dark:text-zinc-400 font-medium hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors font-noto-serif tracking-tight leading-relaxed"
-                href="#" data-i18n="nav.balloons">Balloons</a>
-        </div>
-        <div class="flex items-center space-x-6">
-            <div class="flex items-center bg-zinc-100 dark:bg-zinc-800 rounded-full p-1">
-                <button onclick="setLanguage('en')" class="px-3 py-1 text-xs font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-en">EN</button>
-                <button onclick="setLanguage('ar')" class="px-3 py-1 text-xs font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-ar">AR</button>
+<body class="bg-surface text-on-surface" style="font-family:'Plus Jakarta Sans',sans-serif;">
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+
+            <!-- Brand -->
+            <a href="#" class="nav-brand" id="brand-text">The Botanical Editorial</a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#natural" class="active" data-i18n="nav.natural">Natural</a></li>
+                <li><a href="#artificial" data-i18n="nav.artificial">Artificial</a></li>
+                <li><a href="#baby-gifts" data-i18n="nav.baby">Baby Gifts</a></li>
+                <li><a href="#vases" data-i18n="nav.vases">Vases</a></li>
+                <li><a href="#balloons" data-i18n="nav.balloons">Balloons</a></li>
+                <li><a href="#gifts" data-i18n="nav.gifts">Gifts</a></li>
+            </ul>
+
+            <!-- Actions -->
+            <div class="nav-actions" id="nav-actions">
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" id="lang-ar" onclick="setLanguage('ar')">AR</button>
+                </div>
+                <button class="nav-icon-btn" aria-label="Search">
+                    <span class="material-symbols-outlined" style="font-size:20px;">search</span>
+                </button>
+                <button class="cart-btn">
+                    <span class="material-symbols-outlined" style="font-size:18px;">shopping_bag</span>
+                    <span class="cart-label" data-i18n="nav.cart">Cart</span>
+                </button>
+                <!-- Mobile hamburger -->
+                <button class="nav-icon-btn" id="menu-btn" onclick="toggleMobile()" style="display:none;"
+                    aria-label="Menu">
+                    <span class="material-symbols-outlined" id="menu-icon">menu</span>
+                </button>
             </div>
-            <span
-                class="material-symbols-outlined text-emerald-900 cursor-pointer hover:opacity-80 transition-opacity duration-300">search</span>
-            <span
-                class="material-symbols-outlined text-emerald-900 cursor-pointer hover:opacity-80 transition-opacity duration-300">shopping_bag</span>
-            <span
-                class="material-symbols-outlined text-emerald-900 cursor-pointer hover:opacity-80 transition-opacity duration-300">person</span>
         </div>
     </nav>
-    <main class="pt-0">
-        <!-- Hero Section -->
-        <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button onclick="toggleMobile()"
+            style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;">
+            <span class="material-symbols-outlined" style="font-size:28px;color:#1d1b1b;">close</span>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="#natural" onclick="toggleMobile()" data-i18n="nav.natural">Natural</a></li>
+            <li><a href="#artificial" onclick="toggleMobile()" data-i18n="nav.artificial">Artificial</a></li>
+            <li><a href="#baby-gifts" onclick="toggleMobile()" data-i18n="nav.baby">Baby Gifts</a></li>
+            <li><a href="#vases" onclick="toggleMobile()" data-i18n="nav.vases">Vases</a></li>
+            <li><a href="#balloons" onclick="toggleMobile()" data-i18n="nav.balloons">Balloons</a></li>
+            <li><a href="#gifts" onclick="toggleMobile()" data-i18n="nav.gifts">Gifts</a></li>
+        </ul>
+    </div>
+
+    <main>
+
+        <!-- ═══ HERO ═══ -->
+        <section class="hero-section">
             <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover brightness-[0.85]"
-                    data-alt="dramatic large-scale floral arrangement with blush peonies and sage eucalyptus in a minimalist sun-drenched studio setting with soft shadows"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpw2dp_xe0CAkUSODDg8v-Ki9B8a3WY-ltZ-4WHrWf_CvUFeIu7uPqpeKVJT5TeFQG8WDuSNpTHho-_rNs3qPaSujvJA7wnk17B_EfEi7Axh9JAXrKQLOdVw79u51n956UdmaJ7TkRR7GErRqXAf2xYhIgPyAW2Fh-uY8Iu9mWgDBOf6naZz45069Lg0SDXMTjkSlPpHLkvOZiuHKvlD37NouiLXrQfWHgtkrfTPEdokyAD_ReqyW0o2K4y38MkYr6xvOhqebmRPP7" />
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpw2dp_xe0CAkUSODDg8v-Ki9B8a3WY-ltZ-4WHrWf_CvUFeIu7uPqpeKVJT5TeFQG8WDuSNpTHho-_rNs3qPaSujvJA7wnk17B_EfEi7Axh9JAXrKQLOdVw79u51n956UdmaJ7TkRR7GErRqXAf2xYhIgPyAW2Fh-uY8Iu9mWgDBOf6naZz45069Lg0SDXMTjkSlPpHLkvOZiuHKvlD37NouiLXrQfWHgtkrfTPEdokyAD_ReqyW0o2K4y38MkYr6xvOhqebmRPP7"
+                    style="width:100%;height:100%;object-fit:cover;" />
             </div>
-            <div class="relative z-10 text-center max-w-4xl px-6">
-                <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight leading-tight" data-i18n="hero.title">
-                    Fresh Flowers for Every Occasion
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span data-i18n="hero.badge">New Season Collection</span>
+                </div>
+                <h1 class="font-headline"
+                    style="font-size:clamp(2.8rem,7vw,5.5rem);color:white;margin-bottom:1.25rem;line-height:1.1;letter-spacing:-0.02em;"
+                    data-i18n="hero.title">
+                    Fresh Flowers for<br>Every Occasion
                 </h1>
-                <p class="font-body text-xl md:text-2xl text-white/90 mb-10 font-light tracking-wide italic" data-i18n="hero.subtitle">
+                <p style="font-size:1.15rem;color:rgba(255,255,255,0.88);margin-bottom:2.5rem;font-style:italic;font-weight:300;"
+                    data-i18n="hero.subtitle">
                     Beautiful bouquets crafted with love
                 </p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                    <button
-                        class="bg-primary-gradient text-on-primary px-10 py-5 rounded-xl font-semibold tracking-wide hover:opacity-90 transition-all text-lg shadow-xl shadow-primary/20 min-w-[220px]" data-i18n="hero.cta_shop">
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="#natural"
+                        style="background:linear-gradient(135deg,#315a44,#49735b);color:white;padding:14px 34px;border-radius:12px;font-weight:600;font-size:0.9rem;letter-spacing:0.04em;text-decoration:none;box-shadow:0 8px 24px rgba(49,90,68,0.4);transition:all .2s ease;display:inline-block;"
+                        data-i18n="hero.cta_shop">
                         Shop Flowers
-                    </button>
-                    <button
-                        class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-5 rounded-xl font-semibold tracking-wide hover:bg-white/20 transition-all text-lg min-w-[220px] flex items-center justify-center gap-2">
-                        <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="hero.cta_whatsapp">Order on WhatsApp</span>
-                    </button>
+                    </a>
+                    <a href="https://wa.me/1234567890" target="_blank"
+                        style="background:rgba(255,255,255,0.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.3);color:white;padding:14px 34px;border-radius:12px;font-weight:600;font-size:0.9rem;letter-spacing:0.04em;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s ease;">
+                        <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+                        <span data-i18n="hero.cta_whatsapp">Order on WhatsApp</span>
+                    </a>
                 </div>
             </div>
-        </section>
-        <!-- Featured Collections -->
-        <section class="py-32 px-12 max-w-screen-2xl mx-auto">
-            <div class="mb-20 text-center">
-                <span class="font-label text-primary uppercase tracking-[0.4em] text-xs font-bold mb-4 block" data-i18n="featured.label">Seasonal
-                    Selection</span>
-                <h2 class="font-headline text-4xl md:text-5xl text-on-surface" data-i18n="featured.title">Featured Collections</h2>
+            <!-- Scroll indicator -->
+            <div
+                style="position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.6);">
+                <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;"
+                    data-i18n="hero.scroll">Scroll</span>
+                <span class="material-symbols-outlined"
+                    style="font-size:20px;animation:bounce 2s infinite;">keyboard_arrow_down</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
-                <!-- Product 1 -->
-                <div class="group">
-                    <div
-                        class="aspect-[4/5] overflow-hidden rounded-xl mb-8 bg-surface-container-low transition-transform duration-700 hover:scale-[1.02]">
-                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            data-alt="soft blush rose bouquet with ethereal white fillers and delicate green leaves in a minimalist glass vase"
+            @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+        </section>
+
+
+        <!-- ═══ 1. NATURAL FLOWERS ═══ -->
+        <section id="natural" style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
+            <div
+                style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                <div>
+                    <span class="section-label" data-i18n="natural.label">Fresh & Seasonal</span>
+                    <span class="section-divider" style="margin-bottom:1rem;"></span>
+                    <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                        data-i18n="natural.title">Natural Flowers</h2>
+                    <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                        data-i18n="natural.desc">Farm-fresh blooms sourced daily — peonies, roses, orchids and seasonal
+                        arrangements crafted for every moment.</p>
+                </div>
+                <a href="product_category.html"
+                    style="display:inline-flex;align-items:center;gap:6px;color:#315a44;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(49,90,68,0.3);padding-bottom:2px;"
+                    data-i18n="common.view_all">
+                    View All <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="cat-grid cat-grid-4">
+                <div class="product-card">
+                    <div style="overflow:hidden;"><img class="product-card-img"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUQdi5yw9H_4HzZQETDkWwrIxI6h9UxbZyhkFc-DgIHxTmsHtr_olVYv-ZNbyz7CBizoFOJGkx5yi0AbbVsG5yOHFFBSqvOL-0io7TetLfQjs6RHTm1sHgIG_Uh-yQ8YMmHy4SvY12_TnEIk84m9clNGDf934idRxQLDvxLfHj-cNw0b2aCQhPmY_ZMfewWm4Qh_RRjKmyUrM5w_cxgmiNuHMj3pCHEt9w4ywDph_n8vAZEReEmukFl4UPUVGEasYOgT_S3hHXPoIh" />
                     </div>
-                    <div class="space-y-4">
-                        <h3 class="font-headline text-2xl text-on-surface group-hover:text-primary transition-colors" data-i18n="featured.products.p1_title">
-                            Ethereal Blush</h3>
-                        <p class="text-on-surface-variant font-light leading-relaxed" data-i18n="featured.products.p1_desc">A dreamy arrangement of pastel
-                            peonies and ranunculus for tender moments.</p>
-                        <div class="flex items-center justify-between pt-4">
-                            <span class="font-headline text-xl text-primary">$85.00</span>
-                            <button
-                                class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase border-b border-primary/20 pb-1 hover:border-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="featured.cta_order">Order via WhatsApp</span>
-                            </button>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="natural.p1">Ethereal Blush</p>
+                        <p class="product-card-desc" data-i18n="natural.p1d">Dreamy pastel peonies and ranunculus for
+                            tender moments.</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">185 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
                         </div>
                     </div>
                 </div>
-                <!-- Product 2 -->
-                <div class="group lg:mt-16">
-                    <div
-                        class="aspect-[4/5] overflow-hidden rounded-xl mb-8 bg-surface-container-low transition-transform duration-700 hover:scale-[1.02]">
-                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            data-alt="wild garden bouquet featuring colorful field flowers, lavender sprigs, and organic green foliage"
+                <div class="product-card">
+                    <div style="overflow:hidden;"><img class="product-card-img"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-psEOBkX9T5js3Z_vcfm6-r8uY8-bvlx8jHwkqzHtjRvaKeiRufBlD2KX3ENwWqq4gg7ojwb0m4gd6c1SKIQrCe7NbexOZVdVihk1bwue-BYo5a8FolhrQtUOGWBETyrahU2hzCcpCBYAXx9-oY3xH-9l2lEK9IeSKHT3caoszb9dIi0TfD8D5YDDGZ4dmRxw1zPnoTXCW-AmSrFru4HmPXNIQdlnPoLkxTGBEjsxLNWyxE-r4SM95t15ID55y_3OBoNPRuoWSihq" />
                     </div>
-                    <div class="space-y-4">
-                        <h3 class="font-headline text-2xl text-on-surface group-hover:text-primary transition-colors" data-i18n="featured.products.p2_title">
-                            Garden Serenade</h3>
-                        <p class="text-on-surface-variant font-light leading-relaxed" data-i18n="featured.products.p2_desc">Hand-picked wild garden blooms
-                            designed to bring nature's music home.</p>
-                        <div class="flex items-center justify-between pt-4">
-                            <span class="font-headline text-xl text-primary">$72.00</span>
-                            <button
-                                class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase border-b border-primary/20 pb-1 hover:border-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="featured.cta_order">Order via WhatsApp</span>
-                            </button>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="natural.p2">Garden Serenade</p>
+                        <p class="product-card-desc" data-i18n="natural.p2d">Wild blooms that bring nature's music home.
+                        </p>
+                        <div class="product-card-footer">
+                            <span class="product-price">155 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
                         </div>
                     </div>
                 </div>
-                <!-- Product 3 -->
-                <div class="group">
-                    <div
-                        class="aspect-[4/5] overflow-hidden rounded-xl mb-8 bg-surface-container-low transition-transform duration-700 hover:scale-[1.02]">
-                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            data-alt="moody dark purple orchids with structural dark leaves and deep charcoal background for a luxury feel"
+                <div class="product-card">
+                    <div style="overflow:hidden;"><img class="product-card-img"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxYoBVCl81BbCgcSlVIwkr67W2uM87d_j4xWD5si3fb1v8eghs1et5dy1NBvot_GhZQzhnGY7kLEEsJi1C-Tb7XEkUimXdZeAy6DXfqsw4WnftwMAWmKh3w7M0p-1zvYicwUFGpRhnGknGIfMcdgIP2oeUGmIaqrjMy8JCPWQuALDPb3QH_HN-Xs-onoz08l30eGJ2zW7fnlHOv2XqGvuHtdVv_YYfCdHh5D-9TqQPeTr1z5eKVVLDmkuObaPfeqFTrYxiZDdsubuB" />
                     </div>
-                    <div class="space-y-4">
-                        <h3 class="font-headline text-2xl text-on-surface group-hover:text-primary transition-colors" data-i18n="featured.products.p3_title">
-                            Midnight Orchid</h3>
-                        <p class="text-on-surface-variant font-light leading-relaxed" data-i18n="featured.products.p3_desc">Sophisticated deep purple orchids
-                            paired with sculptural emerald foliage.</p>
-                        <div class="flex items-center justify-between pt-4">
-                            <span class="font-headline text-xl text-primary">$120.00</span>
-                            <button
-                                class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase border-b border-primary/20 pb-1 hover:border-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="featured.cta_order">Order via WhatsApp</span>
-                            </button>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="natural.p3">Midnight Orchid</p>
+                        <p class="product-card-desc" data-i18n="natural.p3d">Deep purple orchids with sculptural emerald
+                            foliage.</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">260 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
                         </div>
                     </div>
                 </div>
-                <!-- Additional grid items to fulfill requirement of 6 -->
-                <div class="group">
-                    <div
-                        class="aspect-[4/5] overflow-hidden rounded-xl mb-8 bg-surface-container-low transition-transform duration-700 hover:scale-[1.02]">
-                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            data-alt="vibrant sunset colored tulips and dahlias in an asymmetric modern arrangement"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlCv45ut_AX92Rh55LHFcS1LphH1GGnXewwmLfdwHW35dV6OtDX42ytIzSTqmV3C5m-epV8kPZNikO9g6I6u6EtWoVQdnbOIh8_hmhm_RB21CyyNhwyFICQVcPnR9nvOb1QFqDd8m_Z2d0_87ptGzpfuhYOCtQ1YHwwahq563-DvgHPFYhOLt71qfCku6I0vOQ6cQulLdJxwuZ1tHfLVNrDPW1xe7mWvGrblUIM-un2GlnvZU71So7ztmL2Ch2td2FJbMW6VwXE6WI" />
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="font-headline text-2xl text-on-surface group-hover:text-primary transition-colors" data-i18n="featured.products.p4_title">
-                            Sunset Solstice</h3>
-                        <p class="text-on-surface-variant font-light leading-relaxed" data-i18n="featured.products.p4_desc">Warm ambers and burnt oranges that
-                            capture the fleeting magic of dusk.</p>
-                        <div class="flex items-center justify-between pt-4">
-                            <span class="font-headline text-xl text-primary">$65.00</span>
-                            <button
-                                class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase border-b border-primary/20 pb-1 hover:border-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="featured.cta_order">Order via WhatsApp</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="group lg:mt-16">
-                    <div
-                        class="aspect-[4/5] overflow-hidden rounded-xl mb-8 bg-surface-container-low transition-transform duration-700 hover:scale-[1.02]">
-                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            data-alt="pure white lilies and baby breath arranged in a classic white ceramic pitcher"
+                <div class="product-card">
+                    <div style="overflow:hidden;"><img class="product-card-img"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh1H3b11g8wsqgh3fEhn56ozWizkMUc9to3e893z5pWABE2g4zPqPXxiYs5F_xJ5bn5s9u-epczZdEc1dpeVfnN2JIGXrWXdAba8LyO8P4a0PG0C9lkS8b9vx9N5_PqRM8wgrOsGbZcgZADQmDchYPELrMpEeuUGvzLfilH8l6a3U4gndkgaFHo1WaXXmnX-8wR0f-DxeaX38zLI2y018tIzQFT-zc20ieHd-QLln8Kaafl3ZNig8RvH9O6Jzyy-JKLq74_qVr_Gnq" />
                     </div>
-                    <div class="space-y-4">
-                        <h3 class="font-headline text-2xl text-on-surface group-hover:text-primary transition-colors" data-i18n="featured.products.p5_title">
-                            Pure Serenity</h3>
-                        <p class="text-on-surface-variant font-light leading-relaxed" data-i18n="featured.products.p5_desc">A monochromatic masterpiece of
-                            white lilies, roses, and baby's breath.</p>
-                        <div class="flex items-center justify-between pt-4">
-                            <span class="font-headline text-xl text-primary">$95.00</span>
-                            <button
-                                class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase border-b border-primary/20 pb-1 hover:border-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="featured.cta_order">Order via WhatsApp</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="group">
-                    <div
-                        class="aspect-[4/5] overflow-hidden rounded-xl mb-8 bg-surface-container-low transition-transform duration-700 hover:scale-[1.02]">
-                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            data-alt="exotic tropical arrangement with proteas and monstera leaves on a clean white background"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_bOdnNg8stI3Vi6LqCQCWI-mR46D2Z_RF5FHGsP_sIIFx989vZQSyrVlH4TfK8r6yG6H2ze75WdIP1Bj39SNf-x-JgMp7RxvVMsZlG-Dy6gVZAMSL5lh1AaeFOU0DJ6yrOcJIM84gs_fo4604YeL5V9Jvn2-ycnIc1CoJTXMYTMmBPNF21G7pAjXgrpMTc2mMDsSaHtoaqe_HfXCeMl5CXbB9855UcMFIQ7SVGzg7soAgdVWwLGYrgc1PSNYUeXYocBO4dnNZd-YO" />
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="font-headline text-2xl text-on-surface group-hover:text-primary transition-colors" data-i18n="featured.products.p6_title">
-                            Velvet Protea</h3>
-                        <p class="text-on-surface-variant font-light leading-relaxed" data-i18n="featured.products.p6_desc">Textural proteas and exotic
-                            greenery for a bold, architectural statement.</p>
-                        <div class="flex items-center justify-between pt-4">
-                            <span class="font-headline text-xl text-primary">$110.00</span>
-                            <button
-                                class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase border-b border-primary/20 pb-1 hover:border-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">chat</span> <span data-i18n="featured.cta_order">Order via WhatsApp</span>
-                            </button>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="natural.p4">Pure Serenity</p>
+                        <p class="product-card-desc" data-i18n="natural.p4d">Monochromatic white lilies and baby's
+                            breath perfection.</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">200 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- How It Works Section -->
-        <section class="py-32 bg-surface-container-low overflow-hidden">
-            <div class="max-w-screen-2xl mx-auto px-12">
-                <div class="mb-24 text-center">
-                    <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-6" data-i18n="howItWorks.title">The Curated Journey</h2>
-                    <p class="text-on-surface-variant font-light max-w-xl mx-auto italic" data-i18n="howItWorks.subtitle">Simplifying luxury floral
-                        gifting from our atelier to your doorstep.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
-                    <div class="flex flex-col items-center text-center group">
-                        <div
-                            class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm group-hover:shadow-lg transition-all duration-500">
-                            <span class="material-symbols-outlined text-4xl text-primary">local_florist</span>
-                        </div>
-                        <h4 class="font-headline text-xl mb-4" data-i18n="howItWorks.step1_title">Select a Bouquet</h4>
-                        <p class="text-on-surface-variant font-light leading-relaxed text-sm px-4" data-i18n="howItWorks.step1_desc">Browse our seasonally
-                            curated editorial collection of premium botanical arrangements.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center group md:pt-12">
-                        <div
-                            class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm group-hover:shadow-lg transition-all duration-500">
-                            <span class="material-symbols-outlined text-4xl text-primary">chat_bubble</span>
-                        </div>
-                        <h4 class="font-headline text-xl mb-4" data-i18n="howItWorks.step2_title">Contact on WhatsApp</h4>
-                        <p class="text-on-surface-variant font-light leading-relaxed text-sm px-4" data-i18n="howItWorks.step2_desc">Direct personal
-                            assistance to customize your selection and finalize order details.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center group">
-                        <div
-                            class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm group-hover:shadow-lg transition-all duration-500">
-                            <span class="material-symbols-outlined text-4xl text-primary">speed</span>
-                        </div>
-                        <h4 class="font-headline text-xl mb-4" data-i18n="howItWorks.step3_title">Fast Delivery</h4>
-                        <p class="text-on-surface-variant font-light leading-relaxed text-sm px-4" data-i18n="howItWorks.step3_desc">Express concierge
-                            delivery service ensuring your blooms arrive in pristine condition.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Testimonials -->
-        <section class="py-32 px-12 max-w-screen-2xl mx-auto">
-            <div class="flex flex-col lg:flex-row items-center gap-20">
-                <div class="lg:w-1/3">
-                    <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-8 leading-tight" data-i18n="testimonials.title">Shared Moments of
-                        Joy</h2>
-                    <p class="text-on-surface-variant font-light leading-relaxed mb-8" data-i18n="testimonials.subtitle">Our arrangements have been part
-                        of countless celebrations, proposals, and heartfelt gestures.</p>
-                    <div class="flex gap-4">
-                        <button
-                            class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                            <span class="material-symbols-outlined">arrow_back</span>
-                        </button>
-                        <button
-                            class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Testimonial 1 -->
-                    <div
-                        class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(73,115,91,0.06)] border border-outline-variant/10">
-                        <div class="mb-6 flex">
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-on-surface-variant italic mb-8 leading-relaxed" data-i18n="testimonials.t1_text">"The most beautiful arrangement
-                            I've ever received. The attention to detail is truly unparalleled."</p>
-                        <div class="flex items-center gap-4">
-                            <img class="w-12 h-12 rounded-full object-cover"
-                                data-alt="portrait of a young smiling woman with soft lighting and blurred background"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeE7B5pvjJJL7fWXF6KrtsVEsSEaXqiKuBRl-vV8UuVa5Kr42pM2xscEMjB9UPGnCx0JrY4g5vBJC6JF5suhcKL-xzR3OiKxGqKP3hH6ldoSX2-7qnPOwJRW4xTOkxDjLgvl1EPNrkufGkosjHmVvomIeGRHfVfmPdFpiwPYXhpLEpcVe_9JoUlBW3i6zdEbTIxd1Ipq73E10gw1J9jl-hUTX5JEK8808iJeoCM-ndFL9JYwJeCcKSng0RS1Y7SIVinfpfYiSUppyx" />
-                            <div>
-                                <p class="font-bold text-sm">Elena V.</p>
-                                <p class="text-xs text-on-surface-variant uppercase tracking-widest">Architect</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial 2 -->
-                    <div
-                        class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(73,115,91,0.06)] border border-outline-variant/10 mt-8">
-                        <div class="mb-6 flex">
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-on-surface-variant italic mb-8 leading-relaxed" data-i18n="testimonials.t2_text">"Ordering via WhatsApp was so
-                            easy. They helped me pick the perfect bouquet for my anniversary."</p>
-                        <div class="flex items-center gap-4">
-                            <img class="w-12 h-12 rounded-full object-cover"
-                                data-alt="headshot of a stylish man with a friendly expression in an outdoor setting"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAKdt546KvdLnKfnnl_9GEERHfDg3gkrUdiMGI5vWSobvbzC1c4eBURtya-CDWRC0oARC0--PWM-EgpWCWLZnknQdxhWRcJf7Amo3DRu7qeUyE08SC5UyVc1geDinpBN67TsloNVBu7D-McGe8NmCZK-qyqQ644PyTDm2D-1RlGlIgk5KgToADvhl3HN_GR5yqK7vGU3aWSNUThsLmkmXkDj_NOQU76UCK5u-WycHgFhJ825ju9wEAoG84npNAVV_Sx4IoE0mHarN2" />
-                            <div>
-                                <p class="font-bold text-sm">Marcus L.</p>
-                                <p class="text-xs text-on-surface-variant uppercase tracking-widest">Designer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial 3 -->
-                    <div
-                        class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(73,115,91,0.06)] border border-outline-variant/10 mt-16">
-                        <div class="mb-6 flex">
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined text-primary"
-                                style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-on-surface-variant italic mb-8 leading-relaxed" data-i18n="testimonials.t3_text">"The 'Garden Serenade' looked
-                            exactly like the photo. Fresh, fragrant, and simply divine."</p>
-                        <div class="flex items-center gap-4">
-                            <img class="w-12 h-12 rounded-full object-cover"
-                                data-alt="professional woman portrait with natural daylight and elegant aesthetic"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLdokWEr33T-CTVOHQl-dZQmscHUBhEFBNR9CHuNuvW1airybajjfqqpy-3wsdYpz-RnVWkpab1dqAe9Hag0_Uu-6ELJIFSty5mIgDclJURmEL2fa_0gi0dMKi7qEGaoZozdobDyUWTbbloqq89xpY_zbC5zcRbiP2-4sGqSWojC9ApjNMfSdXbP4oIjVQ-wBkHwu__hNpCx8MrH1I2eEoL9NRUZ9SFLaVAvG6wVrX5Yu8UjA5Ks6v1xGam06BeKjP0dMA4qRad25q" />
-                            <div>
-                                <p class="font-bold text-sm">Sarah J.</p>
-                                <p class="text-xs text-on-surface-variant uppercase tracking-widest">Journalist</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Instagram Gallery -->
-        <section class="py-32 bg-surface">
-            <div class="text-center mb-16">
-                <h2 class="font-headline text-4xl text-on-surface mb-4">Follow Our Bloom</h2>
-                <p class="font-label text-primary tracking-widest uppercase text-xs">@thebotanicaleditorial</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 px-2 max-w-[1920px] mx-auto">
-                <div class="aspect-square relative group overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="lifestyle shot of a hand holding a single rose against a textured wall"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4aN4W0OhYCMXKcu5avF5SYNR7I7GrG2oHzpdC4NEfZOBuSAlw3sNoqQxv4DRl2Il1R9H-HqVjSVYzwYIhJf_TP3pzw2Fcbal2MN4lyW4P8u22BardIMK7lVn5rOVcuFp5LFLHVA4Z-Ci2TcKoy4bh3F86QCLsXH05agw5ITFcwMSD7hTdQKf35SNnNXlkx3D9OkLXrXJqtUR0OO6pw13gLUHRev-w5VCbgBZk9TbgiV-0Uqz8HgU9IXCyCMgHL8dZFGK-W9LwbdWr" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
-                    </div>
-                </div>
-                <div class="aspect-square relative group overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="close-up of flower market stalls with overflowing buckets of colorful blooms"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA0JvoIsiaBnOLvbiA1Bde37KPorUmv3qF_pZFJpTdpsxOhndYFbpN543ra9QwMAX09WY8vNJEcGlLuDrGiwKQiiPfMFArRzkMc5hPNTD8KcUmfdy3uWxaizZe1tksLTjihpFPXxEDXgk6PE59-OqCGhke40aG7ktjPwhnFDp3P7YbCUD2A_EkEPtx1bOuNdN0_5MsmKovXpMw4YYfPOH7q1kXwawG0pp1payDtHqtd7bbYNE9OrgzzIEt0j0pJbQo_BmWrVZObmHj" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
-                    </div>
-                </div>
-                <div class="aspect-square relative group overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="detail of a botanical workspace with pruning shears and loose flower petals"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP6SVNv3kLX6x_yr3vAGF4TG-FMZhVtqTolMG_WMpqCDiYXOAwVdbqPLc6qxunriLvx7FVBU-Kp7n_qMAaNC5vl7r5vObY8Km6QrMTIMtrH7Gy872Yb9UKiefMWJNbN6Q3cZEXcWyudqIliVgJw9RxGjrHxpu-HZDJxA3p8PDJg8m93Hb1-619kXZtBSNcENrJtsOSE0reVsoUdK4Ynb-D_cKa3cpGl-EBbRk7MwMMFFN26dx5nn_KSjApWIlKlz7aPly8S8tO-9Ro" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
-                    </div>
-                </div>
-                <div class="aspect-square relative group overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="aesthetic coffee table scene with an open art book and a small vase of flowers"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zhvLBbYOuyBi3Qf5dCO_zCNH0SzaygjN7XOrgANC3tGO7EOmA_tc0A0-9M2VFQYHlaZu7Mse94lh8tdeQTbLG9QDz4-H6qIiLDB3APZB6IYd6accvHphm-UL2YASmlofmhadlNgUIJkCKW-eEFkIQxy7YT5y_ABqa9sDgrqvNMviHzXcOiaPC_pYXAOAlyoJ16yiLuz5rLO_6adlBSCWDHGDLCcd-kaE9Xo-9cmKiIjtfCKv47baw4HkImi6MWkUFtsPVOTcc8dP" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
-                    </div>
-                </div>
-                <div class="aspect-square relative group overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="woman carrying a large bouquet of wildflowers in a paper wrap through an old city street"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPnjefBo-7yKj7pmp3p7fMqRBp_NMguM2C-_6z1Hgdh7NIbo8v0MgnUnjnHc5JU90wWFxW-k6NHPrFrGIdo2QoHS-Gmong1_3g55iQMngnKllVDUNO509FUItwWFeVW83y4doMkBiHxuJSmzHuo3eG6CeZRqIkAFmUlLjFy4O-WzTMNiMUaOI8HRV7NmSnSTlUwnT7e2xzN9iqQaoUaCdLQBmHAo8TOZjgzq6nVItMpXeNQdCvdE6lwZ5s_-z03ff9Nigo9-mGbaim" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
-                    </div>
-                </div>
-                <div class="aspect-square relative group overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="monstera leaf close-up with dramatic side lighting and dark moody background"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-OpoRIwU7GJ8lNcOcKWicFHSLscvggtIvL9RzRTdde9Q99pWE1eAJ8U-SCldek3ZCUZUSA3rrh6OezD4n4wWyCEYHxd4c4X6bbgXbHnbhDhMh0_-DJ-gOY0OHgWxc3OdlpHWfaBy-Ke28CUCcJYjZ5nMRh2M3KVIwN3ADuPQWiroLXkImzIWvRaXn0D_5uyaMg44O9H3TYtQ0Wb5VioqgPBLj-PmL_lyXTOY23WREbApkpdvfKgy2_bvPNLgZznzNQBVUvyPUe6w" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Footer Navigation Shell -->
-    <footer
-        class="w-full py-20 px-12 border-t border-zinc-100 dark:border-zinc-800 bg-stone-50 dark:bg-zinc-950 text-emerald-900 dark:text-emerald-50">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start max-w-screen-2xl mx-auto">
-            <div>
-                <span class="font-noto-serif text-3xl mb-8 block" data-i18n="nav.brand">The Botanical Editorial</span>
-                <p
-                    class="font-plus-jakarta-sans text-sm tracking-widest text-zinc-400 mb-8 max-w-xs leading-relaxed uppercase" data-i18n="footer.brand_desc">
-                    Curating nature's finest moments for your everyday space.</p>
-                <div class="flex gap-6">
-                    <a class="text-zinc-400 hover:text-emerald-700 transition-all hover:tracking-[0.2em] font-plus-jakarta-sans text-sm uppercase tracking-widest"
-                        href="#">Instagram</a>
-                    <a class="text-zinc-400 hover:text-emerald-700 transition-all hover:tracking-[0.2em] font-plus-jakarta-sans text-sm uppercase tracking-widest"
-                        href="#">Pinterest</a>
-                </div>
-            </div>
-            <div class="space-y-4">
-                <p class="font-plus-jakarta-sans text-xs uppercase tracking-[0.3em] font-bold mb-6 text-primary" data-i18n="footer.discover">
-                    Discover</p>
-                <nav class="flex flex-col space-y-3">
-                    <a class="text-zinc-400 hover:text-emerald-700 transition-all hover:tracking-[0.2em] font-plus-jakarta-sans text-sm uppercase tracking-widest"
-                        href="#" data-i18n="footer.links.contact_us">Contact Us</a>
-                    <a class="text-zinc-400 hover:text-emerald-700 transition-all hover:tracking-[0.2em] font-plus-jakarta-sans text-sm uppercase tracking-widest"
-                        href="#" data-i18n="footer.links.shipping">Shipping Policy</a>
-                    <a class="text-zinc-400 hover:text-emerald-700 transition-all hover:tracking-[0.2em] font-plus-jakarta-sans text-sm uppercase tracking-widest"
-                        href="#" data-i18n="footer.links.sustainability">Sustainability</a>
-                </nav>
-            </div>
-            <div class="space-y-4">
-                <p class="font-plus-jakarta-sans text-xs uppercase tracking-[0.3em] font-bold mb-6 text-primary" data-i18n="footer.contact">Contact
-                </p>
+
+        <!-- ═══ 2. ARTIFICIAL FLOWERS ═══ -->
+        <section id="artificial" style="padding:6rem 3rem;background:#f8f4f3;" class="fade-up">
+            <div style="max-width:1600px;margin:0 auto;">
                 <div
-                    class="space-y-4 font-plus-jakarta-sans text-sm uppercase tracking-widest text-zinc-400 leading-relaxed">
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-lg">call</span>
-                        <span>+1 (234) 567 8900</span>
+                    style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                    <div>
+                        <span class="section-label" data-i18n="artificial.label">Everlasting Beauty</span>
+                        <span class="section-divider" style="margin-bottom:1rem;"></span>
+                        <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                            data-i18n="artificial.title">Artificial Flowers</h2>
+                        <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                            data-i18n="artificial.desc">Stunning silk and premium fabric blooms that look real, stay
+                            forever — no maintenance needed.</p>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-lg">location_on</span>
-                        <span>72 Atelier Row, Creative District</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-lg">mail</span>
-                        <span>hello@botanicaleditorial.com</span>
+                    <a href="product_Catlog.html"
+                        style="display:inline-flex;align-items:center;gap:6px;color:#315a44;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(49,90,68,0.3);padding-bottom:2px;"
+                        data-i18n="common.view_all">
+                        View All <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Hero layout: 1 big + 3 small -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" id="art-grid">
+                    <a href="#" class="cat-hero" style="height:520px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlCv45ut_AX92Rh55LHFcS1LphH1GGnXewwmLfdwHW35dV6OtDX42ytIzSTqmV3C5m-epV8kPZNikO9g6I6u6EtWoVQdnbOIh8_hmhm_RB21CyyNhwyFICQVcPnR9nvOb1QFqDd8m_Z2d0_87ptGzpfuhYOCtQ1YHwwahq563-DvgHPFYhOLt71qfCku6I0vOQ6cQulLdJxwuZ1tHfLVNrDPW1xe7mWvGrblUIM-un2GlnvZU71So7ztmL2Ch2td2FJbMW6VwXE6WI"
+                            style="height:100%;" />
+                        <div class="cat-hero-overlay"></div>
+                        <div class="cat-hero-content">
+                            <span class="cat-hero-label" data-i18n="artificial.hero_label">Bestseller</span>
+                            <p class="cat-hero-title" data-i18n="artificial.hero_title">Sunset Silk Collection</p>
+                            <span class="cat-hero-cta"><span data-i18n="common.shop_now">Shop Now</span> <span
+                                    class="material-symbols-outlined"
+                                    style="font-size:14px;">arrow_forward</span></span>
+                        </div>
+                    </a>
+                    <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:1rem;height:520px;">
+                        <div class="product-card" style="display:flex;gap:1rem;border-radius:12px;">
+                            <div style="width:130px;flex-shrink:0;overflow:hidden;border-radius:10px 0 0 10px;">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_bOdnNg8stI3Vi6LqCQCWI-mR46D2Z_RF5FHGsP_sIIFx989vZQSyrVlH4TfK8r6yG6H2ze75WdIP1Bj39SNf-x-JgMp7RxvVMsZlG-Dy6gVZAMSL5lh1AaeFOU0DJ6yrOcJIM84gs_fo4604YeL5V9Jvn2-ycnIc1CoJTXMYTMmBPNF21G7pAjXgrpMTc2mMDsSaHtoaqe_HfXCeMl5CXbB9855UcMFIQ7SVGzg7soAgdVWwLGYrgc1PSNYUeXYocBO4dnNZd-YO"
+                                    style="width:100%;height:100%;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="padding:1rem;display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;">
+                                <p class="product-card-title" style="font-size:1rem;" data-i18n="artificial.p1">Velvet
+                                    Protea</p>
+                                <p class="product-card-desc" style="font-size:0.78rem;margin-bottom:.75rem;"
+                                    data-i18n="artificial.p1d">Bold architectural statement piece.</p>
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <span class="product-price" style="font-size:0.95rem;">240 EGP</span>
+                                    <button class="order-btn" style="font-size:0.68rem;padding:6px 10px;"><span
+                                            class="material-symbols-outlined" style="font-size:13px;">chat</span> <span
+                                            data-i18n="common.order_wa">WhatsApp</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card" style="display:flex;gap:1rem;border-radius:12px;">
+                            <div style="width:130px;flex-shrink:0;overflow:hidden;border-radius:10px 0 0 10px;">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUQdi5yw9H_4HzZQETDkWwrIxI6h9UxbZyhkFc-DgIHxTmsHtr_olVYv-ZNbyz7CBizoFOJGkx5yi0AbbVsG5yOHFFBSqvOL-0io7TetLfQjs6RHTm1sHgIG_Uh-yQ8YMmHy4SvY12_TnEIk84m9clNGDf934idRxQLDvxLfHj-cNw0b2aCQhPmY_ZMfewWm4Qh_RRjKmyUrM5w_cxgmiNuHMj3pCHEt9w4ywDph_n8vAZEReEmukFl4UPUVGEasYOgT_S3hHXPoIh"
+                                    style="width:100%;height:100%;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="padding:1rem;display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;">
+                                <p class="product-card-title" style="font-size:1rem;" data-i18n="artificial.p2">Silk
+                                    Rose Dome</p>
+                                <p class="product-card-desc" style="font-size:0.78rem;margin-bottom:.75rem;"
+                                    data-i18n="artificial.p2d">Premium silk roses in a luxury dome arrangement.</p>
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <span class="product-price" style="font-size:0.95rem;">320 EGP</span>
+                                    <button class="order-btn" style="font-size:0.68rem;padding:6px 10px;"><span
+                                            class="material-symbols-outlined" style="font-size:13px;">chat</span> <span
+                                            data-i18n="common.order_wa">WhatsApp</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card" style="display:flex;gap:1rem;border-radius:12px;">
+                            <div style="width:130px;flex-shrink:0;overflow:hidden;border-radius:10px 0 0 10px;">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-psEOBkX9T5js3Z_vcfm6-r8uY8-bvlx8jHwkqzHtjRvaKeiRufBlD2KX3ENwWqq4gg7ojwb0m4gd6c1SKIQrCe7NbexOZVdVihk1bwue-BYo5a8FolhrQtUOGWBETyrahU2hzCcpCBYAXx9-oY3xH-9l2lEK9IeSKHT3caoszb9dIi0TfD8D5YDDGZ4dmRxw1zPnoTXCW-AmSrFru4HmPXNIQdlnPoLkxTGBEjsxLNWyxE-r4SM95t15ID55y_3OBoNPRuoWSihq"
+                                    style="width:100%;height:100%;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="padding:1rem;display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;">
+                                <p class="product-card-title" style="font-size:1rem;" data-i18n="artificial.p3">Wild
+                                    Meadow Mix</p>
+                                <p class="product-card-desc" style="font-size:0.78rem;margin-bottom:.75rem;"
+                                    data-i18n="artificial.p3d">A lush, permanent meadow for your home.</p>
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <span class="product-price" style="font-size:0.95rem;">185 EGP</span>
+                                    <button class="order-btn" style="font-size:0.68rem;padding:6px 10px;"><span
+                                            class="material-symbols-outlined" style="font-size:13px;">chat</span> <span
+                                            data-i18n="common.order_wa">WhatsApp</span></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mt-20 pt-12 border-t border-zinc-200 dark:border-zinc-800 text-center">
-            <p class="font-plus-jakarta-sans text-[10px] uppercase tracking-[0.5em] text-zinc-400" data-i18n="footer.copyright">© 2024 THE BOTANICAL
-                EDITORIAL. CRAFTED FOR THE CURATED LIFE.</p>
+        </section>
+
+
+        <!-- ═══ 3. BABY GIFTS ═══ -->
+        <section id="baby-gifts" style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
+            <div style="margin-bottom:3.5rem;">
+                <span class="section-label" data-i18n="baby.label">Welcome Little Ones</span>
+                <span class="section-divider" style="margin-bottom:1rem;"></span>
+                <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                    <div>
+                        <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                            data-i18n="baby.title">Baby Gift Collections</h2>
+                        <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                            data-i18n="baby.desc">Celebrate new arrivals with enchanting floral gifts and baby hampers,
+                            beautifully wrapped and delivered.</p>
+                    </div>
+                    <a href="gift_Collections.html"
+                        style="display:inline-flex;align-items:center;gap:6px;color:#315a44;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(49,90,68,0.3);padding-bottom:2px;"
+                        data-i18n="common.view_all">View All <span class="material-symbols-outlined"
+                            style="font-size:16px;">arrow_forward</span></a>
+                </div>
+            </div>
+
+            <div class="cat-grid cat-grid-3">
+                <a href="#" class="cat-hero" style="height:400px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-OpoRIwU7GJ8lNcOcKWicFHSLscvggtIvL9RzRTdde9Q99pWE1eAJ8U-SCldek3ZCUZUSA3rrh6OezD4n4wWyCEYHxd4c4X6bbgXbHnbhDhMh0_-DJ-gOY0OHgWxc3OdlpHWfaBy-Ke28CUCcJYjZ5nMRh2M3KVIwN3ADuPQWiroLXkImzIWvRaXn0D_5uyaMg44O9H3TYtQ0Wb5VioqgPBLj-PmL_lyXTOY23WREbApkpdvfKgy2_bvPNLgZznzNQBVUvyPUe6w"
+                        style="height:100%;" />
+                    <div class="cat-hero-overlay"
+                        style="background:linear-gradient(to top,rgba(100,50,90,0.7) 0%,transparent 55%);"></div>
+                    <div class="cat-hero-content">
+                        <span class="cat-hero-label" data-i18n="baby.c1_label">For Her</span>
+                        <p class="cat-hero-title" data-i18n="baby.c1">Pink Blossom Set</p>
+                        <span class="cat-hero-cta"><span data-i18n="baby.order">Order Gift</span> <span
+                                class="material-symbols-outlined" style="font-size:14px;">favorite</span></span>
+                    </div>
+                </a>
+                <a href="#" class="cat-hero" style="height:400px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA0JvoIsiaBnOLvbiA1Bde37KPorUmv3qF_pZFJpTdpsxOhndYFbpN543ra9QwMAX09WY8vNJEcGlLuDrGiwKQiiPfMFArRzkMc5hPNTD8KcUmfdy3uWxaizZe1tksLTjihpFPXxEDXgk6PE59-OqCGhke40aG7ktjPwhnFDp3P7YbCUD2A_EkEPtx1bOuNdN0_5MsmKovXpMw4YYfPOH7q1kXwawG0pp1payDtHqtd7bbYNE9OrgzzIEt0j0pJbQo_BmWrVZObmHj"
+                        style="height:100%;" />
+                    <div class="cat-hero-overlay"
+                        style="background:linear-gradient(to top,rgba(40,80,60,0.7) 0%,transparent 55%);"></div>
+                    <div class="cat-hero-content">
+                        <span class="cat-hero-label" data-i18n="baby.c2_label">For Him</span>
+                        <p class="cat-hero-title" data-i18n="baby.c2">Blue & Green Hamper</p>
+                        <span class="cat-hero-cta"><span data-i18n="baby.order">Order Gift</span> <span
+                                class="material-symbols-outlined" style="font-size:14px;">favorite</span></span>
+                    </div>
+                </a>
+                <a href="#" class="cat-hero" style="height:400px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP6SVNv3kLX6x_yr3vAGF4TG-FMZhVtqTolMG_WMpqCDiYXOAwVdbqPLc6qxunriLvx7FVBU-Kp7n_qMAaNC5vl7r5vObY8Km6QrMTIMtrH7Gy872Yb9UKiefMWJNbN6Q3cZEXcWyudqIliVgJw9RxGjrHxpu-HZDJxA3p8PDJg8m93Hb1-619kXZtBSNcENrJtsOSE0reVsoUdK4Ynb-D_cKa3cpGl-EBbRk7MwMMFFN26dx5nn_KSjApWIlKlz7aPly8S8tO-9Ro"
+                        style="height:100%;" />
+                    <div class="cat-hero-overlay"
+                        style="background:linear-gradient(to top,rgba(160,100,30,0.7) 0%,transparent 55%);"></div>
+                    <div class="cat-hero-content">
+                        <span class="cat-hero-label" data-i18n="baby.c3_label">Neutral</span>
+                        <p class="cat-hero-title" data-i18n="baby.c3">Golden Welcome Box</p>
+                        <span class="cat-hero-cta"><span data-i18n="baby.order">Order Gift</span> <span
+                                class="material-symbols-outlined" style="font-size:14px;">favorite</span></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ═══ 4. VASES ═══ -->
+        <section id="vases" style="padding:6rem 3rem;background:linear-gradient(180deg,#1e3d2d 0%,#2a5238 100%);"
+            class="fade-up">
+            <div style="max-width:1600px;margin:0 auto;">
+                <div
+                    style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                    <div>
+                        <span
+                            style="font-size:0.7rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:rgba(164,209,180,0.8);display:block;margin-bottom:0.75rem;"
+                            data-i18n="vases.label">For Every Space</span>
+                        <div style="width:48px;height:2px;background:rgba(164,209,180,0.6);margin-bottom:1rem;"></div>
+                        <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:white;"
+                            data-i18n="vases.title">Vases & Planters</h2>
+                        <p style="color:rgba(255,255,255,0.65);margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                            data-i18n="vases.desc">Curated ceramic, glass, and artisanal vases to complement any floral
+                            arrangement or stand alone as decor.</p>
+                    </div>
+                    <a href="#"
+                        style="display:inline-flex;align-items:center;gap:6px;color:rgba(164,209,180,0.9);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(164,209,180,0.3);padding-bottom:2px;"
+                        data-i18n="common.view_all">View All <span class="material-symbols-outlined"
+                            style="font-size:16px;">arrow_forward</span></a>
+                </div>
+
+                <div class="cat-grid cat-grid-4">
+                    <div class="product-card">
+                        <div style="overflow:hidden;background:#f0eeec;">
+                            <img class="product-card-img"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4aN4W0OhYCMXKcu5avF5SYNR7I7GrG2oHzpdC4NEfZOBuSAlw3sNoqQxv4DRl2Il1R9H-HqVjSVYzwYIhJf_TP3pzw2Fcbal2MN4lyW4P8u22BardIMK7lVn5rOVcuFp5LFLHVA4Z-Ci2TcKoy4bh3F86QCLsXH05agw5ITFcwMSD7hTdQKf35SNnNXlkx3D9OkLXrXJqtUR0OO6pw13gLUHRev-w5VCbgBZk9TbgiV-0Uqz8HgU9IXCyCMgHL8dZFGK-W9LwbdWr" />
+                        </div>
+                        <div class="product-card-body">
+                            <p class="product-card-title" data-i18n="vases.p1">Travertine Column</p>
+                            <p class="product-card-desc" data-i18n="vases.p1d">Marble-finish tall vase, perfect for
+                                dramatic stems.</p>
+                            <div class="product-card-footer">
+                                <span class="product-price">450 EGP</span>
+                                <button class="order-btn"><span class="material-symbols-outlined"
+                                        style="font-size:15px;">chat</span> <span
+                                        data-i18n="common.order_wa">WhatsApp</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div style="overflow:hidden;background:#f0eeec;">
+                            <img class="product-card-img"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zhvLBbYOuyBi3Qf5dCO_zCNH0SzaygjN7XOrgANC3tGO7EOmA_tc0A0-9M2VFQYHlaZu7Mse94lh8tdeQTbLG9QDz4-H6qIiLDB3APZB6IYd6accvHphm-UL2YASmlofmhadlNgUIJkCKW-eEFkIQxy7YT5y_ABqa9sDgrqvNMviHzXcOiaPC_pYXAOAlyoJ16yiLuz5rLO_6adlBSCWDHGDLCcd-kaE9Xo-9cmKiIjtfCKv47baw4HkImi6MWkUFtsPVOTcc8dP" />
+                        </div>
+                        <div class="product-card-body">
+                            <p class="product-card-title" data-i18n="vases.p2">Blown Glass Globe</p>
+                            <p class="product-card-desc" data-i18n="vases.p2d">Hand-blown artisan glass with an organic
+                                shape.</p>
+                            <div class="product-card-footer">
+                                <span class="product-price">380 EGP</span>
+                                <button class="order-btn"><span class="material-symbols-outlined"
+                                        style="font-size:15px;">chat</span> <span
+                                        data-i18n="common.order_wa">WhatsApp</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div style="overflow:hidden;background:#f0eeec;">
+                            <img class="product-card-img"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPnjefBo-7yKj7pmp3p7fMqRBp_NMguM2C-_6z1Hgdh7NIbo8v0MgnUnjnHc5JU90wWFxW-k6NHPrFrGIdo2QoHS-Gmong1_3g55iQMngnKllVDUNO509FUItwWFeVW83y4doMkBiHxuJSmzHuo3eG6CeZRqIkAFmUlLjFy4O-WzTMNiMUaOI8HRV7NmSnSTlUwnT7e2xzN9iqQaoUaCdLQBmHAo8TOZjgzq6nVItMpXeNQdCvdE6lwZ5s_-z03ff9Nigo9-mGbaim" />
+                        </div>
+                        <div class="product-card-body">
+                            <p class="product-card-title" data-i18n="vases.p3">Terracotta Set</p>
+                            <p class="product-card-desc" data-i18n="vases.p3d">Set of 3 earthy terracotta pots in
+                                graduating sizes.</p>
+                            <div class="product-card-footer">
+                                <span class="product-price">290 EGP</span>
+                                <button class="order-btn"><span class="material-symbols-outlined"
+                                        style="font-size:15px;">chat</span> <span
+                                        data-i18n="common.order_wa">WhatsApp</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div style="overflow:hidden;background:#f0eeec;">
+                            <img class="product-card-img"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-OpoRIwU7GJ8lNcOcKWicFHSLscvggtIvL9RzRTdde9Q99pWE1eAJ8U-SCldek3ZCUZUSA3rrh6OezD4n4wWyCEYHxd4c4X6bbgXbHnbhDhMh0_-DJ-gOY0OHgWxc3OdlpHWfaBy-Ke28CUCcJYjZ5nMRh2M3KVIwN3ADuPQWiroLXkImzIWvRaXn0D_5uyaMg44O9H3TYtQ0Wb5VioqgPBLj-PmL_lyXTOY23WREbApkpdvfKgy2_bvPNLgZznzNQBVUvyPUe6w" />
+                        </div>
+                        <div class="product-card-body">
+                            <p class="product-card-title" data-i18n="vases.p4">Matte Cylinder</p>
+                            <p class="product-card-desc" data-i18n="vases.p4d">Minimal matte black ceramic for modern
+                                interiors.</p>
+                            <div class="product-card-footer">
+                                <span class="product-price">340 EGP</span>
+                                <button class="order-btn"><span class="material-symbols-outlined"
+                                        style="font-size:15px;">chat</span> <span
+                                        data-i18n="common.order_wa">WhatsApp</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══ 5. BALLOONS ═══ -->
+        <section id="balloons" style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
+            <div
+                style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                <div>
+                    <span class="section-label" data-i18n="balloons.label">Party & Celebrations</span>
+                    <span class="section-divider" style="margin-bottom:1rem;"></span>
+                    <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                        data-i18n="balloons.title">Balloons & Decor</h2>
+                    <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                        data-i18n="balloons.desc">Helium bouquets, foil balloons, and full party décor sets delivered to
+                        your door — ready to celebrate.</p>
+                </div>
+                <a href="#"
+                    style="display:inline-flex;align-items:center;gap:6px;color:#315a44;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(49,90,68,0.3);padding-bottom:2px;"
+                    data-i18n="common.view_all">View All <span class="material-symbols-outlined"
+                        style="font-size:16px;">arrow_forward</span></a>
+            </div>
+
+            <!-- Scrollable row on mobile -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="balloons-grid">
+                <div class="product-card">
+                    <div style="overflow:hidden;background:linear-gradient(135deg,#fff0f5,#ffe8f5);">
+                        <img class="product-card-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA0JvoIsiaBnOLvbiA1Bde37KPorUmv3qF_pZFJpTdpsxOhndYFbpN543ra9QwMAX09WY8vNJEcGlLuDrGiwKQiiPfMFArRzkMc5hPNTD8KcUmfdy3uWxaizZe1tksLTjihpFPXxEDXgk6PE59-OqCGhke40aG7ktjPwhnFDp3P7YbCUD2A_EkEPtx1bOuNdN0_5MsmKovXpMw4YYfPOH7q1kXwawG0pp1payDtHqtd7bbYNE9OrgzzIEt0j0pJbQo_BmWrVZObmHj" />
+                    </div>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="balloons.p1">Pink Princess Bouquet</p>
+                        <p class="product-card-desc" data-i18n="balloons.p1d">12 helium balloons + foil crown balloon.
+                        </p>
+                        <div class="product-card-footer">
+                            <span class="product-price">220 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div style="overflow:hidden;background:linear-gradient(135deg,#f0f8ff,#e0f0ff);">
+                        <img class="product-card-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP6SVNv3kLX6x_yr3vAGF4TG-FMZhVtqTolMG_WMpqCDiYXOAwVdbqPLc6qxunriLvx7FVBU-Kp7n_qMAaNC5vl7r5vObY8Km6QrMTIMtrH7Gy872Yb9UKiefMWJNbN6Q3cZEXcWyudqIliVgJw9RxGjrHxpu-HZDJxA3p8PDJg8m93Hb1-619kXZtBSNcENrJtsOSE0reVsoUdK4Ynb-D_cKa3cpGl-EBbRk7MwMMFFN26dx5nn_KSjApWIlKlz7aPly8S8tO-9Ro" />
+                    </div>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="balloons.p2">Blue Star Set</p>
+                        <p class="product-card-desc" data-i18n="balloons.p2d">Boy celebration helium set with star
+                            foils.</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">220 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div style="overflow:hidden;background:linear-gradient(135deg,#fffbea,#fff3c0);">
+                        <img class="product-card-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4aN4W0OhYCMXKcu5avF5SYNR7I7GrG2oHzpdC4NEfZOBuSAlw3sNoqQxv4DRl2Il1R9H-HqVjSVYzwYIhJf_TP3pzw2Fcbal2MN4lyW4P8u22BardIMK7lVn5rOVcuFp5LFLHVA4Z-Ci2TcKoy4bh3F86QCLsXH05agw5ITFcwMSD7hTdQKf35SNnNXlkx3D9OkLXrXJqtUR0OO6pw13gLUHRev-w5VCbgBZk9TbgiV-0Uqz8HgU9IXCyCMgHL8dZFGK-W9LwbdWr" />
+                    </div>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="balloons.p3">Golden Anniversary</p>
+                        <p class="product-card-desc" data-i18n="balloons.p3d">Gold foil number balloons + confetti
+                            spheres.</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">280 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div style="overflow:hidden;background:linear-gradient(135deg,#f5fff5,#e0f5e0);">
+                        <img class="product-card-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPnjefBo-7yKj7pmp3p7fMqRBp_NMguM2C-_6z1Hgdh7NIbo8v0MgnUnjnHc5JU90wWFxW-k6NHPrFrGIdo2QoHS-Gmong1_3g55iQMngnKllVDUNO509FUItwWFeVW83y4doMkBiHxuJSmzHuo3eG6CeZRqIkAFmUlLjFy4O-WzTMNiMUaOI8HRV7NmSnSTlUwnT7e2xzN9iqQaoUaCdLQBmHAo8TOZjgzq6nVItMpXeNQdCvdE6lwZ5s_-z03ff9Nigo9-mGbaim" />
+                    </div>
+                    <div class="product-card-body">
+                        <p class="product-card-title" data-i18n="balloons.p4">Birthday Arch Kit</p>
+                        <p class="product-card-desc" data-i18n="balloons.p4d">Full garland arch kit for birthdays and
+                            events.</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">490 EGP</span>
+                            <button class="order-btn"><span class="material-symbols-outlined"
+                                    style="font-size:15px;">chat</span> <span
+                                    data-i18n="common.order_wa">WhatsApp</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══ 6. GIFTS FOR MEN & WOMEN ═══ -->
+        <section id="gifts" style="padding:6rem 3rem;background:#f8f4f3;" class="fade-up">
+            <div style="max-width:1600px;margin:0 auto;">
+                <div style="margin-bottom:3.5rem;text-align:center;">
+                    <span class="section-label" style="justify-content:center;display:flex;" data-i18n="gifts.label">For
+                        Someone Special</span>
+                    <div style="width:48px;height:2px;background:#315a44;margin:0.75rem auto 1rem;"></div>
+                    <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                        data-i18n="gifts.title">Gifts for Everyone</h2>
+                    <p style="color:#717973;margin-top:.75rem;max-width:540px;font-weight:300;line-height:1.7;margin-left:auto;margin-right:auto;"
+                        data-i18n="gifts.desc">Thoughtfully curated gift sets for men and women — from luxury hampers to
+                        flower-and-chocolate combos.</p>
+                </div>
+
+                <!-- Two-column gender split -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" id="gifts-split">
+                    <!-- Women -->
+                    <div>
+                        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+                            <span
+                                style="font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#315a44;"
+                                data-i18n="gifts.for_women">For Women</span>
+                            <div style="flex:1;height:1px;background:rgba(49,90,68,0.15);"></div>
+                        </div>
+                        <div style="display:grid;gap:1rem;">
+                            <div class="product-card" style="display:flex;gap:1rem;">
+                                <div style="width:120px;flex-shrink:0;overflow:hidden;border-radius:12px 0 0 12px;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUQdi5yw9H_4HzZQETDkWwrIxI6h9UxbZyhkFc-DgIHxTmsHtr_olVYv-ZNbyz7CBizoFOJGkx5yi0AbbVsG5yOHFFBSqvOL-0io7TetLfQjs6RHTm1sHgIG_Uh-yQ8YMmHy4SvY12_TnEIk84m9clNGDf934idRxQLDvxLfHj-cNw0b2aCQhPmY_ZMfewWm4Qh_RRjKmyUrM5w_cxgmiNuHMj3pCHEt9w4ywDph_n8vAZEReEmukFl4UPUVGEasYOgT_S3hHXPoIh"
+                                        style="width:100%;height:140px;object-fit:cover;" />
+                                </div>
+                                <div style="padding:1.1rem;display:flex;flex-direction:column;justify-content:center;">
+                                    <p class="product-card-title" style="font-size:1rem;" data-i18n="gifts.w1">Rose &
+                                        Chocolate Box</p>
+                                    <p class="product-card-desc" style="font-size:0.8rem;margin-bottom:.75rem;"
+                                        data-i18n="gifts.w1d">Belgian chocolates with a dozen red roses.</p>
+                                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                                        <span class="product-price" style="font-size:0.95rem;">350 EGP</span>
+                                        <button class="order-btn"><span class="material-symbols-outlined"
+                                                style="font-size:13px;">chat</span> <span
+                                                data-i18n="common.order_wa">WhatsApp</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card" style="display:flex;gap:1rem;">
+                                <div style="width:120px;flex-shrink:0;overflow:hidden;border-radius:12px 0 0 12px;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-psEOBkX9T5js3Z_vcfm6-r8uY8-bvlx8jHwkqzHtjRvaKeiRufBlD2KX3ENwWqq4gg7ojwb0m4gd6c1SKIQrCe7NbexOZVdVihk1bwue-BYo5a8FolhrQtUOGWBETyrahU2hzCcpCBYAXx9-oY3xH-9l2lEK9IeSKHT3caoszb9dIi0TfD8D5YDDGZ4dmRxw1zPnoTXCW-AmSrFru4HmPXNIQdlnPoLkxTGBEjsxLNWyxE-r4SM95t15ID55y_3OBoNPRuoWSihq"
+                                        style="width:100%;height:140px;object-fit:cover;" />
+                                </div>
+                                <div style="padding:1.1rem;display:flex;flex-direction:column;justify-content:center;">
+                                    <p class="product-card-title" style="font-size:1rem;" data-i18n="gifts.w2">Luxury
+                                        Spa Hamper</p>
+                                    <p class="product-card-desc" style="font-size:0.8rem;margin-bottom:.75rem;"
+                                        data-i18n="gifts.w2d">Flowers + candles + body care gift set.</p>
+                                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                                        <span class="product-price" style="font-size:0.95rem;">520 EGP</span>
+                                        <button class="order-btn"><span class="material-symbols-outlined"
+                                                style="font-size:13px;">chat</span> <span
+                                                data-i18n="common.order_wa">WhatsApp</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card" style="display:flex;gap:1rem;">
+                                <div style="width:120px;flex-shrink:0;overflow:hidden;border-radius:12px 0 0 12px;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxYoBVCl81BbCgcSlVIwkr67W2uM87d_j4xWD5si3fb1v8eghs1et5dy1NBvot_GhZQzhnGY7kLEEsJi1C-Tb7XEkUimXdZeAy6DXfqsw4WnftwMAWmKh3w7M0p-1zvYicwUFGpRhnGknGIfMcdgIP2oeUGmIaqrjMy8JCPWQuALDPb3QH_HN-Xs-onoz08l30eGJ2zW7fnlHOv2XqGvuHtdVv_YYfCdHh5D-9TqQPeTr1z5eKVVLDmkuObaPfeqFTrYxiZDdsubuB"
+                                        style="width:100%;height:140px;object-fit:cover;" />
+                                </div>
+                                <div style="padding:1.1rem;display:flex;flex-direction:column;justify-content:center;">
+                                    <p class="product-card-title" style="font-size:1rem;" data-i18n="gifts.w3">Perfume &
+                                        Orchids</p>
+                                    <p class="product-card-desc" style="font-size:0.8rem;margin-bottom:.75rem;"
+                                        data-i18n="gifts.w3d">Luxury fragrance paired with deep orchids.</p>
+                                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                                        <span class="product-price" style="font-size:0.95rem;">650 EGP</span>
+                                        <button class="order-btn"><span class="material-symbols-outlined"
+                                                style="font-size:13px;">chat</span> <span
+                                                data-i18n="common.order_wa">WhatsApp</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Men -->
+                    <div>
+                        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+                            <span
+                                style="font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#315a44;"
+                                data-i18n="gifts.for_men">For Men</span>
+                            <div style="flex:1;height:1px;background:rgba(49,90,68,0.15);"></div>
+                        </div>
+                        <div style="display:grid;gap:1rem;">
+                            <div class="product-card" style="display:flex;gap:1rem;">
+                                <div style="width:120px;flex-shrink:0;overflow:hidden;border-radius:12px 0 0 12px;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlCv45ut_AX92Rh55LHFcS1LphH1GGnXewwmLfdwHW35dV6OtDX42ytIzSTqmV3C5m-epV8kPZNikO9g6I6u6EtWoVQdnbOIh8_hmhm_RB21CyyNhwyFICQVcPnR9nvOb1QFqDd8m_Z2d0_87ptGzpfuhYOCtQ1YHwwahq563-DvgHPFYhOLt71qfCku6I0vOQ6cQulLdJxwuZ1tHfLVNrDPW1xe7mWvGrblUIM-un2GlnvZU71So7ztmL2Ch2td2FJbMW6VwXE6WI"
+                                        style="width:100%;height:140px;object-fit:cover;" />
+                                </div>
+                                <div style="padding:1.1rem;display:flex;flex-direction:column;justify-content:center;">
+                                    <p class="product-card-title" style="font-size:1rem;" data-i18n="gifts.m1">Premium
+                                        Gift Box</p>
+                                    <p class="product-card-desc" style="font-size:0.8rem;margin-bottom:.75rem;"
+                                        data-i18n="gifts.m1d">Dates, nuts & exotic flowers — a complete gift.</p>
+                                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                                        <span class="product-price" style="font-size:0.95rem;">380 EGP</span>
+                                        <button class="order-btn"><span class="material-symbols-outlined"
+                                                style="font-size:13px;">chat</span> <span
+                                                data-i18n="common.order_wa">WhatsApp</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card" style="display:flex;gap:1rem;">
+                                <div style="width:120px;flex-shrink:0;overflow:hidden;border-radius:12px 0 0 12px;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_bOdnNg8stI3Vi6LqCQCWI-mR46D2Z_RF5FHGsP_sIIFx989vZQSyrVlH4TfK8r6yG6H2ze75WdIP1Bj39SNf-x-JgMp7RxvVMsZlG-Dy6gVZAMSL5lh1AaeFOU0DJ6yrOcJIM84gs_fo4604YeL5V9Jvn2-ycnIc1CoJTXMYTMmBPNF21G7pAjXgrpMTc2mMDsSaHtoaqe_HfXCeMl5CXbB9855UcMFIQ7SVGzg7soAgdVWwLGYrgc1PSNYUeXYocBO4dnNZd-YO"
+                                        style="width:100%;height:140px;object-fit:cover;" />
+                                </div>
+                                <div style="padding:1.1rem;display:flex;flex-direction:column;justify-content:center;">
+                                    <p class="product-card-title" style="font-size:1rem;" data-i18n="gifts.m2">Dark
+                                        Bouquet & Oud</p>
+                                    <p class="product-card-desc" style="font-size:0.8rem;margin-bottom:.75rem;"
+                                        data-i18n="gifts.m2d">Bold dark florals with an oud fragrance set.</p>
+                                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                                        <span class="product-price" style="font-size:0.95rem;">580 EGP</span>
+                                        <button class="order-btn"><span class="material-symbols-outlined"
+                                                style="font-size:13px;">chat</span> <span
+                                                data-i18n="common.order_wa">WhatsApp</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card" style="display:flex;gap:1rem;">
+                                <div style="width:120px;flex-shrink:0;overflow:hidden;border-radius:12px 0 0 12px;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-OpoRIwU7GJ8lNcOcKWicFHSLscvggtIvL9RzRTdde9Q99pWE1eAJ8U-SCldek3ZCUZUSA3rrh6OezD4n4wWyCEYHxd4c4X6bbgXbHnbhDhMh0_-DJ-gOY0OHgWxc3OdlpHWfaBy-Ke28CUCcJYjZ5nMRh2M3KVIwN3ADuPQWiroLXkImzIWvRaXn0D_5uyaMg44O9H3TYtQ0Wb5VioqgPBLj-PmL_lyXTOY23WREbApkpdvfKgy2_bvPNLgZznzNQBVUvyPUe6w"
+                                        style="width:100%;height:140px;object-fit:cover;" />
+                                </div>
+                                <div style="padding:1.1rem;display:flex;flex-direction:column;justify-content:center;">
+                                    <p class="product-card-title" style="font-size:1rem;" data-i18n="gifts.m3">Trophy &
+                                        Blooms</p>
+                                    <p class="product-card-desc" style="font-size:0.8rem;margin-bottom:.75rem;"
+                                        data-i18n="gifts.m3d">Achievement gift with elegant structured flowers.</p>
+                                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                                        <span class="product-price" style="font-size:0.95rem;">420 EGP</span>
+                                        <button class="order-btn"><span class="material-symbols-outlined"
+                                                style="font-size:13px;">chat</span> <span
+                                                data-i18n="common.order_wa">WhatsApp</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══ HOW IT WORKS ═══ -->
+        <section style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
+            <div style="text-align:center;margin-bottom:4rem;">
+                <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                    data-i18n="howItWorks.title">The Curated Journey</h2>
+                <p style="color:#717973;margin-top:.75rem;max-width:440px;font-weight:300;line-height:1.7;margin-left:auto;margin-right:auto;font-style:italic;"
+                    data-i18n="howItWorks.subtitle">From our atelier to your doorstep.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;" id="steps-grid">
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+                    <div class="step-icon"><span class="material-symbols-outlined"
+                            style="font-size:32px;color:#315a44;">local_florist</span></div>
+                    <h4 class="font-headline" style="font-size:1.2rem;margin-bottom:.75rem;"
+                        data-i18n="howItWorks.step1_title">Select a Bouquet</h4>
+                    <p style="color:#717973;font-weight:300;line-height:1.7;font-size:0.9rem;"
+                        data-i18n="howItWorks.step1_desc">Browse our curated collection of premium botanical
+                        arrangements.</p>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:2rem;">
+                    <div class="step-icon"><span class="material-symbols-outlined"
+                            style="font-size:32px;color:#315a44;">chat_bubble</span></div>
+                    <h4 class="font-headline" style="font-size:1.2rem;margin-bottom:.75rem;"
+                        data-i18n="howItWorks.step2_title">Contact on WhatsApp</h4>
+                    <p style="color:#717973;font-weight:300;line-height:1.7;font-size:0.9rem;"
+                        data-i18n="howItWorks.step2_desc">Personal assistance to customize your selection and finalize
+                        order details.</p>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+                    <div class="step-icon"><span class="material-symbols-outlined"
+                            style="font-size:32px;color:#315a44;">speed</span></div>
+                    <h4 class="font-headline" style="font-size:1.2rem;margin-bottom:.75rem;"
+                        data-i18n="howItWorks.step3_title">Fast Delivery</h4>
+                    <p style="color:#717973;font-weight:300;line-height:1.7;font-size:0.9rem;"
+                        data-i18n="howItWorks.step3_desc">Express concierge delivery ensuring your blooms arrive in
+                        pristine condition.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══ INSTAGRAM ═══ -->
+        <section style="padding:4rem 0;">
+            <div style="text-align:center;margin-bottom:3rem;padding:0 2rem;">
+                <h2 class="font-headline" style="font-size:2rem;color:#1d1b1b;margin-bottom:.5rem;"
+                    data-i18n="instagram.title">Follow Our Bloom</h2>
+                <p
+                    style="color:#315a44;font-size:0.75rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;">
+                    @thebotanicaleditorial</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:3px;">
+                <div class="insta-item" style="aspect-ratio:1;">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4aN4W0OhYCMXKcu5avF5SYNR7I7GrG2oHzpdC4NEfZOBuSAlw3sNoqQxv4DRl2Il1R9H-HqVjSVYzwYIhJf_TP3pzw2Fcbal2MN4lyW4P8u22BardIMK7lVn5rOVcuFp5LFLHVA4Z-Ci2TcKoy4bh3F86QCLsXH05agw5ITFcwMSD7hTdQKf35SNnNXlkx3D9OkLXrXJqtUR0OO6pw13gLUHRev-w5VCbgBZk9TbgiV-0Uqz8HgU9IXCyCMgHL8dZFGK-W9LwbdWr" />
+                    <div class="insta-overlay"><span class="material-symbols-outlined"
+                            style="color:white;font-size:24px;">photo_camera</span></div>
+                </div>
+                <div class="insta-item" style="aspect-ratio:1;">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA0JvoIsiaBnOLvbiA1Bde37KPorUmv3qF_pZFJpTdpsxOhndYFbpN543ra9QwMAX09WY8vNJEcGlLuDrGiwKQiiPfMFArRzkMc5hPNTD8KcUmfdy3uWxaizZe1tksLTjihpFPXxEDXgk6PE59-OqCGhke40aG7ktjPwhnFDp3P7YbCUD2A_EkEPtx1bOuNdN0_5MsmKovXpMw4YYfPOH7q1kXwawG0pp1payDtHqtd7bbYNE9OrgzzIEt0j0pJbQo_BmWrVZObmHj" />
+                    <div class="insta-overlay"><span class="material-symbols-outlined"
+                            style="color:white;font-size:24px;">photo_camera</span></div>
+                </div>
+                <div class="insta-item" style="aspect-ratio:1;">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP6SVNv3kLX6x_yr3vAGF4TG-FMZhVtqTolMG_WMpqCDiYXOAwVdbqPLc6qxunriLvx7FVBU-Kp7n_qMAaNC5vl7r5vObY8Km6QrMTIMtrH7Gy872Yb9UKiefMWJNbN6Q3cZEXcWyudqIliVgJw9RxGjrHxpu-HZDJxA3p8PDJg8m93Hb1-619kXZtBSNcENrJtsOSE0reVsoUdK4Ynb-D_cKa3cpGl-EBbRk7MwMMFFN26dx5nn_KSjApWIlKlz7aPly8S8tO-9Ro" />
+                    <div class="insta-overlay"><span class="material-symbols-outlined"
+                            style="color:white;font-size:24px;">photo_camera</span></div>
+                </div>
+                <div class="insta-item" style="aspect-ratio:1;">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zhvLBbYOuyBi3Qf5dCO_zCNH0SzaygjN7XOrgANC3tGO7EOmA_tc0A0-9M2VFQYHlaZu7Mse94lh8tdeQTbLG9QDz4-H6qIiLDB3APZB6IYd6accvHphm-UL2YASmlofmhadlNgUIJkCKW-eEFkIQxy7YT5y_ABqa9sDgrqvNMviHzXcOiaPC_pYXAOAlyoJ16yiLuz5rLO_6adlBSCWDHGDLCcd-kaE9Xo-9cmKiIjtfCKv47baw4HkImi6MWkUFtsPVOTcc8dP" />
+                    <div class="insta-overlay"><span class="material-symbols-outlined"
+                            style="color:white;font-size:24px;">photo_camera</span></div>
+                </div>
+                <div class="insta-item" style="aspect-ratio:1;">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPnjefBo-7yKj7pmp3p7fMqRBp_NMguM2C-_6z1Hgdh7NIbo8v0MgnUnjnHc5JU90wWFxW-k6NHPrFrGIdo2QoHS-Gmong1_3g55iQMngnKllVDUNO509FUItwWFeVW83y4doMkBiHxuJSmzHuo3eG6CeZRqIkAFmUlLjFy4O-WzTMNiMUaOI8HRV7NmSnSTlUwnT7e2xzN9iqQaoUaCdLQBmHAo8TOZjgzq6nVItMpXeNQdCvdE6lwZ5s_-z03ff9Nigo9-mGbaim" />
+                    <div class="insta-overlay"><span class="material-symbols-outlined"
+                            style="color:white;font-size:24px;">photo_camera</span></div>
+                </div>
+                <div class="insta-item" style="aspect-ratio:1;">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-OpoRIwU7GJ8lNcOcKWicFHSLscvggtIvL9RzRTdde9Q99pWE1eAJ8U-SCldek3ZCUZUSA3rrh6OezD4n4wWyCEYHxd4c4X6bbgXbHnbhDhMh0_-DJ-gOY0OHgWxc3OdlpHWfaBy-Ke28CUCcJYjZ5nMRh2M3KVIwN3ADuPQWiroLXkImzIWvRaXn0D_5uyaMg44O9H3TYtQ0Wb5VioqgPBLj-PmL_lyXTOY23WREbApkpdvfKgy2_bvPNLgZznzNQBVUvyPUe6w" />
+                    <div class="insta-overlay"><span class="material-symbols-outlined"
+                            style="color:white;font-size:24px;">photo_camera</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="background:#1a2e22;color:white;padding:5rem 3rem 3rem;">
+        <div style="max-width:1600px;margin:0 auto;">
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;"
+                id="footer-cols">
+                <div>
+                    <p class="font-headline"
+                        style="font-size:1.5rem;margin-bottom:1rem;font-style:italic;color:rgba(255,255,255,0.95);"
+                        id="footer-brand">The Botanical Editorial</p>
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;line-height:1.8;max-width:280px;margin-bottom:1.5rem;"
+                        data-i18n="footer.brand_desc">Curating nature's finest moments for your everyday space.</p>
+                    <div style="display:flex;gap:1rem;">
+                        <a href="#"
+                            style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;transition:color .2s ease;"
+                            onmouseover="this.style.color='#a4d1b4'"
+                            onmouseout="this.style.color='rgba(255,255,255,0.5)'">Instagram</a>
+                        <a href="#"
+                            style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;transition:color .2s ease;"
+                            onmouseover="this.style.color='#a4d1b4'"
+                            onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pinterest</a>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#a4d1b4;margin-bottom:1.5rem;"
+                        data-i18n="footer.shop">Shop</p>
+                    <nav style="display:flex;flex-direction:column;gap:.75rem;">
+                        <a href="#natural" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="nav.natural">Natural</a>
+                        <a href="#artificial"
+                            style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="nav.artificial">Artificial</a>
+                        <a href="#baby-gifts"
+                            style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="nav.baby">Baby Gifts</a>
+                        <a href="#vases" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="nav.vases">Vases</a>
+                        <a href="#balloons" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="nav.balloons">Balloons</a>
+                        <a href="#gifts" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="nav.gifts">Gifts</a>
+                    </nav>
+                </div>
+                <div>
+                    <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#a4d1b4;margin-bottom:1.5rem;"
+                        data-i18n="footer.discover">Discover</p>
+                    <nav style="display:flex;flex-direction:column;gap:.75rem;">
+                        <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="footer.links.contact_us">Contact Us</a>
+                        <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="footer.links.shipping">Shipping Policy</a>
+                        <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;"
+                            data-i18n="footer.links.sustainability">Sustainability</a>
+                    </nav>
+                </div>
+                <div>
+                    <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#a4d1b4;margin-bottom:1.5rem;"
+                        data-i18n="footer.contact">Contact</p>
+                    <div
+                        style="display:flex;flex-direction:column;gap:1rem;color:rgba(255,255,255,0.5);font-size:0.82rem;">
+                        <div style="display:flex;align-items:center;gap:.75rem;"><span class="material-symbols-outlined"
+                                style="font-size:16px;">call</span> +20 100 000 0000</div>
+                        <div style="display:flex;align-items:center;gap:.75rem;"><span class="material-symbols-outlined"
+                                style="font-size:16px;">location_on</span> <span data-i18n="footer.address">Cairo,
+                                Egypt</span></div>
+                        <div style="display:flex;align-items:center;gap:.75rem;"><span class="material-symbols-outlined"
+                                style="font-size:16px;">mail</span> hello@botanical.eg</div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:2rem;text-align:center;">
+                <p style="color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;"
+                    data-i18n="footer.copyright">© 2024 THE BOTANICAL EDITORIAL. CRAFTED FOR THE CURATED LIFE.</p>
+            </div>
         </div>
     </footer>
-    <!-- FAB Suppression Applied per Rule: Detail/Focused pages would hide this. 
-         Active on Home Screen. -->
-    <a class="fixed bottom-10 right-10 z-[100] bg-primary-gradient text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
-        href="https://wa.me/1234567890" target="_blank">
-        <span class="material-symbols-outlined text-3xl">chat</span>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/201000000000" target="_blank" class="whatsapp-fab" title="Order on WhatsApp">
+        <span class="material-symbols-outlined" style="font-size:26px;">chat</span>
     </a>
+
+
+    <script>
+        // ══════════════════════════════════════════
+        // TRANSLATIONS
+        // ══════════════════════════════════════════
+        const translations = {
+            en: {
+                "nav.brand": "The Botanical Editorial",
+                "nav.natural": "Natural",
+                "nav.artificial": "Artificial",
+                "nav.baby": "Baby Gifts",
+                "nav.vases": "Vases",
+                "nav.balloons": "Balloons",
+                "nav.gifts": "Gifts",
+                "nav.cart": "Cart",
+                "hero.badge": "New Season Collection",
+                "hero.title": "Fresh Flowers for<br>Every Occasion",
+                "hero.subtitle": "Beautiful bouquets crafted with love",
+                "hero.cta_shop": "Shop Flowers",
+                "hero.cta_whatsapp": "Order on WhatsApp",
+                "hero.scroll": "Scroll",
+                "natural.label": "Fresh & Seasonal",
+                "natural.title": "Natural Flowers",
+                "natural.desc": "Farm-fresh blooms sourced daily — peonies, roses, orchids and seasonal arrangements crafted for every moment.",
+                "natural.p1": "Ethereal Blush",
+                "natural.p1d": "Dreamy pastel peonies and ranunculus for tender moments.",
+                "natural.p2": "Garden Serenade",
+                "natural.p2d": "Wild blooms that bring nature's music home.",
+                "natural.p3": "Midnight Orchid",
+                "natural.p3d": "Deep purple orchids with sculptural emerald foliage.",
+                "natural.p4": "Pure Serenity",
+                "natural.p4d": "Monochromatic white lilies and baby's breath perfection.",
+                "artificial.label": "Everlasting Beauty",
+                "artificial.title": "Artificial Flowers",
+                "artificial.desc": "Stunning silk and premium fabric blooms that look real, stay forever — no maintenance needed.",
+                "artificial.hero_label": "Bestseller",
+                "artificial.hero_title": "Sunset Silk Collection",
+                "artificial.p1": "Velvet Protea",
+                "artificial.p1d": "Bold architectural statement piece.",
+                "artificial.p2": "Silk Rose Dome",
+                "artificial.p2d": "Premium silk roses in a luxury dome arrangement.",
+                "artificial.p3": "Wild Meadow Mix",
+                "artificial.p3d": "A lush, permanent meadow for your home.",
+                "baby.label": "Welcome Little Ones",
+                "baby.title": "Baby Gift Collections",
+                "baby.desc": "Celebrate new arrivals with enchanting floral gifts and baby hampers, beautifully wrapped and delivered.",
+                "baby.c1_label": "For Her", "baby.c1": "Pink Blossom Set",
+                "baby.c2_label": "For Him", "baby.c2": "Blue & Green Hamper",
+                "baby.c3_label": "Neutral", "baby.c3": "Golden Welcome Box",
+                "baby.order": "Order Gift",
+                "vases.label": "For Every Space",
+                "vases.title": "Vases & Planters",
+                "vases.desc": "Curated ceramic, glass, and artisanal vases to complement any floral arrangement or stand alone as decor.",
+                "vases.p1": "Travertine Column", "vases.p1d": "Marble-finish tall vase, perfect for dramatic stems.",
+                "vases.p2": "Blown Glass Globe", "vases.p2d": "Hand-blown artisan glass with an organic shape.",
+                "vases.p3": "Terracotta Set", "vases.p3d": "Set of 3 earthy terracotta pots in graduating sizes.",
+                "vases.p4": "Matte Cylinder", "vases.p4d": "Minimal matte black ceramic for modern interiors.",
+                "balloons.label": "Party & Celebrations",
+                "balloons.title": "Balloons & Decor",
+                "balloons.desc": "Helium bouquets, foil balloons, and full party décor sets delivered to your door — ready to celebrate.",
+                "balloons.p1": "Pink Princess Bouquet", "balloons.p1d": "12 helium balloons + foil crown balloon.",
+                "balloons.p2": "Blue Star Set", "balloons.p2d": "Boy celebration helium set with star foils.",
+                "balloons.p3": "Golden Anniversary", "balloons.p3d": "Gold foil number balloons + confetti spheres.",
+                "balloons.p4": "Birthday Arch Kit", "balloons.p4d": "Full garland arch kit for birthdays and events.",
+                "gifts.label": "For Someone Special",
+                "gifts.title": "Gifts for Everyone",
+                "gifts.desc": "Thoughtfully curated gift sets for men and women — from luxury hampers to flower-and-chocolate combos.",
+                "gifts.for_women": "For Women",
+                "gifts.for_men": "For Men",
+                "gifts.w1": "Rose & Chocolate Box", "gifts.w1d": "Belgian chocolates with a dozen red roses.",
+                "gifts.w2": "Luxury Spa Hamper", "gifts.w2d": "Flowers + candles + body care gift set.",
+                "gifts.w3": "Perfume & Orchids", "gifts.w3d": "Luxury fragrance paired with deep orchids.",
+                "gifts.m1": "Premium Gift Box", "gifts.m1d": "Dates, nuts & exotic flowers — a complete gift.",
+                "gifts.m2": "Dark Bouquet & Oud", "gifts.m2d": "Bold dark florals with an oud fragrance set.",
+                "gifts.m3": "Trophy & Blooms", "gifts.m3d": "Achievement gift with elegant structured flowers.",
+                "howItWorks.title": "The Curated Journey",
+                "howItWorks.subtitle": "From our atelier to your doorstep.",
+                "howItWorks.step1_title": "Select a Bouquet",
+                "howItWorks.step1_desc": "Browse our curated collection of premium botanical arrangements.",
+                "howItWorks.step2_title": "Contact on WhatsApp",
+                "howItWorks.step2_desc": "Personal assistance to customize your selection and finalize order details.",
+                "howItWorks.step3_title": "Fast Delivery",
+                "howItWorks.step3_desc": "Express concierge delivery ensuring your blooms arrive in pristine condition.",
+                "instagram.title": "Follow Our Bloom",
+                "footer.brand_desc": "Curating nature's finest moments for your everyday space.",
+                "footer.shop": "Shop",
+                "footer.discover": "Discover",
+                "footer.contact": "Contact",
+                "footer.address": "Cairo, Egypt",
+                "footer.links.contact_us": "Contact Us",
+                "footer.links.shipping": "Shipping Policy",
+                "footer.links.sustainability": "Sustainability",
+                "footer.copyright": "© 2024 THE BOTANICAL EDITORIAL. CRAFTED FOR THE CURATED LIFE.",
+                "common.view_all": "View All",
+                "common.shop_now": "Shop Now",
+                "common.order_wa": "WhatsApp",
+            },
+            ar: {
+                "nav.brand": "المحرر النباتي",
+                "nav.natural": "ورد طبيعي",
+                "nav.artificial": "ورد صناعي",
+                "nav.baby": "هدايا مواليد",
+                "nav.vases": "فازات",
+                "nav.balloons": "بالونات",
+                "nav.gifts": "هدايا",
+                "nav.cart": "السلة",
+                "hero.badge": "مجموعة الموسم الجديد",
+                "hero.title": "ورود طازجة لكل مناسبة",
+                "hero.subtitle": "باقات رائعة مصنوعة بعناية وحب",
+                "hero.cta_shop": "تسوق الآن",
+                "hero.cta_whatsapp": "اطلب عبر واتساب",
+                "hero.scroll": "انتقل",
+                "natural.label": "طازجة وموسمية",
+                "natural.title": "الورد الطبيعي",
+                "natural.desc": "زهور طازجة يومياً من المزارع — ورد وأوركيد وترتيبات موسمية مصممة لكل لحظة.",
+                "natural.p1": "وردة الفجر",
+                "natural.p1d": "فاونيا وردية رقيقة لأجمل اللحظات.",
+                "natural.p2": "سيمفونية الحديقة",
+                "natural.p2d": "زهور برية تجلب موسيقى الطبيعة إلى منزلك.",
+                "natural.p3": "أوركيد منتصف الليل",
+                "natural.p3d": "أوركيد بنفسجي داكن مع أوراق زمردية.",
+                "natural.p4": "نقاء الهدوء",
+                "natural.p4d": "زنابق بيضاء وزهر العروس في تناسق رائع.",
+                "artificial.label": "جمال أبدي",
+                "artificial.title": "الورد الصناعي",
+                "artificial.desc": "زهور حريرية وقماشية فاخرة تبدو حقيقية وتدوم للأبد — بدون أي عناية.",
+                "artificial.hero_label": "الأكثر مبيعاً",
+                "artificial.hero_title": "مجموعة حرير الغروب",
+                "artificial.p1": "بروتيا مخملية",
+                "artificial.p1d": "قطعة معمارية جريئة واستثنائية.",
+                "artificial.p2": "قبة ورد الحرير",
+                "artificial.p2d": "ورد حريري فاخر في ترتيب قبة رائع.",
+                "artificial.p3": "مزيج المرج البري",
+                "artificial.p3d": "مرج دائم وخضير لمنزلك.",
+                "baby.label": "رحب بالصغار",
+                "baby.title": "هدايا المواليد",
+                "baby.desc": "احتفل بالمواليد الجدد بهدايا زهرية ساحرة وسلات هدايا جميلة.",
+                "baby.c1_label": "للبنت", "baby.c1": "طقم الزهرة الوردية",
+                "baby.c2_label": "للولد", "baby.c2": "سلة الأزرق والأخضر",
+                "baby.c3_label": "محايد", "baby.c3": "صندوق الترحيب الذهبي",
+                "baby.order": "اطلب هدية",
+                "vases.label": "لكل مكان",
+                "vases.title": "الفازات والأواني",
+                "vases.desc": "فازات سيراميك وزجاج وحرفية منسقة لإطار أي ترتيب زهري أو كقطعة ديكور مستقلة.",
+                "vases.p1": "عمود التراڤرتين", "vases.p1d": "فازة طويلة بلمسة رخامية مثالية للسيقان الدرامية.",
+                "vases.p2": "كرة الزجاج المنفوخ", "vases.p2d": "زجاج حرفي منفوخ يدوياً بشكل عضوي.",
+                "vases.p3": "طقم تيراكوتا", "vases.p3d": "3 أواني تيراكوتا بأحجام متدرجة.",
+                "vases.p4": "أسطوانة مطفأة", "vases.p4d": "سيراميك أسود مطفأ للديكور العصري.",
+                "balloons.label": "الحفلات والمناسبات",
+                "balloons.title": "البالونات والديكور",
+                "balloons.desc": "باقات هيليوم وبالونات فويل وطقم ديكور حفلات كاملة توصل إلى بابك — جاهزة للاحتفال.",
+                "balloons.p1": "باقة الأميرة الوردية", "balloons.p1d": "12 بالونة هيليوم + بالونة تاج فويل.",
+                "balloons.p2": "طقم النجوم الزرقاء", "balloons.p2d": "طقم هيليوم احتفالي بنجوم فويل.",
+                "balloons.p3": "الذكرى الذهبية", "balloons.p3d": "بالونات أرقام ذهبية + كرات كونفيتي.",
+                "balloons.p4": "طوق عيد الميلاد", "balloons.p4d": "طقم تصميم قوس كامل للحفلات والفعاليات.",
+                "gifts.label": "لمن تحب",
+                "gifts.title": "هدايا للجميع",
+                "gifts.desc": "مجموعات هدايا منسقة بعناية للرجال والسيدات — من السلات الفاخرة إلى الورد والشوكولاتة.",
+                "gifts.for_women": "للسيدات",
+                "gifts.for_men": "للرجال",
+                "gifts.w1": "صندوق الورد والشوكولاتة", "gifts.w1d": "شوكولاتة بلجيكية مع دزينة ورد أحمر.",
+                "gifts.w2": "سلة السبا الفاخرة", "gifts.w2d": "زهور + شموع + طقم عناية بالجسم.",
+                "gifts.w3": "عطر وأوركيد", "gifts.w3d": "عطر فاخر مع أوركيد داكن.",
+                "gifts.m1": "صندوق هدايا بريميوم", "gifts.m1d": "تمر ومكسرات وزهور استوائية — هدية متكاملة.",
+                "gifts.m2": "باقة داكنة وعود", "gifts.m2d": "زهور داكنة جريئة مع طقم عطر عود.",
+                "gifts.m3": "كأس وزهور", "gifts.m3d": "هدية إنجاز مع زهور منظمة أنيقة.",
+                "howItWorks.title": "رحلة الاختيار",
+                "howItWorks.subtitle": "من محترفنا إلى باب منزلك.",
+                "howItWorks.step1_title": "اختر باقتك",
+                "howItWorks.step1_desc": "تصفح مجموعتنا المنسقة من الترتيبات النباتية الفاخرة.",
+                "howItWorks.step2_title": "تواصل عبر واتساب",
+                "howItWorks.step2_desc": "مساعدة شخصية لتخصيص اختيارك وتأكيد تفاصيل الطلب.",
+                "howItWorks.step3_title": "توصيل سريع",
+                "howItWorks.step3_desc": "خدمة توصيل سريعة تضمن وصول زهورك بأفضل حال.",
+                "instagram.title": "تابع جمالنا",
+                "footer.brand_desc": "ننسق أجمل لحظات الطبيعة لمساحتك اليومية.",
+                "footer.shop": "تسوق",
+                "footer.discover": "اكتشف",
+                "footer.contact": "تواصل",
+                "footer.address": "القاهرة، مصر",
+                "footer.links.contact_us": "اتصل بنا",
+                "footer.links.shipping": "سياسة الشحن",
+                "footer.links.sustainability": "الاستدامة",
+                "footer.copyright": "© ٢٠٢٤ المحرر النباتي. مصنوع للحياة الراقية.",
+                "common.view_all": "عرض الكل",
+                "common.shop_now": "تسوق الآن",
+                "common.order_wa": "واتساب",
+            }
+        };
+
+        let currentLang = 'en';
+
+        function applyTranslations(lang) {
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.innerHTML = t[key];
+                }
+            });
+            // Brand text
+            document.getElementById('brand-text').textContent = t['nav.brand'];
+            document.getElementById('footer-brand').textContent = t['nav.brand'];
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const html = document.documentElement;
+            html.setAttribute('lang', lang);
+            html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+            // Update buttons
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-ar').classList.toggle('active', lang === 'ar');
+
+            // RTL footer adjustments
+            const footerCols = document.getElementById('footer-cols');
+            if (lang === 'ar') {
+                footerCols.style.direction = 'rtl';
+                document.getElementById('footer-brand').style.fontStyle = 'normal';
+            } else {
+                footerCols.style.direction = 'ltr';
+                document.getElementById('footer-brand').style.fontStyle = 'italic';
+            }
+
+            applyTranslations(lang);
+        }
+
+        // ══════════════════════════════════════════
+        // NAVBAR SCROLL
+        // ══════════════════════════════════════════
+        window.addEventListener('scroll', () => {
+            const nb = document.getElementById('navbar');
+            if (window.scrollY > 60) nb.classList.add('scrolled');
+            else nb.classList.remove('scrolled');
+
+            // Active nav link
+            const sections = ['natural', 'artificial', 'baby-gifts', 'vases', 'balloons', 'gifts'];
+            let current = '';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && window.scrollY >= el.offsetTop - 120) current = id;
+            });
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+            });
+        });
+
+        // ══════════════════════════════════════════
+        // MOBILE MENU
+        // ══════════════════════════════════════════
+        function toggleMobile() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        }
+
+        // Show hamburger on small screens
+        function checkMobile() {
+            const btn = document.getElementById('menu-btn');
+            btn.style.display = window.innerWidth <= 1100 ? 'flex' : 'none';
+        }
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        // ══════════════════════════════════════════
+        // SCROLL ANIMATION
+        // ══════════════════════════════════════════
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('visible'), i * 80);
+                }
+            });
+        }, { threshold: 0.08 });
+        fadeEls.forEach(el => observer.observe(el));
+
+        // Responsive grids
+        function handleResponsive() {
+            const w = window.innerWidth;
+            const stepsGrid = document.getElementById('steps-grid');
+            const giftsGrid = document.getElementById('gifts-split');
+            const artGrid = document.getElementById('art-grid');
+            const footerCols = document.getElementById('footer-cols');
+            const balloonsGrid = document.querySelector('.balloons-grid');
+
+            if (stepsGrid) stepsGrid.style.gridTemplateColumns = w < 768 ? '1fr' : 'repeat(3,1fr)';
+            if (giftsGrid) giftsGrid.style.gridTemplateColumns = w < 768 ? '1fr' : '1fr 1fr';
+            if (artGrid) artGrid.style.gridTemplateColumns = w < 768 ? '1fr' : '1fr 1fr';
+            if (footerCols) footerCols.style.gridTemplateColumns = w < 1024 ? 'repeat(2,1fr)' : w < 640 ? '1fr' : '2fr 1fr 1fr 1fr';
+            if (balloonsGrid) balloonsGrid.style.gridTemplateColumns = w < 640 ? 'repeat(2,1fr)' : w < 1024 ? 'repeat(2,1fr)' : 'repeat(4,1fr)';
+
+            // Instagram grid
+            const instaGrid = document.querySelector('[style*="grid-template-columns:repeat(6,1fr)"]');
+            if (instaGrid) instaGrid.style.gridTemplateColumns = w < 640 ? 'repeat(3,1fr)' : 'repeat(6,1fr)';
+        }
+        handleResponsive();
+        window.addEventListener('resize', handleResponsive);
+    </script>
 </body>
 
 </html>
