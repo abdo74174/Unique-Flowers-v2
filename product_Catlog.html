@@ -7,8 +7,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Unique Flowers | Product Catalog</title>
     <!-- Google Fonts -->
+    <script src="translations.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Cairo:wght@200..1000&amp;display=swap"
         rel="stylesheet" />
     <!-- Material Symbols -->
     <link
@@ -115,22 +117,26 @@
                 <img alt="Unique Flowers Logo" class="h-10 w-auto"
                     data-alt="minimalist florist brand logo featuring a stylized rose outline in a deep earthy brown tone on a cream background"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-p0vnN8qNWeEsGafiOPH9I1-7hv9oqM_bypHkPvod5voj03radUBBcEZgJbrAoRbIfrz8BXXIK-wMIthv-LbWm-hKPRhJLyUYhqqk5v5LCU2pFeIUvZXpCEHM8azwUpdV4zqp0JeF2rfc4ToKs8_5PInG4N1Zm4uAYdBQ3wfdkBFWfbj-HKXhOyPomN3DOb2IUfjQ6j9OLS-KP6ZxnFNqeS3yaY2CyFB-Td4wJUxNWXc4cAShgvHulvBJlrtquYkGohLgjXCz7sOK" />
-                <span class="text-2xl font-serif text-stone-900 dark:text-stone-50 italic tracking-tighter">Unique
+                <span class="text-2xl font-serif text-stone-900 dark:text-stone-50 italic tracking-tighter" data-i18n="nav.brand">Unique
                     Flowers</span>
             </div>
             <nav class="hidden md:flex gap-8 items-center">
                 <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-900 dark:text-stone-50 border-b border-stone-400 pb-1 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#">Fresh Flowers</a>
+                    href="product_category.html" data-i18n="nav.natural">Fresh Flowers</a>
                 <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#">Artificial Flowers</a>
+                    href="product_Catlog.html" data-i18n="nav.artificial">Artificial Flowers</a>
                 <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#">Gifts</a>
+                    href="gift_Collections.html" data-i18n="nav.gifts">Gifts</a>
                 <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#">Vases</a>
+                    href="#" data-i18n="nav.vases">Vases</a>
                 <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#">Balloons</a>
+                    href="#" data-i18n="nav.balloons">Balloons</a>
             </nav>
             <div class="flex items-center gap-6">
+                <div class="flex items-center bg-zinc-100 dark:bg-zinc-800 rounded-full p-1 h-8">
+                    <button onclick="setLanguage('en')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-en">EN</button>
+                    <button onclick="setLanguage('ar')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-ar">AR</button>
+                </div>
                 <button class="text-stone-700 dark:text-stone-300 hover:text-stone-900 transition-colors">
                     <span class="material-symbols-outlined">shopping_cart</span>
                 </button>
@@ -145,38 +151,38 @@
         <aside
             class="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl border-r border-stone-100 dark:border-stone-800 flex-col p-6 z-40 shadow-2xl shadow-stone-900/5">
             <div class="mb-10 pt-16">
-                <h2 class="font-serif italic text-2xl text-stone-800 dark:text-stone-100">Unique Flowers</h2>
-                <p class="text-xs font-sans text-stone-500 tracking-widest uppercase mt-1">The Digital Florist</p>
+                <h2 class="font-serif italic text-2xl text-stone-800 dark:text-stone-100" data-i18n="nav.brand">Unique Flowers</h2>
+                <p class="text-xs font-sans text-stone-500 tracking-widest uppercase mt-1" data-i18n="catalog_page.brand_tagline">The Digital Florist</p>
             </div>
             <nav class="flex flex-col gap-2 flex-grow">
                 <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
-                    href="#">
+                    href="index.html">
                     <span class="material-symbols-outlined">home</span>
-                    <span class="font-sans">Home</span>
+                    <span class="font-sans" data-i18n="catalog_page.home">Home</span>
                 </a>
                 <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
                     href="#">
                     <span class="material-symbols-outlined">chat</span>
-                    <span class="font-sans">Order Via WhatsApp</span>
+                    <span class="font-sans" data-i18n="catalog_page.order_whatsapp">Order Via WhatsApp</span>
                 </a>
                 <a class="flex items-center gap-4 bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-white rounded-lg px-4 py-3 active:scale-95 transition-transform"
                     href="#">
                     <span class="material-symbols-outlined">filter_list</span>
-                    <span class="font-sans">Categories</span>
+                    <span class="font-sans" data-i18n="catalog_page.categories">Categories</span>
                 </a>
                 <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
                     href="#">
                     <span class="material-symbols-outlined">favorite</span>
-                    <span class="font-sans">My Favorites</span>
+                    <span class="font-sans" data-i18n="catalog_page.favorites">My Favorites</span>
                 </a>
                 <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
                     href="#">
                     <span class="material-symbols-outlined">help</span>
-                    <span class="font-sans">Support</span>
+                    <span class="font-sans" data-i18n="catalog_page.support">Support</span>
                 </a>
             </nav>
             <button
-                class="mt-auto velvet-gradient text-white py-4 rounded-lg font-sans text-sm tracking-widest uppercase active:scale-95 transition-transform">
+                class="mt-auto velvet-gradient text-white py-4 rounded-lg font-sans text-sm tracking-widest uppercase active:scale-95 transition-transform" data-i18n="catalog_page.start_bouquet">
                 Start a Bouquet
             </button>
         </aside>
@@ -187,20 +193,20 @@
                 <div
                     class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-outline-variant/15 pb-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-serif text-on-surface italic leading-tight">Spring
+                        <h1 class="text-5xl md:text-7xl font-serif text-on-surface italic leading-tight" data-i18n="catalog_page.spring_title">Spring
                             Curations</h1>
-                        <p class="mt-4 text-secondary font-body leading-relaxed opacity-80">Our floral designers have
+                        <p class="mt-4 text-secondary font-body leading-relaxed opacity-80" data-i18n="catalog_page.spring_desc">Our floral designers have
                             hand-selected these arrangements to evoke the delicate awakening of the season. Each bloom
                             is sourced ethically from private gardens.</p>
                     </div>
                     <!-- Collection Filters -->
                     <div class="flex gap-4 flex-wrap">
                         <button
-                            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-[0.6875rem] uppercase tracking-widest hover:bg-surface-variant transition-colors">Men</button>
+                            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-[0.6875rem] uppercase tracking-widest hover:bg-surface-variant transition-colors" data-i18n="catalog_page.men">Men</button>
                         <button
-                            class="px-6 py-2 rounded-full bg-primary text-on-primary font-label text-[0.6875rem] uppercase tracking-widest">Women</button>
+                            class="px-6 py-2 rounded-full bg-primary text-on-primary font-label text-[0.6875rem] uppercase tracking-widest" data-i18n="catalog_page.women">Women</button>
                         <button
-                            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-[0.6875rem] uppercase tracking-widest hover:bg-surface-variant transition-colors">Newborns</button>
+                            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-[0.6875rem] uppercase tracking-widest hover:bg-surface-variant transition-colors" data-i18n="catalog_page.newborns">Newborns</button>
                     </div>
                 </div>
             </section>
@@ -219,10 +225,10 @@
                         </div>
                     </div>
                     <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface">The Heirloom Peony</h3>
+                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p1_title">The Heirloom Peony</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-body text-secondary-container-on font-semibold">€125.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50">Fresh
+                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p1_type">Fresh
                                 Arrangement</span>
                         </div>
                         <button
@@ -245,10 +251,10 @@
                         </div>
                     </div>
                     <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface">Alabaster Sculpt</h3>
+                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p2_title">Alabaster Sculpt</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-body text-secondary-container-on font-semibold">€84.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50">Handcrafted
+                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p2_type">Handcrafted
                                 Vase</span>
                         </div>
                         <button
@@ -271,10 +277,10 @@
                         </div>
                     </div>
                     <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface">Midnight Orchid</h3>
+                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p3_title">Midnight Orchid</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-body text-secondary-container-on font-semibold">€150.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50">Premium Floral</span>
+                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p3_type">Premium Floral</span>
                         </div>
                         <button
                             class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
@@ -296,10 +302,10 @@
                         </div>
                     </div>
                     <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface">Tuscan Sun Dried</h3>
+                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p4_title">Tuscan Sun Dried</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-body text-secondary-container-on font-semibold">€95.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50">Eternal
+                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p4_type">Eternal
                                 Collection</span>
                         </div>
                         <button
@@ -322,10 +328,10 @@
                         </div>
                     </div>
                     <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface">Emerald Ribbed Glass</h3>
+                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p5_title">Emerald Ribbed Glass</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-body text-secondary-container-on font-semibold">€68.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50">Bespoke Vases</span>
+                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p5_type">Bespoke Vases</span>
                         </div>
                         <button
                             class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
@@ -347,10 +353,10 @@
                         </div>
                     </div>
                     <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface">Cotton Candy Gala</h3>
+                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p6_title">Cotton Candy Gala</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-body text-secondary-container-on font-semibold">€45.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50">Celebration
+                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p6_type">Celebration
                                 Kit</span>
                         </div>
                         <button
@@ -368,28 +374,28 @@
         <div
             class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl mx-auto py-16 px-8 border-t border-stone-200/20">
             <div>
-                <span class="font-serif italic text-xl text-stone-900 dark:text-stone-50">Unique Flowers</span>
-                <p class="mt-4 font-serif text-lg text-stone-800 dark:text-stone-200">The Digital Florist’s Atelier.</p>
-                <p class="mt-8 font-sans text-xs text-stone-600 dark:text-stone-400">© 2024 Unique Flowers. The Digital
+                <span class="font-serif italic text-xl text-stone-900 dark:text-stone-50" data-i18n="nav.brand">Unique Flowers</span>
+                <p class="mt-4 font-serif text-lg text-stone-800 dark:text-stone-200" data-i18n="catalog_page.footer_atelier">The Digital Florist’s Atelier.</p>
+                <p class="mt-8 font-sans text-xs text-stone-600 dark:text-stone-400" data-i18n="footer.copyright">© 2024 Unique Flowers. The Digital
                     Florist’s Atelier.</p>
             </div>
             <div class="flex flex-col gap-4">
                 <h4
-                    class="font-sans text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-bold">
+                    class="font-sans text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-bold" data-i18n="catalog_page.contact_support">
                     Contact &amp; Support</h4>
                 <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#">WhatsApp Support</a>
+                    href="#" data-i18n="catalog_page.whatsapp_support">WhatsApp Support</a>
                 <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#">Our Location</a>
+                    href="#" data-i18n="catalog_page.location">Our Location</a>
             </div>
             <div class="flex flex-col gap-4">
                 <h4
-                    class="font-sans text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-bold">
+                    class="font-sans text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-bold" data-i18n="catalog_page.legal_social">
                     Legal &amp; Social</h4>
                 <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
                     href="#">Instagram</a>
                 <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#">Terms &amp; Conditions</a>
+                    href="#" data-i18n="catalog_page.terms">Terms &amp; Conditions</a>
             </div>
         </div>
     </footer>
@@ -398,19 +404,19 @@
         class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-md flex justify-around items-center py-4 px-6">
         <button class="flex flex-col items-center gap-1 text-stone-900 dark:text-stone-50">
             <span class="material-symbols-outlined">home</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase">Home</span>
+            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.home">Home</span>
         </button>
         <button class="flex flex-col items-center gap-1 text-stone-400">
             <span class="material-symbols-outlined">filter_list</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase">Catalog</span>
+            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.catalog">Catalog</span>
         </button>
         <button class="flex flex-col items-center gap-1 text-stone-400">
             <span class="material-symbols-outlined">chat</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase">WhatsApp</span>
+            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.whatsapp">WhatsApp</span>
         </button>
         <button class="flex flex-col items-center gap-1 text-stone-400">
             <span class="material-symbols-outlined">person</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase">Profile</span>
+            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.profile">Profile</span>
         </button>
     </nav>
 </body>
