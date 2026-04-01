@@ -6,9 +6,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Gift Collections | Unique Flowers</title>
+    <script src="translations.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Manrope:wght@400;500;600;700&amp;family=Cairo:wght@200..1000&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -109,21 +110,25 @@
                 <img alt="Unique Flowers Logo" class="h-10 w-auto"
                     data-alt="Elegant minimalist logo for Unique Flowers featuring a stylized rose icon and sophisticated serif typography"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXTA38AL8EwXsSmg9PWA_3DkmBKqURyrLrPgueEt51EeREVAzp1wxJEyQXfWr2X8eYXvrFaXU2S9gVeU6ZnCAk0XLvyLtD3MXJqiReuA80UKRR8ODzB8RbT_A5xKcJMmPLzI19_2Fa8cmRK5hMuL4eQLXiJXZqrb5kaaaoBTjD-ttUfpXWW3W4P6m3vq9lZFAqcsYmjiQSTk8jIJTApZZZ41wp3-wjaNZwqCc_ycZiElTnYMTJaT8QfPkt-FuZb50qWeV1l0HsEG2U" />
-                <span class="text-2xl font-headline text-stone-900 italic tracking-tighter">Unique Flowers</span>
+                <span class="text-2xl font-headline text-stone-900 italic tracking-tighter" data-i18n="nav.brand">Unique Flowers</span>
             </div>
             <div class="hidden md:flex items-center space-x-12">
                 <a class="text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors duration-300"
-                    href="#">Fresh Flowers</a>
+                    href="product_category.html" data-i18n="nav.natural">Fresh Flowers</a>
                 <a class="text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors duration-300"
-                    href="#">Artificial Flowers</a>
+                    href="product_Catlog.html" data-i18n="nav.artificial">Artificial Flowers</a>
                 <a class="text-stone-900 dark:text-stone-50 border-b border-stone-400 pb-1 font-label tracking-widest text-[0.6875rem] uppercase"
-                    href="#">Gifts</a>
+                    href="gift_Collections.html" data-i18n="nav.gifts">Gifts</a>
                 <a class="text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors duration-300"
-                    href="#">Vases</a>
+                    href="#" data-i18n="nav.vases">Vases</a>
                 <a class="text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors duration-300"
-                    href="#">Balloons</a>
+                    href="#" data-i18n="nav.balloons">Balloons</a>
             </div>
             <div class="flex items-center space-x-6">
+                <div class="flex items-center bg-zinc-100 dark:bg-zinc-800 rounded-full p-1 h-8">
+                    <button onclick="setLanguage('en')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-en">EN</button>
+                    <button onclick="setLanguage('ar')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-ar">AR</button>
+                </div>
                 <button class="material-symbols-outlined text-stone-700 hover:text-stone-900">person</button>
                 <div class="relative">
                     <button class="material-symbols-outlined text-stone-700 hover:text-stone-900">shopping_cart</button>
@@ -136,10 +141,10 @@
     <main class="pt-24 pb-32">
         <!-- Hero Header -->
         <header class="max-w-7xl mx-auto px-8 py-20 text-center">
-            <h1 class="font-headline italic text-5xl md:text-7xl text-primary leading-tight mb-6">
+            <h1 class="font-headline italic text-5xl md:text-7xl text-primary leading-tight mb-6" data-i18n="gift_page.hero_title">
                 Curated Collections <br /> for Every Moment
             </h1>
-            <p class="font-body text-secondary max-w-xl mx-auto text-lg leading-relaxed">
+            <p class="font-body text-secondary max-w-xl mx-auto text-lg leading-relaxed" data-i18n="gift_page.hero_desc">
                 Hand-picked botanical treasures and artisanal gifts, thoughtfully assembled to celebrate life's most
                 beautiful transitions.
             </p>
@@ -149,11 +154,11 @@
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
                     <div>
-                        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-2 block">New
+                        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-2 block" data-i18n="gift_page.newborn_label">New
                             Beginnings</span>
-                        <h2 class="font-headline text-4xl italic text-stone-800">Newborn Gifts</h2>
+                        <h2 class="font-headline text-4xl italic text-stone-800" data-i18n="gift_page.newborn_title">Newborn Gifts</h2>
                     </div>
-                    <p class="font-body text-stone-600 max-w-xs text-right hidden md:block">Welcoming the newest members
+                    <p class="font-body text-stone-600 max-w-xs text-right hidden md:block" data-i18n="gift_page.newborn_desc">Welcoming the newest members
                         of the garden with soft petals and gentle hues.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -164,8 +169,8 @@
                                 data-alt="A delicate newborn gift basket featuring soft pink peonies, a plush white teddy bear, and a hand-knitted baby blanket in a sunlit nursery"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Lao3nxoHtCSZrNuBp3E8aEXZNFG6rdZewOdoj8qUXvd_eJWIRk9UXuiBYzNinCJFrLnY2D911UAvaD0rdThQQZ-Lnl2qIdFxQ0n4SWQNFEjk8GB6UY-T9y9OSBh8V_XBrnvxKHv90jyTZliX37hfBQCEhEGHxOevP9_EDHMK-3eD_VohRr0oANd8qSDgN6jw-xgEp-f3hkG9VeFtR4IZb9PPjBdmFiz3CDSWMgrskQMasmBsjcTp-_PyhsEudhslFk4L_V88306I" />
                         </div>
-                        <h3 class="font-headline text-2xl text-stone-900 mb-1">Blush Blossom Cradle</h3>
-                        <p class="font-body text-stone-500 mb-6 text-sm">Peonies &amp; Organic Cotton Essentials</p>
+                        <h3 class="font-headline text-2xl text-stone-900 mb-1" data-i18n="gift_page.g1_title">Blush Blossom Cradle</h3>
+                        <p class="font-body text-stone-500 mb-6 text-sm" data-i18n="gift_page.g1_desc">Peonies &amp; Organic Cotton Essentials</p>
                         <button
                             class="w-full bloom-gradient text-white py-4 rounded-lg font-label uppercase tracking-widest text-[0.6875rem] flex items-center justify-center gap-2 group-hover:shadow-xl transition-all">
                             <span class="material-symbols-outlined text-sm">chat</span> Order on WhatsApp
@@ -178,8 +183,8 @@
                                 data-alt="Artisanal gift box with soft blue hydrangeas, a set of wooden baby toys, and a tiny pair of knit booties on a cream linen surface"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmELgOt2Ii4cThF9Gu1sELngxL405lpSDybFsXHDTT17aOl61DyrCtkrv-WrNOFjoyFtv69LnyadbAtEsC9f6kMEM-HhZITeWsRDQS4xvRD74vdv4C4cQehSl7O-WjMG2htWWddPZaxKyrUe3UNMs-Mb6hjlXp1yJEa2Z-szj2Hm0XLjkVQb7LEuz4xquiDkNq_2buaNwojOf7Y-RsrVRSLXlQXOCELc64ZXVzrK1cFzcvzFBlO5H_ZemLGa99RLGgxNE6CmmEu8RU" />
                         </div>
-                        <h3 class="font-headline text-2xl text-stone-900 mb-1">Azure Sky Welcome</h3>
-                        <p class="font-body text-stone-500 mb-6 text-sm">Hydrangeas &amp; Wooden Keepsakes</p>
+                        <h3 class="font-headline text-2xl text-stone-900 mb-1" data-i18n="gift_page.g2_title">Azure Sky Welcome</h3>
+                        <p class="font-body text-stone-500 mb-6 text-sm" data-i18n="gift_page.g2_desc">Hydrangeas &amp; Wooden Keepsakes</p>
                         <button
                             class="w-full bloom-gradient text-white py-4 rounded-lg font-label uppercase tracking-widest text-[0.6875rem] flex items-center justify-center gap-2 group-hover:shadow-xl transition-all">
                             <span class="material-symbols-outlined text-sm">chat</span> Order on WhatsApp
@@ -192,8 +197,8 @@
                                 data-alt="Unisex newborn gift hamper with dried chamomile, a glass bottle, and cream-colored linen baby clothes in a rustic wicker basket"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYe6K__Md7uMe-fkSUjVEzUgNzpcI3_OSe4p6VOu3-SQkrQ9whitnTMnKrd9fVsmYT8sO4b8E8IGAHMMGgRm-vuJFJl7J2YTedvaQdNUBgLyyPM_Y9YNvjFLILrzoWULbtUfKxmuoMKBY2V2aK5eJIp1Kf1wHnDPwpcCE_BF8VpaY6U_7nSxpVaB_cGFjhc9DE_b4e5TDkIsLFu21NkIxRR7R6qllbEJOalIPWo_y1sxlQu41LtTOaZNrZw-5RbEDXt-rvfKbxo_ze" />
                         </div>
-                        <h3 class="font-headline text-2xl text-stone-900 mb-1">Ethereal Neutral Box</h3>
-                        <p class="font-body text-stone-500 mb-6 text-sm">White Lilies &amp; Linen Dreams</p>
+                        <h3 class="font-headline text-2xl text-stone-900 mb-1" data-i18n="gift_page.g3_title">Ethereal Neutral Box</h3>
+                        <p class="font-body text-stone-500 mb-6 text-sm" data-i18n="gift_page.g3_desc">White Lilies &amp; Linen Dreams</p>
                         <button
                             class="w-full bloom-gradient text-white py-4 rounded-lg font-label uppercase tracking-widest text-[0.6875rem] flex items-center justify-center gap-2 group-hover:shadow-xl transition-all">
                             <span class="material-symbols-outlined text-sm">chat</span> Order on WhatsApp
@@ -214,26 +219,26 @@
                         </div>
                         <div
                             class="absolute -bottom-10 -right-10 hidden lg:block w-64 p-8 bg-surface shadow-2xl rounded-xl">
-                            <p class="font-headline italic text-xl text-stone-800 mb-4">"Strength in Elegance"</p>
+                            <p class="font-headline italic text-xl text-stone-800 mb-4" data-i18n="gift_page.him_quote">"Strength in Elegance"</p>
                             <button
-                                class="text-secondary font-label text-[0.6875rem] uppercase tracking-widest border-b border-secondary/30 pb-1">Explore
+                                class="text-secondary font-label text-[0.6875rem] uppercase tracking-widest border-b border-secondary/30 pb-1" data-i18n="gift_page.him_btn">Explore
                                 For Him</button>
                         </div>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <span class="font-label uppercase tracking-[0.2em] text-secondary text-xs mb-4 block">Signature
+                        <span class="font-label uppercase tracking-[0.2em] text-secondary text-xs mb-4 block" data-i18n="gift_page.sig_series">Signature
                             Series</span>
-                        <h2 class="font-headline text-5xl italic text-stone-900 mb-8 leading-tight">The Gentleman’s
+                        <h2 class="font-headline text-5xl italic text-stone-900 mb-8 leading-tight" data-i18n="gift_page.him_title">The Gentleman’s
                             Collection</h2>
-                        <p class="font-body text-stone-600 mb-10 leading-relaxed text-lg">
+                        <p class="font-body text-stone-600 mb-10 leading-relaxed text-lg" data-i18n="gift_page.him_desc">
                             Refined, bold, and meticulously crafted. Our collections for men pair architectural
                             botanicals with premium lifestyle accessories for a statement of quiet luxury.
                         </p>
                         <div class="flex flex-col gap-6">
                             <div class="flex items-center justify-between p-6 bg-surface-container rounded-xl">
                                 <div>
-                                    <h4 class="font-headline text-xl text-stone-800">The Noir Executive</h4>
-                                    <p class="font-body text-sm text-stone-500">Succulents &amp; Leather Goods</p>
+                                    <h4 class="font-headline text-xl text-stone-800" data-i18n="gift_page.him_p1_title">The Noir Executive</h4>
+                                    <p class="font-body text-sm text-stone-500" data-i18n="gift_page.him_p1_desc">Succulents &amp; Leather Goods</p>
                                 </div>
                                 <button
                                     class="bg-secondary text-white px-6 py-3 rounded-lg font-label uppercase tracking-widest text-[0.6rem] flex items-center gap-2">
@@ -242,8 +247,8 @@
                             </div>
                             <div class="flex items-center justify-between p-6 bg-surface-container rounded-xl">
                                 <div>
-                                    <h4 class="font-headline text-xl text-stone-800">Forest Reserve</h4>
-                                    <p class="font-body text-sm text-stone-500">Evergreen Arrangement &amp; Aged Spirits
+                                    <h4 class="font-headline text-xl text-stone-800" data-i18n="gift_page.him_p2_title">Forest Reserve</h4>
+                                    <p class="font-body text-sm text-stone-500" data-i18n="gift_page.him_p2_desc">Evergreen Arrangement &amp; Aged Spirits
                                     </p>
                                 </div>
                                 <button
@@ -256,18 +261,18 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div>
-                        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-4 block">Timeless
+                        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-4 block" data-i18n="gift_page.grace_label">Timeless
                             Grace</span>
-                        <h2 class="font-headline text-5xl italic text-stone-900 mb-8 leading-tight">The Modern Muse</h2>
-                        <p class="font-body text-stone-600 mb-10 leading-relaxed text-lg">
+                        <h2 class="font-headline text-5xl italic text-stone-900 mb-8 leading-tight" data-i18n="gift_page.her_title">The Modern Muse</h2>
+                        <p class="font-body text-stone-600 mb-10 leading-relaxed text-lg" data-i18n="gift_page.her_desc">
                             Delicate textures and intoxicating scents. These collections celebrate the feminine spirit
                             with ethereal blooms and artisanal self-care rituals.
                         </p>
                         <div class="flex flex-col gap-6">
                             <div class="flex items-center justify-between p-6 bg-primary-fixed/30 rounded-xl">
                                 <div>
-                                    <h4 class="font-headline text-xl text-stone-800">Velvet Rose Atelier</h4>
-                                    <p class="font-body text-sm text-stone-500">Grand Roses &amp; Silk Scarf</p>
+                                    <h4 class="font-headline text-xl text-stone-800" data-i18n="gift_page.her_p1_title">Velvet Rose Atelier</h4>
+                                    <p class="font-body text-sm text-stone-500" data-i18n="gift_page.her_p1_desc">Grand Roses &amp; Silk Scarf</p>
                                 </div>
                                 <button
                                     class="bloom-gradient text-white px-6 py-3 rounded-lg font-label uppercase tracking-widest text-[0.6rem] flex items-center gap-2">
@@ -276,8 +281,8 @@
                             </div>
                             <div class="flex items-center justify-between p-6 bg-primary-fixed/30 rounded-xl">
                                 <div>
-                                    <h4 class="font-headline text-xl text-stone-800">Orchid Serenity</h4>
-                                    <p class="font-body text-sm text-stone-500">Phalaenopsis &amp; Luxury Candles</p>
+                                    <h4 class="font-headline text-xl text-stone-800" data-i18n="gift_page.her_p2_title">Orchid Serenity</h4>
+                                    <p class="font-body text-sm text-stone-500" data-i18n="gift_page.her_p2_desc">Phalaenopsis &amp; Luxury Candles</p>
                                 </div>
                                 <button
                                     class="bloom-gradient text-white px-6 py-3 rounded-lg font-label uppercase tracking-widest text-[0.6rem] flex items-center gap-2">
@@ -294,9 +299,9 @@
                         </div>
                         <div
                             class="absolute -top-10 -left-10 hidden lg:block w-64 p-8 bg-surface shadow-2xl rounded-xl">
-                            <p class="font-headline italic text-xl text-stone-800 mb-4">"A Symphony of Softness"</p>
+                            <p class="font-headline italic text-xl text-stone-800 mb-4" data-i18n="gift_page.her_quote">"A Symphony of Softness"</p>
                             <button
-                                class="text-primary font-label text-[0.6875rem] uppercase tracking-widest border-b border-primary/30 pb-1">Shop
+                                class="text-primary font-label text-[0.6875rem] uppercase tracking-widest border-b border-primary/30 pb-1" data-i18n="gift_page.her_btn">Shop
                                 All For Her</button>
                         </div>
                     </div>
@@ -307,9 +312,9 @@
         <section class="bg-stone-900 py-32 text-stone-50">
             <div class="max-w-7xl mx-auto px-8">
                 <div class="text-center mb-20">
-                    <span class="font-label uppercase tracking-[0.3em] text-stone-400 text-xs mb-4 block">The Finishing
+                    <span class="font-label uppercase tracking-[0.3em] text-stone-400 text-xs mb-4 block" data-i18n="gift_page.finish_label">The Finishing
                         Touch</span>
-                    <h2 class="font-headline text-6xl italic">Balloons &amp; Curated Vases</h2>
+                    <h2 class="font-headline text-6xl italic" data-i18n="gift_page.finish_title">Balloons &amp; Curated Vases</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <!-- Vase 1 -->
@@ -319,8 +324,8 @@
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfVYH2YdclZsiglBDGaD7rCmm6KmQVSSLmnZtnlIrMZ4MQ1d3BDJJgHY6Xj-Gtd5byBo6Di6YR9GgTjKacjV3czho2ZiuxkKscvGrbCozGasmx-2Re0V4nXYFoE8S91U8h-lNdeq4oIcpRm17qMU0jYHsvBOJZzdHyiz7BjTb0evqeaSuxLEs6zVWt3XMZt-Ip8jaLhh3swbZQvNCEfS8cjN_khgXaUYq_JAKUo-w5UTMSG9TOUWjFQdIJHBhyoQmHXW1jftHTgPrR" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent p-8 flex flex-col justify-end">
-                            <h4 class="font-headline text-3xl mb-2">The Smoked Pillar</h4>
-                            <p class="font-body text-sm text-stone-300 mb-6">Hand-blown artisanal glass</p>
+                            <h4 class="font-headline text-3xl mb-2" data-i18n="gift_page.v1_title">The Smoked Pillar</h4>
+                            <p class="font-body text-sm text-stone-300 mb-6" data-i18n="gift_page.v1_desc">Hand-blown artisanal glass</p>
                             <button
                                 class="w-fit border border-stone-500 px-6 py-2 rounded-full font-label text-[0.6rem] tracking-widest uppercase hover:bg-white hover:text-black transition-all">Order
                                 on WhatsApp</button>
@@ -333,9 +338,9 @@
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKv_Qf8DKMVNhRFFIdXXdqwMdEwAw8hLZjfPYf6zD9_Hg36jcn_P25Ai5A43IwVh4eddCOPxiRnZxWy_G6o-4DnJtX40BIdA0Sq1KXTjhRpiFCMFcXNl4rbr9VHfgSeV59gzfEeRVc67CDperTJzqH2A_jaSyZV0DbzZGCaUQvSNv6VRSe-hT7Bspyg7OayF9vv3YvJWf3nqg5iWeUI4gcFqTMhzd1BZwa8Z2QiRxwHcr2LLpM7OIJvehdO-q59AEUxOv1ZQT8kANz" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent p-6 flex flex-col justify-end">
-                            <h4 class="font-headline text-xl mb-1">Champagne Float</h4>
+                             <h4 class="font-headline text-xl mb-1" data-i18n="gift_page.b1_title">Champagne Float</h4>
                             <button
-                                class="w-fit text-stone-400 font-label text-[0.55rem] tracking-widest uppercase border-b border-stone-600">Enquire</button>
+                                class="w-fit text-stone-400 font-label text-[0.55rem] tracking-widest uppercase border-b border-stone-600" data-i18n="gift_page.enquire">Enquire</button>
                         </div>
                     </div>
                     <!-- Vase 2 -->
@@ -345,9 +350,9 @@
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKIVpG7_VQHN-muQPagrSvuEzXb6jsVLpfe0mC5yQMnXLQDJaOzksI4U8FCspQnY5DRRx6mdZ9aP_B0wXXER6VRwJGh4U89G12e0QHdn57edaLpXokq3yUQCAHvDNQIfoVXBwn4Felwms5W16dktKi2RGs2mfI5fbjEQ08i6h4PdpyrjCmrShYzAk1bde0sGBrJkm5LTBPOVjlqSn1cG-71bQsxqOliMzUM_GGdVweofnq-ZrFoabF03sEP6eTjB47-GOFYvF9p4z9" />
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent p-6 flex flex-col justify-end">
-                            <h4 class="font-headline text-xl mb-1">Terra Organic</h4>
+                            <h4 class="font-headline text-xl mb-1" data-i18n="gift_page.v2_title">Terra Organic</h4>
                             <button
-                                class="w-fit text-stone-400 font-label text-[0.55rem] tracking-widest uppercase border-b border-stone-600">Enquire</button>
+                                class="w-fit text-stone-400 font-label text-[0.55rem] tracking-widest uppercase border-b border-stone-600" data-i18n="gift_page.enquire">Enquire</button>
                         </div>
                     </div>
                 </div>
@@ -358,8 +363,8 @@
     <footer class="bg-stone-100 py-16 px-8 border-t border-stone-200/20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl mx-auto">
             <div class="flex flex-col gap-6">
-                <span class="font-serif italic text-xl text-stone-900">Unique Flowers</span>
-                <p class="font-body text-stone-600 text-sm leading-relaxed max-w-xs">Crafting botanical narratives for
+                <span class="font-serif italic text-xl text-stone-900" data-i18n="nav.brand">Unique Flowers</span>
+                <p class="font-body text-stone-600 text-sm leading-relaxed max-w-xs" data-i18n="gift_page.footer_desc">Crafting botanical narratives for
                     life’s most meaningful moments. The Digital Florist’s Atelier.</p>
                 <div class="flex gap-4">
                     <a class="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-600 hover:bg-primary hover:text-white transition-all"
@@ -369,21 +374,21 @@
                 </div>
             </div>
             <div class="flex flex-col gap-4">
-                <h5 class="font-serif italic text-lg text-stone-800">The Atelier</h5>
+                <h5 class="font-serif italic text-lg text-stone-800" data-i18n="gift_page.atelier">The Atelier</h5>
                 <a class="text-stone-600 hover:underline decoration-stone-300 transition-all font-body text-sm"
-                    href="#">Instagram</a>
+                    href="#" data-i18n="footer.links.instagram">Instagram</a>
                 <a class="text-stone-600 hover:underline decoration-stone-300 transition-all font-body text-sm"
-                    href="#">Our Location</a>
+                    href="#" data-i18n="catalog_page.location">Our Location</a>
                 <a class="text-stone-600 hover:underline decoration-stone-300 transition-all font-body text-sm"
-                    href="#">WhatsApp Support</a>
+                    href="#" data-i18n="catalog_page.whatsapp_support">WhatsApp Support</a>
                 <a class="text-stone-600 hover:underline decoration-stone-300 transition-all font-body text-sm"
-                    href="#">Terms &amp; Conditions</a>
+                    href="#" data-i18n="catalog_page.terms">Terms &amp; Conditions</a>
             </div>
             <div class="flex flex-col gap-4">
-                <h5 class="font-serif italic text-lg text-stone-800">Contact</h5>
+                <h5 class="font-serif italic text-lg text-stone-800" data-i18n="footer.contact">Contact</h5>
                 <p class="font-body text-stone-600 text-sm">hello@uniqueflowers.com</p>
                 <p class="font-body text-stone-600 text-sm">+1 234 567 890</p>
-                <p class="text-stone-400 text-[0.65rem] mt-4 font-body uppercase tracking-wider">© 2024 Unique Flowers.
+                <p class="text-stone-400 text-[0.65rem] mt-4 font-body uppercase tracking-wider" data-i18n="footer.copyright">© 2024 Unique Flowers.
                     The Digital Florist’s Atelier.</p>
             </div>
         </div>
@@ -393,19 +398,19 @@
         class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-stone-200/20 px-6 py-4 flex justify-between items-center">
         <button class="flex flex-col items-center gap-1 text-stone-500">
             <span class="material-symbols-outlined">home</span>
-            <span class="text-[0.6rem] font-label uppercase">Home</span>
+            <span class="text-[0.6rem] font-label uppercase" data-i18n="catalog_page.mobile.home">Home</span>
         </button>
         <button class="flex flex-col items-center gap-1 text-stone-900 border-b-2 border-primary pb-1">
             <span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
-            <span class="text-[0.6rem] font-label uppercase">Gifts</span>
+            <span class="text-[0.6rem] font-label uppercase" data-i18n="nav.gifts">Gifts</span>
         </button>
         <button class="flex flex-col items-center gap-1 text-stone-500">
             <span class="material-symbols-outlined">chat</span>
-            <span class="text-[0.6rem] font-label uppercase">Support</span>
+            <span class="text-[0.6rem] font-label uppercase" data-i18n="catalog_page.mobile.whatsapp">Support</span>
         </button>
         <button class="flex flex-col items-center gap-1 text-stone-500">
             <span class="material-symbols-outlined">favorite</span>
-            <span class="text-[0.6rem] font-label uppercase">Saved</span>
+            <span class="text-[0.6rem] font-label uppercase" data-i18n="catalog_page.favorites">Saved</span>
         </button>
     </div>
 </body>
