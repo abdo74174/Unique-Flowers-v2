@@ -209,6 +209,31 @@ const translations = {
             enquire: "Enquire",
             footer_desc: "Crafting botanical narratives for life’s most meaningful moments. The Digital Florist’s Atelier.",
             atelier: "The Atelier"
+        },
+        checkout: {
+            title: "Checkout",
+            sms_notice: "We'll send your code via SMS now.",
+            del_details: "Delivery Details",
+            full_name: "Full Name",
+            name_placeholder: "Florence Nightingale",
+            phone: "Phone Number",
+            phone_placeholder: "+44 7700 900000",
+            sms_code: "SMS Verification Code",
+            code_placeholder: "Enter 6-digit code",
+            address: "Street Address",
+            addr_placeholder: "The Rose Cottage, Floral Lane",
+            city: "City",
+            city_placeholder: "London",
+            postcode: "Postcode",
+            post_placeholder: "W1 1AB",
+            confirm_btn: "Confirm Order & Pay via WhatsApp",
+            secure: "Safe & Secure Floral Transactions",
+            summary: "Order Summary",
+            subtotal: "Subtotal",
+            del_type: "Bespoke Delivery",
+            total: "Total",
+            guarantee: "Every bouquet is hand-curated by our master florists and delivered in temperature-controlled sustainable packaging.",
+            back_shop: "Back to Shop"
         }
     },
     ar: {
@@ -418,6 +443,31 @@ const translations = {
             enquire: "استفسار",
             footer_desc: "صياغة الروايات النباتية للحظات الحياة الأكثر مغزى. مشغل بائع الزهور الرقمي.",
             atelier: "المشغل"
+        },
+        checkout: {
+            title: "إتمام الشراء",
+            sms_notice: "سنرسل لك رمزاً عبر الرسائل القصيرة الآن.",
+            del_details: "تفاصيل التوصيل",
+            full_name: "الاسم الكامل",
+            name_placeholder: "فلورنس نايتنتيجيل",
+            phone: "رقم الهاتف",
+            phone_placeholder: "+966 50 000 0000",
+            sms_code: "رمز التحقق (SMS)",
+            code_placeholder: "أدخل الرمز المكون من 6 أرقام",
+            address: "عنوان الشارع",
+            addr_placeholder: "كوخ الزهور، شارع الورود",
+            city: "المدينة",
+            city_placeholder: "الرياض",
+            postcode: "الرمز البريدي",
+            post_placeholder: "12345",
+            confirm_btn: "تأكيد الطلب والدفع عبر الواتساب",
+            secure: "معاملات زهور آمنة ومضمونة",
+            summary: "ملخص الطلب",
+            subtotal: "المجموع الفرعي",
+            del_type: "توصيل مخصص",
+            total: "الإجمالي",
+            guarantee: "يتم تنسيق كل باقة يدوياً من قبل خبراء الزهور لدينا وتسليمها في تغليف مستدام يتم التحكم في درجة حرارته.",
+            back_shop: "العودة للمتجر"
         }
     }
 };

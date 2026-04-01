@@ -142,28 +142,27 @@
                                     <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.phone">Phone Number</label>
                                     <input
                                         class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
-                                        placeholder="+44 7700 900000" type="tel" />
+                                        placeholder="+44 7700 900000" type="tel" data-i18n="checkout.phone_placeholder" />
                                 </div>
                                 <div class="relative">
-                                    <label class="block font-body text-sm text-stone-500 mb-1">SMS Verification
-                                        Code</label>
+                                    <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.sms_code">SMS Verification Code</label>
                                     <input
                                         class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
-                                        placeholder="Enter 6-digit code" type="text" />
+                                        placeholder="Enter 6-digit code" type="text" data-i18n="checkout.code_placeholder" />
                                 </div>
                             </div>
                             <div class="relative">
-                                <label class="block font-body text-sm text-stone-500 mb-1">Street Address</label>
+                                <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.address">Street Address</label>
                                 <input
                                     class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
-                                    placeholder="The Rose Cottage, Floral Lane" type="text" />
+                                    placeholder="The Rose Cottage, Floral Lane" type="text" data-i18n="checkout.addr_placeholder" />
                             </div>
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="relative">
-                                    <label class="block font-body text-sm text-stone-500 mb-1">City</label>
+                                    <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.city">City</label>
                                     <input
                                         class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
-                                        placeholder="London" type="text" />
+                                        placeholder="London" type="text" data-i18n="checkout.city_placeholder" />
                                 </div>
                                 <div class="relative">
                                     <label class="block font-body text-sm text-stone-500 mb-1">Postcode</label>
@@ -180,10 +179,10 @@
                             type="button">
                             <span class="material-symbols-outlined"
                                 style="font-variation-settings: 'FILL' 1;">chat</span>
-                            Confirm Order &amp; Pay via WhatsApp
+                            <span data-i18n="checkout.confirm_btn">Confirm Order &amp; Pay via WhatsApp</span>
                         </button>
                         <p
-                            class="text-center text-[0.6875rem] font-label uppercase tracking-widest text-stone-400 mt-4">
+                            class="text-center text-[0.6875rem] font-label uppercase tracking-widest text-stone-400 mt-4" data-i18n="checkout.secure">
                             Safe &amp; Secure Floral Transactions</p>
                     </div>
                 </form>
@@ -192,7 +191,7 @@
             <div class="lg:col-span-5">
                 <div
                     class="bg-surface-container-low rounded-xl p-8 sticky top-32 border border-outline-variant/10 shadow-sm">
-                    <h2 class="font-headline text-2xl text-stone-900 mb-8">Order Summary</h2>
+                    <h2 class="font-headline text-2xl text-stone-900 mb-8" data-i18n="checkout.summary">Order Summary</h2>
                     <div class="flex gap-6 mb-8">
                         <div class="w-32 h-40 bg-stone-200 rounded-lg overflow-hidden flex-shrink-0">
                             <img class="w-full h-full object-cover"
@@ -201,15 +200,15 @@
                         </div>
                         <div class="flex flex-col justify-between py-2">
                             <div>
-                                <h3 class="font-headline text-xl leading-tight">The Velvet Petal Bouquet</h3>
-                                <p class="font-body text-sm text-stone-500 mt-1">Premium Seasonal Selection</p>
+                                <h3 class="font-headline text-xl leading-tight" data-i18n="catalog_page.p1_title">The Velvet Petal Bouquet</h3>
+                                <p class="font-body text-sm text-stone-500 mt-1" data-i18n="product.exclusive">Premium Seasonal Selection</p>
                             </div>
                             <span class="font-body font-bold text-lg text-primary">£85.00</span>
                         </div>
                     </div>
                     <div class="space-y-4 border-t border-outline-variant/20 pt-8">
                         <div class="flex justify-between font-body text-stone-600">
-                            <span>Subtotal</span>
+                            <span data-i18n="checkout.subtotal">Subtotal</span>
                             <span>£85.00</span>
                         </div>
                         <div class="flex justify-between font-body text-stone-600">
@@ -217,13 +216,13 @@
                             <span>£0.00</span>
                         </div>
                         <div class="flex justify-between font-headline text-2xl text-stone-900 pt-4">
-                            <span>Total</span>
+                            <span data-i18n="checkout.total">Total</span>
                             <span class="font-bold">£85.00</span>
                         </div>
                     </div>
                     <div class="mt-8 bg-white/50 p-4 rounded-lg flex items-start gap-3">
                         <span class="material-symbols-outlined text-secondary text-xl">verified_user</span>
-                        <p class="text-xs font-body text-stone-500 leading-relaxed">
+                        <p class="text-xs font-body text-stone-500 leading-relaxed" data-i18n="checkout.guarantee">
                             Every bouquet is hand-curated by our master florists and delivered in temperature-controlled
                             sustainable packaging.
                         </p>
@@ -236,19 +235,19 @@
     <footer class="bg-stone-100 py-16 px-8 mt-20 border-t border-stone-200/20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl mx-auto">
             <div>
-                <span class="font-headline italic text-xl text-stone-900">Unique Flowers</span>
-                <p class="mt-4 font-body text-stone-600 leading-relaxed">
+                <span class="font-headline italic text-xl text-stone-900" data-i18n="nav.brand">Unique Flowers</span>
+                <p class="mt-4 font-body text-stone-600 leading-relaxed" data-i18n="footer.copyright">
                     © 2024 Unique Flowers. The Digital Florist’s Atelier.
                 </p>
             </div>
             <div class="md:col-span-2 flex flex-wrap gap-x-12 gap-y-4 justify-end items-center">
                 <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all"
-                    href="#">Instagram</a>
-                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all" href="#">Our
+                    href="#" data-i18n="footer.links.instagram">Instagram</a>
+                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all" href="#" data-i18n="catalog_page.location">Our
                     Location</a>
                 <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all"
-                    href="#">WhatsApp Support</a>
-                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all" href="#">Terms
+                    href="#" data-i18n="catalog_page.whatsapp_support">WhatsApp Support</a>
+                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all" href="#" data-i18n="catalog_page.terms">Terms
                     &amp; Conditions</a>
             </div>
         </div>
