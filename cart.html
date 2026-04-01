@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Your Cart | Unique Flowers</title>
+    <script src="translations.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Cairo:wght@200..1000&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#715956",
+                        "primary-container": "#d2b4b0",
+                        "surface": "#fbf9f5",
+                        "on-surface": "#1b1c1a",
+                        "outline-variant": "#d3c3c1",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bg-velvet-gradient {
+            background: linear-gradient(45deg, #715956 0%, #d2b4b0 100%);
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf9f5;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen">
+    <header class="bg-stone-50/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+            <div class="flex items-center gap-4">
+                <img alt="Unique Flowers Logo" class="h-10 w-10 object-contain"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOinAq84cURd_sO40JILLII7p1ZoDf3oltenOaYrUQSziF44EpGebqFlAnkf831NjF7X0NlVlHB7mV0CJ67SZHkN-W7iWKWm8i4aDF8wGVRLL8-vjxLU_Ktndlfr6j6rtMRcXx-QJJagE0WkHZ0cvyF8WCs2cQ6d-e_1ezE4qgbMC7-PKqmHIA8o18Nsb0kTsoa4TPafz1Sbvd1i1BuUnTzYdh0gZMcucaAls8iw1L4SRgmpKdZzVSDPN8cktK1RRRfcdmyFmb0Nm" />
+                <span class="text-2xl font-headline text-stone-900 italic tracking-tighter" data-i18n="nav.brand">Unique
+                    Flowers</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center bg-zinc-100 rounded-full p-1 h-8">
+                    <button onclick="setLanguage('en')"
+                        class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white"
+                        id="lang-en">EN</button>
+                    <button onclick="setLanguage('ar')"
+                        class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white"
+                        id="lang-ar">AR</button>
+                </div>
+                <a class="flex items-center gap-2 text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors"
+                    href="index.html">
+                    <span class="material-symbols-outlined text-sm">home</span>
+                    <span data-i18n="nav.home">Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+        <h1 class="font-headline text-4xl mb-12 italic" data-i18n="cart.title">Shopping Cart</h1>
+
+        <div id="cart-container" class="space-y-6">
+            <!-- Items will be injected here -->
+            <div id="empty-cart" class="text-center py-20 hidden">
+                <span class="material-symbols-outlined text-6xl text-stone-200 mb-4">shopping_bag</span>
+                <p class="text-stone-500 font-body" data-i18n="cart.empty">Your cart is currently empty.</p>
+                <a href="product_Catlog.html" class="mt-6 inline-block text-primary font-bold underline"
+                    data-i18n="cart.browse">Browse Collection</a>
+            </div>
+        </div>
+
+        <div id="cart-footer" class="mt-12 border-t border-outline-variant/20 pt-8 hidden">
+            <div class="flex justify-between items-center mb-8">
+                <span class="font-headline text-2xl" data-i18n="cart.total">Total</span>
+                <span class="font-headline text-3xl font-bold"><span id="cart-total">0.00</span> <span
+                        data-i18n="common.price_suffix">SAR</span></span>
+            </div>
+            <button onclick="proceedToCheckout()"
+                class="w-full py-5 rounded-lg bg-velvet-gradient text-white font-body font-bold flex items-center justify-center gap-3 shadow-xl hover:opacity-90 transition-all active:scale-[0.98]">
+                <span class="material-symbols-outlined">shopping_basket</span>
+                <span data-i18n="cart.checkout_btn">Proceed to Checkout</span>
+            </button>
+        </div>
+    </main>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('flowerCart')) || [];
+
+        function renderCart() {
+            const container = document.getElementById('cart-container');
+            const footer = document.getElementById('cart-footer');
+            const empty = document.getElementById('empty-cart');
+
+            // Clear but keep empty message
+            const items = container.querySelectorAll('.cart-item');
+            items.forEach(el => el.remove());
+
+            if (cart.length === 0) {
+                empty.classList.remove('hidden');
+                footer.classList.add('hidden');
+                return;
+            }
+
+            empty.classList.add('hidden');
+            footer.classList.remove('hidden');
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item flex flex-col md:flex-row items-center gap-6 p-6 bg-white rounded-xl border border-outline-variant/10 shadow-sm';
+                itemEl.innerHTML = `
+                    <div class="w-24 h-32 bg-stone-100 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src="${item.image}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow text-center md:text-left">
+                        <h3 class="font-headline text-xl text-stone-900">${item.title}</h3>
+                        <p class="text-stone-500 text-sm font-body mt-1">${item.price} SAR</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-stone-50 rounded-full px-4 py-2">
+                        <button onclick="updateQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-200 transition-colors">
+                            <span class="material-symbols-outlined text-sm">remove</span>
+                        </button>
+                        <span class="font-body font-bold w-4 text-center">${item.quantity}</span>
+                        <button onclick="updateQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-200 transition-colors">
+                            <span class="material-symbols-outlined text-sm">add</span>
+                        </button>
+                    </div>
+                    <div class="w-24 text-right font-headline text-xl font-bold">
+                        ${(item.price * item.quantity).toFixed(2)}
+                    </div>
+                    <button onclick="removeItem(${index})" class="text-stone-300 hover:text-red-500 transition-colors">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                `;
+                container.appendChild(itemEl);
+            });
+
+            document.getElementById('cart-total').innerText = total.toFixed(2);
+        }
+
+        function updateQty(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity < 1) cart[index].quantity = 1;
+            saveCart();
+            renderCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveCart();
+            renderCart();
+        }
+
+        function saveCart() {
+            localStorage.setItem('flowerCart', JSON.stringify(cart));
+        }
+
+        function proceedToCheckout() {
+            // Save current cart as checkout items
+            localStorage.setItem('checkoutItems', JSON.stringify(cart));
+            localStorage.setItem('checkoutMethod', 'whatsapp'); // Default for now
+            window.location.href = 'checkOut_ConfirmPage.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            if (typeof setLanguage === 'function') {
+                const lang = localStorage.getItem('selectedLanguage') || 'ar';
+                setLanguage(lang);
+            }
+        });
+    </script>
+</body>
+
+</html>

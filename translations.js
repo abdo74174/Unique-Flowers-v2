@@ -13,6 +13,19 @@ const translations = {
             "baby": "Baby Gifts",
             "cart": "Cart"
         },
+        "cart": {
+            "title": "Shopping Cart",
+            "empty": "Your cart is currently empty.",
+            "browse": "Browse Collection",
+            "total": "Total",
+            "checkout_btn": "Proceed to Checkout"
+        },
+        "fav": {
+            "title": "My Favorites",
+            "empty": "You haven't saved any favorites yet.",
+            "browse": "Explore Flowers",
+            "remove": "Remove from Favorites"
+        },
         "hero": {
             "badge": "New Season Collection",
             "title": "Fresh Flowers for Every Occasion",
@@ -293,6 +306,19 @@ const translations = {
             "balloons": "بالونات",
             "baby": "هدايا مواليد",
             "cart": "السلة"
+        },
+        "cart": {
+            "title": "سلة التسوق",
+            "empty": "سلتك فارغة حالياً.",
+            "browse": "تصفح التشكيلة",
+            "total": "الإجمالي",
+            "checkout_btn": "إتمام الطلب"
+        },
+        "fav": {
+            "title": "مفضلاتي",
+            "empty": "لم تقم بإضافة أي مفضلات بعد.",
+            "browse": "استكشف الورود",
+            "remove": "إزالة من المفضلات"
         },
         "hero": {
             "badge": "مجموعة الموسم الجديد",

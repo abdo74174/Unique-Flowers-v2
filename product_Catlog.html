@@ -63,11 +63,21 @@
             direction: rtl;
         }
 
-        html[lang="ar"] .nav-links, html[lang="ar"] .nav-actions {
+        html[lang="ar"] .nav-links,
+        html[lang="ar"] .nav-actions {
             flex-direction: row-reverse;
         }
 
-        html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6, html[lang="ar"] p, html[lang="ar"] span, html[lang="ar"] a, html[lang="ar"] button {
+        html[lang="ar"] h1,
+        html[lang="ar"] h2,
+        html[lang="ar"] h3,
+        html[lang="ar"] h4,
+        html[lang="ar"] h5,
+        html[lang="ar"] h6,
+        html[lang="ar"] p,
+        html[lang="ar"] span,
+        html[lang="ar"] a,
+        html[lang="ar"] button {
             font-family: 'Cairo', sans-serif;
             letter-spacing: 0;
         }
@@ -365,6 +375,7 @@
             .navbar-inner {
                 padding: 0 1.5rem;
             }
+
             .filter-bar {
                 justify-content: flex-start;
                 padding-left: 1.5rem;
@@ -393,7 +404,10 @@
                     <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn" id="lang-ar" onclick="setLanguage('ar')">AR</button>
                 </div>
-                <button class="cart-btn">
+                <button class="nav-icon-btn" aria-label="Favorites" onclick="window.location.href='favorites.html'">
+                    <span class="material-symbols-outlined" style="font-size:20px;">favorite</span>
+                </button>
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
                     <span class="material-symbols-outlined" style="font-size:18px;">shopping_bag</span>
                     <span class="cart-label" data-i18n="nav.cart">Cart</span>
                 </button>
@@ -430,10 +444,14 @@
 
     <footer style="background:#1a2e22;color:white;padding:5rem 3rem 3rem;">
         <div style="max-width:1600px;margin:0 auto;text-align:center;">
-            <p class="font-headline" style="font-size:1.5rem;margin-bottom:1rem;font-style:italic;color:rgba(255,255,255,0.95);" id="footer-brand" data-i18n="nav.brand">Unique Flowers</p>
-            <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;line-height:1.8;max-width:280px;margin:0 auto 2rem;" data-i18n="footer.brand_desc">Curating nature's finest moments for your everyday space.</p>
+            <p class="font-headline"
+                style="font-size:1.5rem;margin-bottom:1rem;font-style:italic;color:rgba(255,255,255,0.95);"
+                id="footer-brand" data-i18n="nav.brand">Unique Flowers</p>
+            <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;line-height:1.8;max-width:280px;margin:0 auto 2rem;"
+                data-i18n="footer.brand_desc">Curating nature's finest moments for your everyday space.</p>
             <div style="width:100%;height:1px;background:rgba(255,255,255,0.1);margin-bottom:2rem;"></div>
-            <p style="color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;" data-i18n="footer.copyright">© 2024 Unique Flowers. The Digital Florist’s Atelier.</p>
+            <p style="color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;"
+                data-i18n="footer.copyright">© 2024 Unique Flowers. The Digital Florist’s Atelier.</p>
         </div>
     </footer>
 
@@ -443,7 +461,7 @@
             { id: 1, category: 'natural', titleKey: 'catalog_items.p1_t', price: 185, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUQdi5yw9H_4HzZQETDkWwrIxI6h9UxbZyhkFc-DgIHxTmsHtr_olVYv-ZNbyz7CBizoFOJGkx5yi0AbbVsG5yOHFFBSqvOL-0io7TetLfQjs6RHTm1sHgIG_Uh-yQ8YMmHy4SvY12_TnEIk84m9clNGDf934idRxQLDvxLfHj-cNw0b2aCQhPmY_ZMfewWm4Qh_RRjKmyUrM5w_cxgmiNuHMj3pCHEt9w4ywDph_n8vAZEReEmukFl4UPUVGEasYOgT_S3hHXPoIh', descKey: 'catalog_items.p1_d' },
             { id: 2, category: 'natural', titleKey: 'catalog_items.p2_t', price: 155, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-psEOBkX9T5js3Z_vcfm6-r8uY8-bvlx8jHwkqzHtjRvaKeiRufBlD2KX3ENwWqq4gg7ojwb0m4gd6c1SKIQrCe7NbexOZVdVihk1bwue-BYo5a8FolhrQtUOGWBETyrahU2hzCcpCBYAXx9-oY3xH-9l2lEK9IeSKHT3caoszb9dIi0TfD8D5YDDGZ4dmRxw1zPnoTXCW-AmSrFru4HmPXNIQdlnPoLkxTGBEjsxLNWyxE-r4SM95t15ID55y_3OBoNPRuoWSihq', descKey: 'catalog_items.p2_d' },
             { id: 3, category: 'natural', titleKey: 'catalog_items.p3_t', price: 260, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCxYoBVCl81BbCgcSlVIwkr67W2uM87d_j4xWD5si3fb1v8eghs1et5dy1NBvot_GhZQzhnGY7kLEEsJi1C-Tb7XEkUimXdZeAy6DXfqsw4WnftwMAWmKh3w7M0p-1zvYicwUFGpRhnGknGIfMcdgIP2oeUGmIaqrjMy8JCPWQuALDPb3QH_HN-Xs-onoz08l30eGJ2zW7fnlHOv2XqGvuHtdVv_YYfCdHh5D-9TqQPeTr1z5eKVVLDmkuObaPfeqFTrYxiZDdsubuB', descKey: 'catalog_items.p3_d' },
-            
+
             // Artificial
             { id: 4, category: 'artificial', titleKey: 'catalog_items.p4_t', price: 240, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD_bOdnNg8stI3Vi6LqCQCWI-mR46D2Z_RF5FHGsP_sIIFx989vZQSyrVlH4TfK8r6yG6H2ze75WdIP1Bj39SNf-x-JgMp7RxvVMsZlG-Dy6gVZAMSL5lh1AaeFOU0DJ6yrOcJIM84gs_fo4604YeL5V9Jvn2-ycnIc1CoJTXMYTMmBPNF21G7pAjXgrpMTc2mMDsSaHtoaqe_HfXCeMl5CXbB9855UcMFIQ7SVGzg7soAgdVWwLGYrgc1PSNYUeXYocBO4dnNZd-YO', descKey: 'catalog_items.p4_d' },
             { id: 5, category: 'artificial', titleKey: 'catalog_items.p5_t', price: 195, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlCv45ut_AX92Rh55LHFcS1LphH1GGnXewwmLfdwHW35dV6OtDX42ytIzSTqmV3C5m-epV8kPZNikO9g6I6u6EtWoVQdnbOIh8_hmhm_RB21CyyNhwyFICQVcPnR9nvOb1QFqDd8m_Z2d0_87ptGzpfuhYOCtQ1YHwwahq563-DvgHPFYhOLt71qfCku6I0vOQ6cQulLdJxwuZ1tHfLVNrDPW1xe7mWvGrblUIM-un2GlnvZU71So7ztmL2Ch2td2FJbMW6VwXE6WI', descKey: 'catalog_items.p5_d' },
@@ -467,7 +485,7 @@
         function renderProducts(filter = 'all') {
             const container = document.getElementById('product-container');
             container.innerHTML = '';
-            
+
             const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
 
             filtered.forEach((p, index) => {
@@ -475,15 +493,20 @@
                 card.className = 'product-card fade-up';
                 card.style.cursor = 'pointer';
                 card.innerHTML = `
-                    <div style="overflow:hidden;"><img class="product-card-img" src="${p.img}" alt="Product image" /></div>
+                    <div style="overflow:hidden;" class="relative">
+                        <img class="product-card-img" src="${p.img}" alt="Product image" />
+                        <button onclick="event.stopPropagation(); catalogToggleFav(${p.id}, this)" class="absolute top-3 right-3 w-8 h-8 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-white transition-all">
+                             <span class="material-symbols-outlined" style="font-size:18px; ${isFav(p.id) ? 'font-variation-settings:\'FILL\' 1' : ''}">favorite</span>
+                        </button>
+                    </div>
                     <div class="product-card-body">
                         <p class="product-card-title" data-i18n="${p.titleKey}"></p>
                         <p class="product-card-desc" data-i18n="${p.descKey}"></p>
                         <div class="product-card-footer">
                             <span class="product-price">${p.price} <span data-i18n="common.price_suffix">SAR</span></span>
-                            <button class="order-btn" onclick="event.stopPropagation(); catalogCheckout(${p.id})">
-                                <span class="material-symbols-outlined" style="font-size:15px;">chat</span>
-                                <span data-i18n="common.order_wa">WhatsApp</span>
+                            <button class="order-btn" onclick="event.stopPropagation(); catalogAddToCart(${p.id})">
+                                <span class="material-symbols-outlined" style="font-size:15px;">add_shopping_cart</span>
+                                <span data-i18n="nav.cart">Add to Cart</span>
                             </button>
                         </div>
                     </div>
@@ -500,10 +523,56 @@
             }
         }
 
-        function catalogCheckout(productId) {
+        function isFav(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return false;
+            const favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
+            // Match by title (simulated title resolution)
+            const lang = document.documentElement.lang || 'ar';
+            const t = translations[lang];
+            let title = product.titleKey;
+            if (t && t.catalog_items && t.catalog_items[product.titleKey.split('.')[1]]) {
+                title = t.catalog_items[product.titleKey.split('.')[1]];
+            }
+            return favorites.some(f => f.title === title);
+        }
+
+        function catalogToggleFav(productId, btn) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
             
+            const lang = document.documentElement.lang || 'ar';
+            const t = translations[lang];
+            let title = product.titleKey;
+            if (t && t.catalog_items && t.catalog_items[product.titleKey.split('.')[1]]) {
+                title = t.catalog_items[product.titleKey.split('.')[1]];
+            }
+
+            const item = {
+                title: title,
+                price: product.price,
+                image: product.img
+            };
+
+            let favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
+            const index = favorites.findIndex(f => f.title === item.title);
+            const icon = btn.querySelector('.material-symbols-outlined');
+            
+            if (index > -1) {
+                favorites.splice(index, 1);
+                icon.style.fontVariationSettings = "'FILL' 0";
+            } else {
+                favorites.push(item);
+                icon.style.fontVariationSettings = "'FILL' 1";
+            }
+            
+            localStorage.setItem('flowerFavorites', JSON.stringify(favorites));
+        }
+
+        function catalogAddToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
             // Get translated title (or use key if not translated yet)
             const lang = document.documentElement.lang || 'ar';
             const t = translations[lang];
@@ -512,14 +581,24 @@
                 title = t.catalog_items[product.titleKey.split('.')[1]];
             }
 
-            const checkoutData = {
+            const item = {
                 title: title,
                 price: product.price,
                 image: product.img,
-                method: 'whatsapp'
+                quantity: 1
             };
-            localStorage.setItem('checkoutProduct', JSON.stringify(checkoutData));
-            window.location.href = 'checkOut_ConfirmPage.html';
+
+            let cart = JSON.parse(localStorage.getItem('flowerCart')) || [];
+            const index = cart.findIndex(i => i.title === item.title);
+            if (index > -1) {
+                cart[index].quantity += 1;
+            } else {
+                cart.push(item);
+            }
+
+            localStorage.setItem('flowerCart', JSON.stringify(cart));
+            const alertMsg = lang === 'ar' ? 'تمت الإضافة للسلة!' : 'Added to cart!';
+            alert(alertMsg);
         }
 
         // Filter Logic
@@ -540,7 +619,7 @@
 
         // Language toggle override for this page
         const originalSetLanguage = window.setLanguage;
-        window.setLanguage = function(lang) {
+        window.setLanguage = function (lang) {
             // We call original setLanguage first to persist and apply other DOM elements
             if (typeof originalSetLanguage === 'function') originalSetLanguage(lang);
             // Then re-render products which will auto-translate via its own internal call
@@ -548,4 +627,5 @@
         };
     </script>
 </body>
+
 </html>

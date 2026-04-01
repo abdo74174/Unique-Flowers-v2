@@ -126,7 +126,6 @@
             <!-- Column 1: Delivery Details -->
             <div class="lg:col-span-7">
                 <h1 class="font-headline text-4xl mb-2 italic" data-i18n="checkout.title">Checkout</h1>
-                <p class="font-body text-stone-500 mb-10" data-i18n="checkout.sms_notice">We'll send your code via SMS now.</p>
                 <form class="space-y-8">
                     <div class="space-y-6">
                         <h2 class="font-headline text-2xl text-secondary" data-i18n="checkout.del_details">Delivery Details</h2>
@@ -137,18 +136,12 @@
                                     class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
                                     placeholder="Florence Nightingale" type="text" data-i18n="checkout.name_placeholder" />
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
                                 <div class="relative">
                                     <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.phone">Phone Number</label>
                                     <input id="phone"
                                         class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
                                         placeholder="+44 7700 900000" type="tel" data-i18n="checkout.phone_placeholder" />
-                                </div>
-                                <div class="relative">
-                                    <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.sms_code">SMS Verification Code</label>
-                                    <input
-                                        class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
-                                        placeholder="Enter 6-digit code" type="text" data-i18n="checkout.code_placeholder" />
                                 </div>
                             </div>
                             <div class="relative">
@@ -254,22 +247,46 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const product = JSON.parse(localStorage.getItem('checkoutProduct'));
-            if (product) {
-                document.getElementById('summary-img').src = product.image;
-                const titleEl = document.getElementById('summary-title');
-                titleEl.removeAttribute('data-i18n'); // Stop translation from overwriting
-                titleEl.innerText = product.title;
-                
-                const priceElements = ['summary-price', 'summary-subtotal', 'summary-total'];
-                priceElements.forEach(id => {
-                    document.getElementById(id).innerText = product.price.toFixed(2);
+            const checkoutItems = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+            const singleProduct = JSON.parse(localStorage.getItem('checkoutProduct'));
+            
+            const displayItems = checkoutItems.length > 0 ? checkoutItems : (singleProduct ? [singleProduct] : []);
+            
+            if (displayItems.length > 0) {
+                const summaryContainer = document.querySelector('.flex.gap-6.mb-8').parentElement;
+                // Clear existing placeholder item
+                const existingItem = summaryContainer.querySelector('.flex.gap-6.mb-8');
+                if (existingItem) existingItem.remove();
+
+                let subtotal = 0;
+                displayItems.forEach(item => {
+                    subtotal += item.price * (item.quantity || 1);
+                    const itemRow = document.createElement('div');
+                    itemRow.className = 'flex gap-6 mb-4 pb-4 border-b border-outline-variant/10 last:border-0';
+                    itemRow.innerHTML = `
+                        <div class="w-20 h-24 bg-stone-200 rounded flex-shrink-0">
+                            <img src="${item.image}" class="w-full h-full object-cover rounded" />
+                        </div>
+                        <div class="flex-grow flex flex-col justify-between py-1">
+                            <div>
+                                <h3 class="font-headline text-lg leading-tight uppercase font-bold text-stone-700">${item.title}</h3>
+                                <p class="font-body text-xs text-stone-500 mt-1">${item.quantity || 1} x ${item.price} SAR</p>
+                            </div>
+                            <span class="font-body font-bold text-sm text-primary">${(item.price * (item.quantity || 1)).toFixed(2)} SAR</span>
+                        </div>
+                    `;
+                    // Insert before the pricing details
+                    summaryContainer.insertBefore(itemRow, summaryContainer.querySelector('.space-y-4'));
                 });
 
+                document.getElementById('summary-subtotal').innerText = subtotal.toFixed(2);
+                document.getElementById('summary-total').innerText = subtotal.toFixed(2);
+
                 // Update confirm button text if it's online payment
+                const method = localStorage.getItem('checkoutMethod') || (singleProduct ? singleProduct.method : 'whatsapp');
                 const btn = document.getElementById('main-confirm-btn');
                 const btnText = btn.querySelector('[data-i18n]');
-                if (product.method === 'online') {
+                if (method === 'online') {
                     const soonText = localStorage.getItem('selectedLanguage') === 'ar' ? 'قريباً' : 'Soon';
                     btnText.innerText = `${btnText.innerText} (${soonText})`;
                     btnText.removeAttribute('data-i18n');
@@ -278,18 +295,33 @@
         });
 
         function confirmAndPay() {
-            const product = JSON.parse(localStorage.getItem('checkoutProduct'));
+            const checkoutItems = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+            const singleProduct = JSON.parse(localStorage.getItem('checkoutProduct'));
+            const displayItems = checkoutItems.length > 0 ? checkoutItems : (singleProduct ? [singleProduct] : []);
+
             const fullname = document.getElementById('fullname').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
 
             if (!fullname || !phone || !address) {
-                alert('Please fill in all delivery details.');
+                const alertMsg = localStorage.getItem('selectedLanguage') === 'ar' ? 'يرجى تعبئة كافة بيانات التوصيل.' : 'Please fill in all delivery details.';
+                alert(alertMsg);
                 return;
             }
 
-            if (product.method === 'whatsapp') {
-                const message = `*New Order from Unique Flowers*%0A%0A*Customer Details:*%0A- Name: ${fullname}%0A- Phone: ${phone}%0A- Address: ${address}%0A%0A*Order Details:*%0A- Flower: ${product.title}%0A- Total: ${product.price} SAR%0A%0AThank you!`;
+            const method = localStorage.getItem('checkoutMethod') || (singleProduct ? singleProduct.method : 'whatsapp');
+
+            if (method === 'whatsapp') {
+                let itemsList = '';
+                let total = 0;
+                displayItems.forEach(item => {
+                    const qty = item.quantity || 1;
+                    const itemTotal = item.price * qty;
+                    total += itemTotal;
+                    itemsList += `- ${item.title} (x${qty}): ${itemTotal} SAR%0A`;
+                });
+
+                const message = `*New Order from Unique Flowers*%0A%0A*Customer Details:*%0A- Name: ${fullname}%0A- Phone: ${phone}%0A- Address: ${address}%0A%0A*Order Summary:*%0A${itemsList}%0A*Total Amount: ${total.toFixed(2)} SAR*%0A%0AThank you!`;
                 const whatsappUrl = `https://wa.me/966535228284?text=${message}`;
                 window.open(whatsappUrl, '_blank');
             } else {

@@ -411,6 +411,34 @@
             transform: scale(1.06);
         }
 
+        .fav-card-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #715956;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .fav-card-btn:hover {
+            background: #fff;
+            transform: scale(1.1);
+        }
+
+        .fav-card-btn.active span {
+            font-variation-settings: 'FILL' 1 !important;
+        }
+
         .product-card-body {
             padding: 1.25rem;
         }
@@ -905,25 +933,26 @@
             </ul>
 
             <!-- Actions -->
-            <div class="nav-actions" id="nav-actions">
-                <!-- Language Switcher -->
-                <div class="lang-switcher">
-                    <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</button>
-                    <button class="lang-btn" id="lang-ar" onclick="setLanguage('ar')">AR</button>
-                </div>
-                <button class="nav-icon-btn" aria-label="Search">
-                    <span class="material-symbols-outlined" style="font-size:20px;">search</span>
-                </button>
-                <button class="cart-btn">
-                    <span class="material-symbols-outlined" style="font-size:18px;">shopping_bag</span>
-                    <span class="cart-label" data-i18n="nav.cart">Cart</span>
-                </button>
-                <!-- Mobile hamburger -->
-                <button class="nav-icon-btn" id="menu-btn" onclick="toggleMobile()" style="display:none;"
-                    aria-label="Menu">
-                    <span class="material-symbols-outlined" id="menu-icon">menu</span>
-                </button>
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" id="lang-ar" onclick="setLanguage('ar')">AR</button>
             </div>
+            <button class="nav-icon-btn" aria-label="Favorites" onclick="window.location.href='favorites.html'">
+                <span class="material-symbols-outlined" style="font-size:20px;">favorite</span>
+            </button>
+            <button class="nav-icon-btn" aria-label="Search">
+                <span class="material-symbols-outlined" style="font-size:20px;">search</span>
+            </button>
+            <button class="cart-btn" onclick="window.location.href='cart.html'">
+                <span class="material-symbols-outlined" style="font-size:18px;">shopping_bag</span>
+                <span class="cart-label" data-i18n="nav.cart">Cart</span>
+            </button>
+            <!-- Mobile hamburger -->
+            <button class="nav-icon-btn" id="menu-btn" onclick="toggleMobile()" style="display:none;" aria-label="Menu">
+                <span class="material-symbols-outlined" id="menu-icon">menu</span>
+            </button>
+        </div>
         </div>
     </nav>
 
@@ -1862,30 +1891,88 @@
         window.addEventListener('resize', handleResponsive);
 
         // ══════════════════════════════════════════
-        // PRODUCT CARD NAVIGATION
+        // PRODUCT CARD NAVIGATION & FAVORITES
         // ══════════════════════════════════════════
         document.addEventListener('DOMContentLoaded', () => {
+            // Inject favorite buttons into all product cards
+            document.querySelectorAll('.product-card').forEach(card => {
+                const imgWrap = card.querySelector('div[style*="overflow:hidden"]');
+                if (imgWrap && !imgWrap.querySelector('.fav-card-btn')) {
+                    imgWrap.classList.add('relative');
+                    const btn = document.createElement('button');
+                    btn.className = 'fav-card-btn';
+                    btn.setAttribute('onclick', 'event.stopPropagation(); toggleIndexFav(this)');
+                    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;">favorite</span>';
+
+                    // Check if already favorited
+                    const title = card.querySelector('.product-card-title').innerText;
+                    const favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
+                    if (favorites.some(f => f.title === title)) {
+                        btn.classList.add('active');
+                    }
+
+                    imgWrap.appendChild(btn);
+                }
+            });
+
             // Make all product cards clickable → product detail
             document.querySelectorAll('.product-card').forEach(card => {
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', (e) => {
-                    // Don't navigate if clicked on the order button
-                    if (e.target.closest('.order-btn')) return;
+                    // Don't navigate if clicked on the order or fav button
+                    if (e.target.closest('.order-btn') || e.target.closest('.fav-card-btn')) return;
                     window.location.href = 'product_Detail.html';
                 });
             });
 
-            // WhatsApp buttons stop propagation so they don't trigger card navigation
+            // WhatsApp buttons now go to checkout page
             document.querySelectorAll('.order-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => e.stopPropagation());
-            });
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const card = e.target.closest('.product-card');
+                    const title = card.querySelector('.product-card-title').innerText;
+                    const priceText = card.querySelector('.product-price').innerText;
+                    const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+                    const image = card.querySelector('img').src;
 
-            // Cat-hero banners also go to product detail
-            document.querySelectorAll('.cat-hero').forEach(hero => {
-                hero.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.location.href = 'product_Detail.html';
+                    const checkoutData = {
+                        title: title,
+                        price: price,
+                        image: image,
+                        method: 'whatsapp'
+                    };
+                    localStorage.setItem('checkoutProduct', JSON.stringify(checkoutData));
+                    window.location.href = 'checkOut_ConfirmPage.html';
                 });
+            });
+        });
+
+        function toggleIndexFav(btn) {
+            const card = btn.closest('.product-card');
+            const title = card.querySelector('.product-card-title').innerText;
+            const priceText = card.querySelector('.product-price').innerText;
+            const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+            const image = card.querySelector('img').src;
+
+            const product = { title, price, image };
+            let favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
+            const index = favorites.findIndex(f => f.title === title);
+
+            if (index > -1) {
+                favorites.splice(index, 1);
+                btn.classList.remove('active');
+            } else {
+                favorites.push(product);
+                btn.classList.add('active');
+            }
+            localStorage.setItem('flowerFavorites', JSON.stringify(favorites));
+        }
+
+        // Cat-hero banners also go to product detail
+        document.querySelectorAll('.cat-hero').forEach(hero => {
+            hero.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = 'product_Detail.html';
             });
         });
     </script>

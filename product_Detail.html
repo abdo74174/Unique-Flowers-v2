@@ -128,12 +128,16 @@
                         class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700"
                         id="lang-ar">AR</button>
                 </div>
+                <button class="nav-icon-btn" aria-label="Favorites" onclick="window.location.href='favorites.html'">
+                    <span class="material-symbols-outlined text-primary">favorite</span>
+                </button>
                 <button class="hover:opacity-80 transition-opacity duration-300">
                     <span class="material-symbols-outlined text-primary">search</span>
                 </button>
-                <button class="hover:opacity-80 transition-opacity duration-300 relative">
+                <button class="hover:opacity-80 transition-opacity duration-300 relative"
+                    onclick="window.location.href='cart.html'">
                     <span class="material-symbols-outlined text-primary">shopping_bag</span>
-                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full"></span>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full hidden" id="cart-dot"></span>
                 </button>
                 <button class="hover:opacity-80 transition-opacity duration-300">
                     <span class="material-symbols-outlined text-primary">person</span>
@@ -239,33 +243,44 @@
                         </label>
                     </div>
                     <!-- CTAs -->
-                    <div class="flex flex-col gap-4">
-                        <button onclick="checkout('whatsapp')"
-                            class="w-full bg-botanical-gradient text-on-primary py-5 rounded-xl font-bold flex items-center justify-center gap-3 group overflow-hidden relative">
+                    <div class="flex items-center gap-3 w-full">
+                        <button onclick="addToCart()"
+                            class="flex-grow bg-botanical-gradient text-on-primary py-5 rounded-xl font-bold flex items-center justify-center gap-3 group overflow-hidden relative">
                             <span
-                                class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">chat</span>
-                            <span class="uppercase tracking-widest text-sm" data-i18n="hero.cta_whatsapp">Order on
-                                WhatsApp</span>
+                                class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">add_shopping_cart</span>
+                            <span class="uppercase tracking-widest text-sm" data-i18n="nav.cart">Add to Cart</span>
                         </button>
-                        <button onclick="checkout('online')"
-                            class="w-full bg-surface-container-lowest border border-outline-variant/30 text-primary py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-container hover:text-white transition-all"
-                            data-i18n="product.pay_online">
-                            Complete Payment Online
+                        <button onclick="toggleFavorite()" id="detail-fav-btn"
+                            class="w-16 h-[60px] bg-white border border-outline-variant/30 text-primary rounded-xl flex items-center justify-center hover:bg-stone-50 transition-all">
+                            <span class="material-symbols-outlined text-2xl" id="detail-fav-icon">favorite</span>
                         </button>
                     </div>
-                    <div
-                        class="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-400 font-bold pt-4">
-                        <div class="flex items-center gap-2" data-i18n="product.same_day">
-                            <span class="material-symbols-outlined text-sm">local_shipping</span>
-                            Same Day Delivery
-                        </div>
-                        <div class="flex items-center gap-2" data-i18n="product.sustainable">
-                            <span class="material-symbols-outlined text-sm">eco</span>
-                            Sustainably Sourced
-                        </div>
+
+                    <button onclick="checkout('whatsapp')"
+                        class="w-full border-2 border-primary/20 text-primary py-5 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-primary/5 transition-all">
+                        <span class="material-symbols-outlined text-2xl">chat</span>
+                        <span class="uppercase tracking-widest text-sm" data-i18n="hero.cta_whatsapp">Order on
+                            WhatsApp</span>
+                    </button>
+                    <button onclick="checkout('online')"
+                        class="w-full bg-surface-container-lowest border border-outline-variant/30 text-stone-400 py-3 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-stone-50 transition-all opacity-70"
+                        data-i18n="product.pay_online">
+                        Complete Payment Online
+                    </button>
+                </div>
+                <div
+                    class="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-400 font-bold pt-4">
+                    <div class="flex items-center gap-2" data-i18n="product.same_day">
+                        <span class="material-symbols-outlined text-sm">local_shipping</span>
+                        Same Day Delivery
+                    </div>
+                    <div class="flex items-center gap-2" data-i18n="product.sustainable">
+                        <span class="material-symbols-outlined text-sm">eco</span>
+                        Sustainably Sourced
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Detailed Description Section (Editorial Style) -->
         <section class="mt-32 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -472,11 +487,73 @@
                 title: document.querySelector('[data-i18n="product.ethereal_title"]').innerText,
                 price: parseFloat(document.querySelector('.text-3xl.font-headline.text-primary').innerText),
                 image: document.querySelector('main img').src,
-                method: method
+                method: method,
+                quantity: 1
             };
             localStorage.setItem('checkoutProduct', JSON.stringify(product));
+            localStorage.removeItem('checkoutItems'); // Clear cart checkout for single item
             window.location.href = 'checkOut_ConfirmPage.html';
         }
+
+        function addToCart() {
+            const product = {
+                title: document.querySelector('[data-i18n="product.ethereal_title"]').innerText,
+                price: parseFloat(document.querySelector('.text-3xl.font-headline.text-primary').innerText),
+                image: document.querySelector('main img').src,
+                quantity: 1
+            };
+            let cart = JSON.parse(localStorage.getItem('flowerCart')) || [];
+
+            // Check if item already in cart
+            const index = cart.findIndex(i => i.title === product.title);
+            if (index > -1) {
+                cart[index].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('flowerCart', JSON.stringify(cart));
+            document.getElementById('cart-dot').classList.remove('hidden');
+
+            const alertMsg = localStorage.getItem('selectedLanguage') === 'ar' ? 'تمت الإضافة للسلة!' : 'Added to cart!';
+            alert(alertMsg);
+        }
+
+        function toggleFavorite() {
+            const product = {
+                title: document.querySelector('[data-i18n="product.ethereal_title"]').innerText,
+                price: parseFloat(document.querySelector('.text-3xl.font-headline.text-primary').innerText),
+                image: document.querySelector('main img').src
+            };
+            let favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
+            const index = favorites.findIndex(f => f.title === product.title);
+
+            const icon = document.getElementById('detail-fav-icon');
+            if (index > -1) {
+                favorites.splice(index, 1);
+                icon.style.fontVariationSettings = "'FILL' 0";
+            } else {
+                favorites.push(product);
+                icon.style.fontVariationSettings = "'FILL' 1";
+            }
+
+            localStorage.setItem('flowerFavorites', JSON.stringify(favorites));
+        }
+
+        // Check if cart or fav has items
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('flowerCart')) || [];
+            if (cart.length > 0) {
+                document.getElementById('cart-dot').classList.remove('hidden');
+            }
+
+            // Check favorite state for this product
+            const favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
+            const productTitle = document.querySelector('[data-i18n="product.ethereal_title"]').innerText;
+            if (favorites.some(f => f.title === productTitle)) {
+                document.getElementById('detail-fav-icon').style.fontVariationSettings = "'FILL' 1";
+            }
+        });
     </script>
 </body>
 
