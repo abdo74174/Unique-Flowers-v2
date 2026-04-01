@@ -614,10 +614,11 @@ function applyTranslations(lang) {
             font-family: 'Material Symbols Outlined' !important;
         }
         /* RTL Spacing Fixes */
-        html[lang="ar"] .nav-links { flex-direction: row-reverse; }
-        html[lang="ar"] .nav-actions { flex-direction: row-reverse; }
+        html[lang="ar"] .nav-links { flex-direction: row-reverse; justify-content: center; }
+        html[lang="ar"] .nav-actions { flex-direction: row-reverse; justify-content: center; }
         html[lang="ar"] .footer-cols { direction: rtl; }
-        html[lang="ar"] .cat-hero-content { text-align: right; }
+        html[lang="ar"] .cat-hero-content { text-align: center !important; }
+        html[lang="ar"] .hero-content { text-align: center !important; }
     `;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {

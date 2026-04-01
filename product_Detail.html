@@ -202,12 +202,33 @@
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
+        @media (max-width: 1024px) {
+            .text-5xl, .text-6xl, .text-4xl {
+                text-align: center !important;
+            }
+            .sticky.top-32 {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .sticky.top-32 h1, .sticky.top-32 p, .sticky.top-32 div {
+                text-align: center !important;
+            }
+            .sticky.top-32 .flex.gap-4 {
+                justify-content: center !important;
+            }
+            .flex.items-baseline.gap-4 {
+                justify-content: center !important;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
     <!-- Header / TopNavBar -->
-    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl">
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl" id="navbar">
         <nav class="flex justify-between items-center px-6 md:px-12 py-6 max-w-screen-2xl mx-auto">
             <div class="text-2xl font-headline italic text-emerald-900 tracking-tighter" data-i18n="nav.brand">The
                 Botanical Editorial</div>
@@ -271,7 +292,7 @@
     </nav>
 
     <!-- ═══ NAVBAR ═══ -->
-    <nav class="navbar" id="navbar">
+    <div class="product-detail-wrapper">
         <!-- Breadcrumb -->
         <nav class="mb-12 flex items-center gap-2 text-xs uppercase tracking-widest text-zinc-400">
             <a class="hover:text-primary transition-colors" href="index.html" data-i18n="catalog_page.home">Home</a>
