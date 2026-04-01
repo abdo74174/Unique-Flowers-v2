@@ -419,6 +419,17 @@
             gap: 2rem;
         }
 
+        /* Centering for Arabic */
+        html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] .hero-content, html[lang="ar"] .cat-hero-content {
+            text-align: center !important;
+        }
+
+        body {
+            overflow-y: auto !important;
+            min-height: 100vh !important;
+            height: auto !important;
+        }
+
         @media (max-width: 640px) {
             .navbar-inner {
                 padding: 0 1.5rem;
@@ -481,7 +492,7 @@
                 </button>
             </div>
         </div>
-    </nav>
+    </header>
 
     <main class="pt-32 pb-20 px-6 max-w-[1600px] mx-auto">
         <!-- Page Header -->
