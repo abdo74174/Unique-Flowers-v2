@@ -128,63 +128,78 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             background: rgba(255, 255, 255, 0.92);
-            border-bottom: 1px solid rgba(49, 90, 68, 0.08);
-            transition: all 0.4s ease;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 30px rgba(49, 90, 68, 0.08);
+            padding: 0.75rem 0;
+            background: rgba(255, 255, 255, 0.8);
         }
-
         .navbar-inner {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 3rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 76px;
+            padding: 0 2rem;
         }
-
         .nav-brand {
             font-family: 'Noto Serif', serif;
-            font-style: italic;
             font-size: 1.5rem;
-            color: #1e3d2d;
-            letter-spacing: -0.03em;
+            font-style: italic;
+            font-weight: 600;
+            color: #1d1b1b;
             text-decoration: none;
-            white-space: nowrap;
-            flex-shrink: 0;
+            letter-spacing: -0.03em;
         }
-
         .nav-links {
             display: flex;
-            align-items: center;
             gap: 2rem;
             list-style: none;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
         }
-
         .nav-links a {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: #414943;
             text-decoration: none;
-            letter-spacing: 0.06em;
+            color: #555;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            padding-bottom: 2px;
-            border-bottom: 1.5px solid transparent;
-            transition: all 0.25s ease;
-            white-space: nowrap;
+            transition: all 0.3s ease;
         }
+        .nav-links a:hover, .nav-links a.active { color: #715956; }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #315a44;
-            border-bottom-color: #315a44;
+        /* ── Mobile Bottom Nav ── */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            z-index: 999;
+            padding: 12px 1rem calc(12px + env(safe-area-inset-bottom));
+            justify-content: space-around;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.03);
+        }
+        .mb-nav-item {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 4px; text-decoration: none; color: #888;
+        }
+        .mb-nav-item.active { color: #715956; }
+        .mb-nav-item span { font-size: 24px; }
+        .mb-nav-item label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-bottom-nav { display: flex; }
+            #navbar .cart-btn, #navbar .nav-icon-btn[aria-label="Favorites"] { display: none; }
+            body { padding-bottom: 80px; } /* Space for bottom nav */
         }
 
         .nav-actions {
@@ -420,8 +435,28 @@
 
 <body class="bg-surface text-on-surface">
 
-    <!-- ═══ NAVBAR ═══ -->
-    <nav class="navbar" id="navbar">
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mb-nav-item">
+            <span class="material-symbols-outlined">home</span>
+            <label data-i18n="nav.home">Home</label>
+        </a>
+        <a href="product_Catlog.html" class="mb-nav-item active">
+            <span class="material-symbols-outlined">grid_view</span>
+            <label data-i18n="nav.catalog">Catalog</label>
+        </a>
+        <a href="favorites.html" class="mb-nav-item">
+            <span class="material-symbols-outlined">favorite</span>
+            <label data-i18n="nav.fav">Wishlist</label>
+        </a>
+        <a href="cart.html" class="mb-nav-item">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <label data-i18n="nav.cart">Cart</label>
+        </a>
+    </nav>
+
+    <!-- Header / Nav -->
+    <header id="navbar" class="navbar">
         <div class="navbar-inner">
             <a href="index.html" class="nav-brand" id="brand-text" data-i18n="nav.brand">Unique Flowers</a>
             <ul class="nav-links">
@@ -660,6 +695,14 @@
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
                 renderProducts(e.target.dataset.category);
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                document.getElementById('navbar').classList.add('scrolled');
+            } else {
+                document.getElementById('navbar').classList.remove('scrolled');
             }
         });
 
