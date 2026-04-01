@@ -1022,21 +1022,16 @@
             }
         }
 
+        @media(max-width:1100px) {
+            .hero-section { justify-content: center !important; }
+            .hero-content { text-align: center !important; width: 100% !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+            .hero-content h1, .hero-content p, .hero-content div { text-align: center !important; }
+            #hero-btns { justify-content: center !important; flex-direction: column !important; }
+        }
         /* Ensure hero centering also works in Arabic RTL on desktop */
-        html[lang="ar"] .hero-content {
-            text-align: center;
-        }
-
-        html[lang="ar"] .hero-badge {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        html[lang="ar"] #hero-btns {
-            justify-content: center;
-            direction: ltr;
-            /* Keep buttons LTR so they center properly */
-        }
+        html[lang="ar"] .hero-content { text-align: center; }
+        html[lang="ar"] .hero-badge { margin-left: auto; margin-right: auto; }
+        html[lang="ar"] #hero-btns { justify-content: center; direction: ltr; }
     </style>
 </head>
 
