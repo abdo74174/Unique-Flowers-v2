@@ -4,9 +4,9 @@
         font: "'Plus Jakarta Sans', sans-serif",
         headingFont: "'Plus Jakarta Sans', sans-serif",
         nav: {
-            brand: "THE BOTANICAL EDITORIAL",
-            natural: "Natural",
-            artificial: "Artificial",
+            brand: "Unique Flowers",
+            natural: "Fresh Flowers",
+            artificial: "Artificial Flowers",
             gifts: "Gifts",
             vases: "Vases",
             balloons: "Balloons"
@@ -69,7 +69,7 @@
                 instagram: "Instagram",
                 pinterest: "Pinterest"
             },
-            copyright: "© 2024 THE BOTANICAL EDITORIAL. CRAFTED FOR THE CURATED LIFE."
+            copyright: "© 2024 Unique Flowers. The Digital Florist’s Atelier."
         },
         catalog: {
             title: "The Curated Catalog",
@@ -163,6 +163,46 @@
                 whatsapp: "WhatsApp",
                 profile: "Profile"
             }
+        },
+        gift_page: {
+            hero_title: "Curated Collections for Every Moment",
+            hero_desc: "Hand-picked botanical treasures and artisanal gifts, thoughtfully assembled to celebrate life's most beautiful transitions.",
+            newborn_label: "New Beginnings",
+            newborn_title: "Newborn Gifts",
+            newborn_desc: "Welcoming the newest members of the garden with soft petals and gentle hues.",
+            g1_title: "Blush Blossom Cradle",
+            g1_desc: "Peonies & Organic Cotton Essentials",
+            g2_title: "Azure Sky Welcome",
+            g2_desc: "Hydrangeas & Wooden Keepsakes",
+            g3_title: "Ethereal Neutral Box",
+            g3_desc: "White Lilies & Linen Dreams",
+            sig_series: "Signature Series",
+            him_title: "The Gentleman’s Collection",
+            him_desc: "Refined, bold, and meticulously crafted. Our collections for men pair architectural botanicals with premium lifestyle accessories for a statement of quiet luxury.",
+            him_p1_title: "The Noir Executive",
+            him_p1_desc: "Succulents & Leather Goods",
+            him_p2_title: "Forest Reserve",
+            him_p2_desc: "Evergreen Arrangement & Aged Spirits",
+            him_quote: "Strength in Elegance",
+            him_btn: "Explore For Him",
+            grace_label: "Timeless Grace",
+            her_title: "The Modern Muse",
+            her_desc: "Delicate textures and intoxicating scents. These collections celebrate the feminine spirit with ethereal blooms and artisanal self-care rituals.",
+            her_p1_title: "Velvet Rose Atelier",
+            her_p1_desc: "Grand Roses & Silk Scarf",
+            her_p2_title: "Orchid Serenity",
+            her_p2_desc: "Phalaenopsis & Luxury Candles",
+            her_quote: "A Symphony of Softness",
+            her_btn: "Shop All For Her",
+            finish_label: "The Finishing Touch",
+            finish_title: "Balloons & Curated Vases",
+            v1_title: "The Smoked Pillar",
+            v1_desc: "Hand-blown artisanal glass",
+            v2_title: "Terra Organic",
+            b1_title: "Champagne Float",
+            enquire: "Enquire",
+            footer_desc: "Crafting botanical narratives for life’s most meaningful moments. The Digital Florist’s Atelier.",
+            atelier: "The Atelier"
         }
     },
     ar: {
@@ -170,9 +210,9 @@
         font: "'Cairo', sans-serif",
         headingFont: "'Cairo', sans-serif",
         nav: {
-            brand: "ذا بوتانيكال إيديتوريال",
-            natural: "طبيعي",
-            artificial: "صناعي",
+            brand: "يونيك فلاورز",
+            natural: "زهور طبيعية",
+            artificial: "زهور صناعية",
             gifts: "هدايا",
             vases: "فازات",
             balloons: "بالونات"
@@ -235,7 +275,7 @@
                 instagram: "إنستغرام",
                 pinterest: "بينتيريست"
             },
-            copyright: "© 2024 ذا بوتانيكال إيديتوريال. صُنع لحياة منسقة."
+            copyright: "© 2024 يونيك فلاورز. صُنع لحياة منسقة."
         },
         catalog: {
             title: "الكتالوج المنسق",
@@ -329,6 +369,46 @@
                 whatsapp: "واتساب",
                 profile: "الملف الشخصي"
             }
+        },
+        gift_page: {
+            hero_title: "مجموعات منسقة لكل لحظة",
+            hero_desc: "كنوز نباتية مختارة يدوياً وهدايا حرفية، تم تجميعها بعناية للاحتفال بأجمل انتقالات الحياة.",
+            newborn_label: "بدايات جديدة",
+            newborn_title: "هدايا المواليد",
+            newborn_desc: "الترحيب بأحدث أعضاء الحديقة ببتلات ناعمة وألوان لطيفة.",
+            g1_title: "مهد براعم الخجل",
+            g1_desc: "الفاوانيا وأساسيات القطن العضوي",
+            g2_title: "ترحيب السماء الزرقاء",
+            g2_desc: "الهيدرانجيا والذكرى الخشبية",
+            g3_title: "صندوق الحياد الأثيري",
+            g3_desc: "الزنابق البيضاء وأحلام الكتان",
+            sig_series: "سلسلة التوقيع",
+            him_title: "مجموعة السادة",
+            him_desc: "راقية، جريئة، ومصنوعة بدقة. تجمع مجموعاتنا للرجال بين النباتات المعمارية والملحقات الفاخرة لبيان من الفخامة الهادئة.",
+            him_p1_title: "التنفيذي نوار",
+            him_p1_desc: "العصاريات والمنتجات الجلدية",
+            him_p2_title: "محمية الغابة",
+            him_p2_desc: "تنسيق دائم الخضرة ونكهات عتيقة",
+            him_quote: "القوة في الأناقة",
+            him_btn: "استكشف له",
+            grace_label: "نعمة خالدة",
+            her_title: "ملهمة الحداثة",
+            her_desc: "قوام رقيق وروائح مسكرة. تحتفل هذه المجموعات بالروح الأنثوية بزهور أثيرية وطقوس العناية الذاتية الحرفية.",
+            her_p1_title: "مشغل الفلفيت روز",
+            her_p1_desc: "ورود كبيرة ووشاح حريري",
+            her_p2_title: "صفاء الأوركيد",
+            her_p2_desc: "الفالينوبسيس والشموع الفاخرة",
+            her_quote: "سيمفونية من النعومة",
+            her_btn: "تسوقي الكل لها",
+            finish_label: "اللمسة النهائية",
+            finish_title: "بالونات وفازات منسقة",
+            v1_title: "العمود المدخن",
+            v1_desc: "زجاج حرفي منفوخ يدوياً",
+            v2_title: "تيرا أورجانيك",
+            b1_title: "عوامة الشمبانيا",
+            enquire: "استفسار",
+            footer_desc: "صياغة الروايات النباتية للحظات الحياة الأكثر مغزى. مشغل بائع الزهور الرقمي.",
+            atelier: "المشغل"
         }
     }
 };
