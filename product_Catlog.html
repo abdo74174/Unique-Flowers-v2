@@ -1,83 +1,42 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
+<html class="light" lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Unique Flowers | Product Catalog</title>
-    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cairo:wght@200..1000&display=swap"
+        rel="stylesheet" />
     <script src="translations.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Cairo:wght@200..1000&amp;display=swap"
-        rel="stylesheet" />
-    <!-- Material Symbols -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "on-tertiary-container": "#504940",
-                        "surface-variant": "#e4e2de",
-                        "outline-variant": "#d3c3c1",
-                        "secondary-fixed-dim": "#b7ccb5",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-low": "#f5f3ef",
-                        "surface-dim": "#dbdad6",
-                        "on-surface-variant": "#4f4443",
-                        "surface-container-high": "#eae8e4",
-                        "surface-container": "#efeeea",
-                        "error": "#ba1a1a",
-                        "on-secondary-fixed": "#0e1f10",
-                        "surface-tint": "#715956",
-                        "background": "#fbf9f5",
-                        "on-primary-fixed-variant": "#57423f",
-                        "surface": "#fbf9f5",
-                        "on-error-container": "#93000a",
-                        "on-primary-container": "#5b4542",
-                        "tertiary-container": "#c3b9ae",
-                        "surface-bright": "#fbf9f5",
-                        "inverse-primary": "#dec0bb",
-                        "surface-container-highest": "#e4e2de",
-                        "error-container": "#ffdad6",
-                        "on-surface": "#1b1c1a",
-                        "primary-fixed-dim": "#dec0bb",
-                        "primary-fixed": "#fcdbd7",
-                        "tertiary-fixed": "#ece1d5",
+                        "primary": "#315a44",
+                        "primary-container": "#49735b",
                         "on-primary": "#ffffff",
-                        "outline": "#817472",
-                        "inverse-on-surface": "#f2f0ed",
-                        "primary-container": "#d2b4b0",
-                        "secondary-fixed": "#d3e8d0",
-                        "on-secondary-fixed-variant": "#394b39",
-                        "on-secondary": "#ffffff",
-                        "on-error": "#ffffff",
-                        "primary": "#715956",
-                        "tertiary": "#655d54",
-                        "on-tertiary": "#ffffff",
-                        "on-primary-fixed": "#281715",
-                        "on-tertiary-fixed-variant": "#4c463d",
-                        "on-secondary-container": "#546754",
-                        "on-tertiary-fixed": "#201b13",
-                        "inverse-surface": "#30312e",
-                        "secondary": "#506350",
-                        "tertiary-fixed-dim": "#cfc5b9",
-                        "secondary-container": "#d0e6cd",
-                        "on-background": "#1b1c1a"
+                        "on-primary-container": "#c8f6d8",
+                        "surface": "#fdf8f7",
+                        "surface-container": "#f2edec",
+                        "surface-container-low": "#f8f2f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1d1b1b",
+                        "on-surface-variant": "#414943",
+                        "outline": "#717973",
+                        "outline-variant": "#c1c8c1",
+                        "secondary": "#645d5d",
+                        "tertiary": "#a01f00",
                     },
                     fontFamily: {
-                        "headline": ["Newsreader"],
-                        "body": ["Manrope"],
-                        "label": ["Manrope"]
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "arabic": ["Cairo", "sans-serif"],
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -85,340 +44,489 @@
         }
     </script>
     <style>
+        :root {
+            --primary: #315a44;
+            --primary-dark: #1e3d2d;
+            --gold: #c9a84c;
+            --gold-light: #f0d080;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html[lang="ar"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html[lang="ar"] {
+            direction: rtl;
+        }
+
+        html[lang="ar"] .nav-links, html[lang="ar"] .nav-actions {
+            flex-direction: row-reverse;
+        }
+
+        html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6, html[lang="ar"] p, html[lang="ar"] span, html[lang="ar"] a, html[lang="ar"] button {
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 0;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(49, 90, 68, 0.08);
+            transition: all 0.4s ease;
         }
 
-        .custom-scrollbar::-webkit-scrollbar-track {
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(49, 90, 68, 0.08);
+        }
+
+        .navbar-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .nav-brand {
+            font-family: 'Noto Serif', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #1e3d2d;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #414943;
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding-bottom: 2px;
+            border-bottom: 1.5px solid transparent;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #315a44;
+            border-bottom-color: #315a44;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: #f0eeec;
+            border-radius: 999px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
             background: transparent;
+            color: #717973;
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #d3c3c1;
-            border-radius: 10px;
+        .lang-btn.active {
+            background: #315a44;
+            color: white;
+            box-shadow: 0 2px 8px rgba(49, 90, 68, 0.3);
         }
 
-        .velvet-gradient {
-            background: linear-gradient(45deg, #715956, #d2b4b0);
+        .nav-icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #315a44;
+            transition: all 0.2s ease;
+        }
+
+        .nav-icon-btn:hover {
+            background: rgba(49, 90, 68, 0.08);
+        }
+
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #315a44;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .cart-btn:hover {
+            background: #1e3d2d;
+            transform: translateY(-1px);
+        }
+
+        /* Product Grids */
+        .product-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(49, 90, 68, 0.14);
+        }
+
+        .product-card-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            display: block;
+        }
+
+        .product-card:hover .product-card-img {
+            transform: scale(1.06);
+        }
+
+        .product-card-body {
+            padding: 1.25rem;
+        }
+
+        .product-card-title {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.1rem;
+            color: #1d1b1b;
+            margin-bottom: 0.4rem;
+        }
+
+        .product-card-desc {
+            font-size: 0.82rem;
+            color: #717973;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.1rem;
+            color: #315a44;
+            font-weight: 700;
+        }
+
+        .order-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(49, 90, 68, 0.08);
+            color: #315a44;
+            border: none;
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap;
+        }
+
+        .order-btn:hover {
+            background: #315a44;
+            color: white;
+        }
+
+        /* Category Filter Bar */
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            justify-content: center;
+        }
+
+        .filter-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: #f0eeec;
+            color: #717973;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .filter-btn.active {
+            background: #315a44;
+            color: white;
+            box-shadow: 0 4px 12px rgba(49, 90, 68, 0.2);
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: #e6e4e2;
+            color: #1d1b1b;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .navbar-inner {
+                padding: 0 1.5rem;
+            }
+            .filter-bar {
+                justify-content: flex-start;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
         }
     </style>
 </head>
 
-<body
-    class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
-    <!-- TopNavBar (JSON Implementation) -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md">
-        <div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
-            <div class="flex items-center gap-4">
-                <img alt="Unique Flowers Logo" class="h-10 w-auto"
-                    data-alt="minimalist florist brand logo featuring a stylized rose outline in a deep earthy brown tone on a cream background"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-p0vnN8qNWeEsGafiOPH9I1-7hv9oqM_bypHkPvod5voj03radUBBcEZgJbrAoRbIfrz8BXXIK-wMIthv-LbWm-hKPRhJLyUYhqqk5v5LCU2pFeIUvZXpCEHM8azwUpdV4zqp0JeF2rfc4ToKs8_5PInG4N1Zm4uAYdBQ3wfdkBFWfbj-HKXhOyPomN3DOb2IUfjQ6j9OLS-KP6ZxnFNqeS3yaY2CyFB-Td4wJUxNWXc4cAShgvHulvBJlrtquYkGohLgjXCz7sOK" />
-                <span class="text-2xl font-serif text-stone-900 dark:text-stone-50 italic tracking-tighter" data-i18n="nav.brand">Unique
-                    Flowers</span>
-            </div>
-            <nav class="hidden md:flex gap-8 items-center">
-                <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-900 dark:text-stone-50 border-b border-stone-400 pb-1 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="product_category.html" data-i18n="nav.natural">Fresh Flowers</a>
-                <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="product_Catlog.html" data-i18n="nav.artificial">Artificial Flowers</a>
-                <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="gift_Collections.html" data-i18n="nav.gifts">Gifts</a>
-                <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#" data-i18n="nav.vases">Vases</a>
-                <a class="font-sans Manrope tracking-widest text-[0.6875rem] uppercase text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors duration-300"
-                    href="#" data-i18n="nav.balloons">Balloons</a>
-            </nav>
-            <div class="flex items-center gap-6">
-                <div class="flex items-center bg-zinc-100 dark:bg-zinc-800 rounded-full p-1 h-8">
-                    <button onclick="setLanguage('en')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-en">EN</button>
-                    <button onclick="setLanguage('ar')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-ar">AR</button>
+<body class="bg-surface text-on-surface">
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-brand" id="brand-text">Unique Flowers</a>
+            <ul class="nav-links">
+                <li><a href="index.html#natural" data-i18n="nav.natural">Natural</a></li>
+                <li><a href="index.html#artificial" data-i18n="nav.artificial">Artificial</a></li>
+                <li><a href="index.html#baby-gifts" data-i18n="nav.baby">Baby Gifts</a></li>
+                <li><a href="index.html#vases" data-i18n="nav.vases">Vases</a></li>
+                <li><a href="index.html#balloons" data-i18n="nav.balloons">Balloons</a></li>
+                <li><a href="index.html#gifts" data-i18n="nav.gifts">Gifts</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" id="lang-ar" onclick="setLanguage('ar')">AR</button>
                 </div>
-                <button class="text-stone-700 dark:text-stone-300 hover:text-stone-900 transition-colors">
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                </button>
-                <button class="text-stone-700 dark:text-stone-300 hover:text-stone-900 transition-colors">
-                    <span class="material-symbols-outlined">person</span>
+                <button class="cart-btn">
+                    <span class="material-symbols-outlined" style="font-size:18px;">shopping_bag</span>
+                    <span class="cart-label" data-i18n="nav.cart">Cart</span>
                 </button>
             </div>
         </div>
-    </header>
-    <div class="flex min-h-screen pt-20">
-        <!-- SideNavBar (JSON Implementation) -->
-        <aside
-            class="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl border-r border-stone-100 dark:border-stone-800 flex-col p-6 z-40 shadow-2xl shadow-stone-900/5">
-            <div class="mb-10 pt-16">
-                <h2 class="font-serif italic text-2xl text-stone-800 dark:text-stone-100" data-i18n="nav.brand">Unique Flowers</h2>
-                <p class="text-xs font-sans text-stone-500 tracking-widest uppercase mt-1" data-i18n="catalog_page.brand_tagline">The Digital Florist</p>
-            </div>
-            <nav class="flex flex-col gap-2 flex-grow">
-                <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
-                    href="index.html">
-                    <span class="material-symbols-outlined">home</span>
-                    <span class="font-sans" data-i18n="catalog_page.home">Home</span>
-                </a>
-                <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
-                    href="#">
-                    <span class="material-symbols-outlined">chat</span>
-                    <span class="font-sans" data-i18n="catalog_page.order_whatsapp">Order Via WhatsApp</span>
-                </a>
-                <a class="flex items-center gap-4 bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-white rounded-lg px-4 py-3 active:scale-95 transition-transform"
-                    href="#">
-                    <span class="material-symbols-outlined">filter_list</span>
-                    <span class="font-sans" data-i18n="catalog_page.categories">Categories</span>
-                </a>
-                <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
-                    href="#">
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span class="font-sans" data-i18n="catalog_page.favorites">My Favorites</span>
-                </a>
-                <a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-900 transition-all"
-                    href="#">
-                    <span class="material-symbols-outlined">help</span>
-                    <span class="font-sans" data-i18n="catalog_page.support">Support</span>
-                </a>
-            </nav>
-            <button
-                class="mt-auto velvet-gradient text-white py-4 rounded-lg font-sans text-sm tracking-widest uppercase active:scale-95 transition-transform" data-i18n="catalog_page.start_bouquet">
-                Start a Bouquet
-            </button>
-        </aside>
-        <!-- Main Content Area -->
-        <main class="flex-1 lg:ml-64 p-8 md:p-12">
-            <!-- Page Header & Filters -->
-            <section class="max-w-7xl mx-auto mb-16">
-                <div
-                    class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-outline-variant/15 pb-8">
-                    <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-serif text-on-surface italic leading-tight" data-i18n="catalog_page.spring_title">Spring
-                            Curations</h1>
-                        <p class="mt-4 text-secondary font-body leading-relaxed opacity-80" data-i18n="catalog_page.spring_desc">Our floral designers have
-                            hand-selected these arrangements to evoke the delicate awakening of the season. Each bloom
-                            is sourced ethically from private gardens.</p>
-                    </div>
-                    <!-- Collection Filters -->
-                    <div class="flex gap-4 flex-wrap">
-                        <button
-                            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-[0.6875rem] uppercase tracking-widest hover:bg-surface-variant transition-colors" data-i18n="catalog_page.men">Men</button>
-                        <button
-                            class="px-6 py-2 rounded-full bg-primary text-on-primary font-label text-[0.6875rem] uppercase tracking-widest" data-i18n="catalog_page.women">Women</button>
-                        <button
-                            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface font-label text-[0.6875rem] uppercase tracking-widest hover:bg-surface-variant transition-colors" data-i18n="catalog_page.newborns">Newborns</button>
-                    </div>
-                </div>
-            </section>
-            <!-- Product Grid (Asymmetric Layout) -->
-            <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
-                <!-- Product Card 1 -->
-                <div class="group">
-                    <div
-                        class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[4/5] rounded-xl transition-all duration-700">
-                        <img alt="The Heirloom Peony Bouquet"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            data-alt="luxurious bouquet of soft pink and white peonies in a tall crystal vase, soft natural side lighting from a window"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64CW7josacqlDdFwUrmlNWVHpHPsmY701T2IRVFlX35uKXv7ti4uq-FBRKVTzKcddRbq-X7OqT4eOo7eLRhATuLAP0IQf7iorrIt66i-NUGSF9DRqmZSHiMKmeOp4MZkOnAT-8Dx8EanMI_x-HYi5FJBtmp4cirb1cto1bvkyT2Xyi4P1n0tqfAYfa02OCIX1FSpi-bTg15Y2U9C3cCo76-rAfteYAt5EgSctjMBiDgnisyZc8ib9Y5OVco0nbArK2awHYL746UhV" />
-                        <div
-                            class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </div>
-                    <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p1_title">The Heirloom Peony</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="font-body text-secondary-container-on font-semibold">€125.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p1_type">Fresh
-                                Arrangement</span>
-                        </div>
-                        <button
-                            class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
-                            <span class="material-symbols-outlined scale-75">chat</span>
-                            Order on WhatsApp
-                        </button>
-                    </div>
-                </div>
-                <!-- Product Card 2 (Offset for Asymmetry) -->
-                <div class="group md:mt-12">
-                    <div
-                        class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[4/5] rounded-xl transition-all duration-700">
-                        <img alt="Alabaster Ceramic Vase"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            data-alt="minimalist matte white ceramic vase with organic asymmetrical shape on a stone pedestal with soft shadows"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAos2LgNO2qAoqR31022RGTEyGQZbD8NubJGSramQj2S6qdSmk3z2BMJZnliAcOYOnjjEYYgMLP7722yYCYt3E5qJrPcnM0qC8xamHgWz4eKgadXQgQXRq0NnXKeiKbCKWETJwBcnxi2rAtrymdY-WQGb3Ig56xD3xdwYgOAopzcmGGDKVOY6JnmmZXKWTR_nRcoXJymL376Wq76e5J51gy5_5HBE5rnF00tH0kHxyTGVp4XAbMljIXWZXcDZ4fuaSrkPp4XO2ta6Hn" />
-                        <div
-                            class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </div>
-                    <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p2_title">Alabaster Sculpt</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="font-body text-secondary-container-on font-semibold">€84.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p2_type">Handcrafted
-                                Vase</span>
-                        </div>
-                        <button
-                            class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
-                            <span class="material-symbols-outlined scale-75">chat</span>
-                            Order on WhatsApp
-                        </button>
-                    </div>
-                </div>
-                <!-- Product Card 3 -->
-                <div class="group">
-                    <div
-                        class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[4/5] rounded-xl transition-all duration-700">
-                        <img alt="Midnight Orchid Arrangement"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            data-alt="rare dark purple orchid arrangement in a black glass bowl, moody low key lighting, elegant and mysterious"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1n9NBIRanWNTDD7psbtNU_0ZpKDYjDPjS6AYGpYO3Qa4lgv1H3YqmWF-9cEYbVqifAi7VPLW7Y-h1WjenoEn3NFc3H9PJO1sGQ_Hq6FVIhMWm3j-H_1iPlCayVF78zQRW6RuVdxGISbeV6ts9ms_1R5Wc2z1lnXpsHchjSZZ5iKsHbdiXRVENeyBG5EzvVzkASZPFaWCqW3jfkxdJpkqaHbqKnW3hM1GWUqASeFYUT6H3UOqQwLPlofwHR1J9VHovFz61oeV-XBoR" />
-                        <div
-                            class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </div>
-                    <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p3_title">Midnight Orchid</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="font-body text-secondary-container-on font-semibold">€150.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p3_type">Premium Floral</span>
-                        </div>
-                        <button
-                            class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
-                            <span class="material-symbols-outlined scale-75">chat</span>
-                            Order on WhatsApp
-                        </button>
-                    </div>
-                </div>
-                <!-- Product Card 4 -->
-                <div class="group">
-                    <div
-                        class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[4/5] rounded-xl transition-all duration-700">
-                        <img alt="Tuscan Sun Dried Bouquet"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            data-alt="large arrangement of dried wildflowers, pampas grass, and golden wheat in an earthy terracotta pot, warm sunny lighting"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN1PBY2GbiQ6oRsSkrMGoIWLsCj-w-jyQbg5Fe-8pLDIfZz44eg5_PQ_fM5MLI2IPbv4O7d-h1fap0fK99HmbaJ-TdiDO5iY7tjyndHp__r3uLlvIeGCu5iRVsW86LN_FJy-vz61QVMfIlhc5QzCkNxbKS8jW0gSYnyHjN6E49sgHEavBjFsHMvLPmh2bZaGZOSDCNSmkQ8t_JiAaH6TYVnBhWtAc-P7Fv96p3DMoNbkp-kdyfXWbA-JAjCJaGZVmkiSmboYa-Pad5" />
-                        <div
-                            class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </div>
-                    <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p4_title">Tuscan Sun Dried</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="font-body text-secondary-container-on font-semibold">€95.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p4_type">Eternal
-                                Collection</span>
-                        </div>
-                        <button
-                            class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
-                            <span class="material-symbols-outlined scale-75">chat</span>
-                            Order on WhatsApp
-                        </button>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="group md:mt-[-4rem]">
-                    <div
-                        class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[4/5] rounded-xl transition-all duration-700">
-                        <img alt="Glass Ribbed Vase"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            data-alt="tall emerald green ribbed glass vase catching light, clean studio lighting, minimalist aesthetic"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuATVTYcn_mPySxSupysBXOvmCYgoIFMiwQqHX04OboVmVixqrlnW0NXMvjI84JPIEpSBHcJ6Kb7jYcYHdFpHFSPgnjhiZxLfplNSL7Es8kkkPDMwaOM9d33_36Z1p0jGmTo3EWVRTGhuPdEIPt14x3BmTiGNYzlvN0II6XnV36cfTfxKGzr9XKa4JLwCIhZ2JmmRB84Ll57V0H0Ty3WqaSR51Uqt7ihd3ZWSO7yGpScLo9ZDKnTcAMh46oQhrvAezIkcKkV4UUEXq0r" />
-                        <div
-                            class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </div>
-                    <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p5_title">Emerald Ribbed Glass</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="font-body text-secondary-container-on font-semibold">€68.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p5_type">Bespoke Vases</span>
-                        </div>
-                        <button
-                            class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
-                            <span class="material-symbols-outlined scale-75">chat</span>
-                            Order on WhatsApp
-                        </button>
-                    </div>
-                </div>
-                <!-- Product Card 6 -->
-                <div class="group">
-                    <div
-                        class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[4/5] rounded-xl transition-all duration-700">
-                        <img alt="Cotton Candy Balloon Bouquet"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            data-alt="elegant cluster of pastel pink and gold satin finish balloons tied with silk ribbons, celebratory atmosphere"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNSUlqGomsUg_ANaBgLkjte0jSjQtHtv3scSnmHFWqcfIFhTIV9yWbwtvTJCXBvyYpV31atANYlFDRSn2u53nIkRGrWTJdGk18VFyX6KuZFmedFK4VG0948JUSWWNCdxBsOWNLDx-uhdyvBpHonfn1d9Swoevl8dmdedqRRTKbJFL9boJ0PdyW4uPA5sIToKcljTcaDYQ04npjBVFWKQA44oa4UsDSh01qepsx2hIm-NRYULR3PW-WvifM7HlelETifcD4WHd1-zVU" />
-                        <div
-                            class="absolute inset-0 bg-on-surface/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                    </div>
-                    <div class="space-y-2 px-2">
-                        <h3 class="font-serif text-2xl italic text-on-surface" data-i18n="catalog_page.p6_title">Cotton Candy Gala</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="font-body text-secondary-container-on font-semibold">€45.00</span>
-                            <span class="text-xs font-label uppercase tracking-tighter opacity-50" data-i18n="catalog_page.p6_type">Celebration
-                                Kit</span>
-                        </div>
-                        <button
-                            class="w-full mt-4 flex items-center justify-center gap-2 py-3 border border-outline-variant/30 font-label text-[0.75rem] uppercase tracking-[0.15em] hover:bg-on-surface hover:text-surface transition-all duration-300">
-                            <span class="material-symbols-outlined scale-75">chat</span>
-                            Order on WhatsApp
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-    <!-- Footer (JSON Implementation) -->
-    <footer class="bg-stone-100 dark:bg-stone-900 mt-24">
-        <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl mx-auto py-16 px-8 border-t border-stone-200/20">
-            <div>
-                <span class="font-serif italic text-xl text-stone-900 dark:text-stone-50" data-i18n="nav.brand">Unique Flowers</span>
-                <p class="mt-4 font-serif text-lg text-stone-800 dark:text-stone-200" data-i18n="catalog_page.footer_atelier">The Digital Florist’s Atelier.</p>
-                <p class="mt-8 font-sans text-xs text-stone-600 dark:text-stone-400" data-i18n="footer.copyright">© 2024 Unique Flowers. The Digital
-                    Florist’s Atelier.</p>
-            </div>
-            <div class="flex flex-col gap-4">
-                <h4
-                    class="font-sans text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-bold" data-i18n="catalog_page.contact_support">
-                    Contact &amp; Support</h4>
-                <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#" data-i18n="catalog_page.whatsapp_support">WhatsApp Support</a>
-                <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#" data-i18n="catalog_page.location">Our Location</a>
-            </div>
-            <div class="flex flex-col gap-4">
-                <h4
-                    class="font-sans text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-bold" data-i18n="catalog_page.legal_social">
-                    Legal &amp; Social</h4>
-                <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#">Instagram</a>
-                <a class="font-sans text-stone-600 dark:text-stone-400 hover:underline decoration-stone-300 transition-all"
-                    href="#" data-i18n="catalog_page.terms">Terms &amp; Conditions</a>
-            </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-[1600px] mx-auto">
+        <!-- Page Header -->
+        <header class="text-center mb-12">
+            <span class="section-label" data-i18n="catalog.label">Our Collection</span>
+            <h1 class="font-headline text-5xl mb-6" data-i18n="catalog.title">Explore Botanical Gallery</h1>
+            <p class="text-secondary max-w-2xl mx-auto opacity-80" data-i18n="catalog.desc">
+                From fresh farm blooms to everlasting silk arrangements, find the perfect piece for your space.
+            </p>
+        </header>
+
+        <!-- Category Filter -->
+        <div class="filter-bar mb-16" id="category-filters">
+            <button class="filter-btn active" data-category="all" data-i18n="catalog.all">All Pieces</button>
+            <button class="filter-btn" data-category="natural" data-i18n="nav.natural">Natural</button>
+            <button class="filter-btn" data-category="artificial" data-i18n="nav.artificial">Artificial</button>
+            <button class="filter-btn" data-category="baby" data-i18n="nav.baby">Baby Gifts</button>
+            <button class="filter-btn" data-category="vases" data-i18n="nav.vases">Vases</button>
+            <button class="filter-btn" data-category="balloons" data-i18n="nav.balloons">Balloons</button>
+            <button class="filter-btn" data-category="gifts" data-i18n="nav.gifts">Gifts</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="product-container">
+            <!-- Products will be injected here via JS -->
+        </div>
+    </main>
+
+    <footer style="background:#1a2e22;color:white;padding:5rem 3rem 3rem;">
+        <div style="max-width:1600px;margin:0 auto;text-align:center;">
+            <p class="font-headline" style="font-size:1.5rem;margin-bottom:1rem;font-style:italic;color:rgba(255,255,255,0.95);" id="footer-brand">Unique Flowers</p>
+            <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;line-height:1.8;max-width:280px;margin:0 auto 2rem;" data-i18n="footer.brand_desc">Curating nature's finest moments for your everyday space.</p>
+            <div style="width:100%;height:1px;background:rgba(255,255,255,0.1);margin-bottom:2rem;"></div>
+            <p style="color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;" data-i18n="footer.copyright">© 2024 Unique Flowers. The Digital Florist’s Atelier.</p>
         </div>
     </footer>
-    <!-- Mobile Navigation (BottomNavBar Logic) -->
-    <nav
-        class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-md flex justify-around items-center py-4 px-6">
-        <button class="flex flex-col items-center gap-1 text-stone-900 dark:text-stone-50">
-            <span class="material-symbols-outlined">home</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.home">Home</span>
-        </button>
-        <button class="flex flex-col items-center gap-1 text-stone-400">
-            <span class="material-symbols-outlined">filter_list</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.catalog">Catalog</span>
-        </button>
-        <button class="flex flex-col items-center gap-1 text-stone-400">
-            <span class="material-symbols-outlined">chat</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.whatsapp">WhatsApp</span>
-        </button>
-        <button class="flex flex-col items-center gap-1 text-stone-400">
-            <span class="material-symbols-outlined">person</span>
-            <span class="text-[0.625rem] font-sans tracking-tighter uppercase" data-i18n="catalog_page.mobile.profile">Profile</span>
-        </button>
-    </nav>
-</body>
 
+    <script>
+        const products = [
+            // Natural
+            { id: 1, category: 'natural', title: 'Ethereal Blush', price: 185, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUQdi5yw9H_4HzZQETDkWwrIxI6h9UxbZyhkFc-DgIHxTmsHtr_olVYv-ZNbyz7CBizoFOJGkx5yi0AbbVsG5yOHFFBSqvOL-0io7TetLfQjs6RHTm1sHgIG_Uh-yQ8YMmHy4SvY12_TnEIk84m9clNGDf934idRxQLDvxLfHj-cNw0b2aCQhPmY_ZMfewWm4Qh_RRjKmyUrM5w_cxgmiNuHMj3pCHEt9w4ywDph_n8vAZEReEmukFl4UPUVGEasYOgT_S3hHXPoIh', desc: 'Dreamy pastel peonies and ranunculus.' },
+            { id: 2, category: 'natural', title: 'Garden Serenade', price: 155, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-psEOBkX9T5js3Z_vcfm6-r8uY8-bvlx8jHwkqzHtjRvaKeiRufBlD2KX3ENwWqq4gg7ojwb0m4gd6c1SKIQrCe7NbexOZVdVihk1bwue-BYo5a8FolhrQtUOGWBETyrahU2hzCcpCBYAXx9-oY3xH-9l2lEK9IeSKHT3caoszb9dIi0TfD8D5YDDGZ4dmRxw1zPnoTXCW-AmSrFru4HmPXNIQdlnPoLkxTGBEjsxLNWyxE-r4SM95t15ID55y_3OBoNPRuoWSihq', desc: 'Wild blooms for nature lovers.' },
+            { id: 3, category: 'natural', title: 'Midnight Orchid', price: 260, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCxYoBVCl81BbCgcSlVIwkr67W2uM87d_j4xWD5si3fb1v8eghs1et5dy1NBvot_GhZQzhnGY7kLEEsJi1C-Tb7XEkUimXdZeAy6DXfqsw4WnftwMAWmKh3w7M0p-1zvYicwUFGpRhnGknGIfMcdgIP2oeUGmIaqrjMy8JCPWQuALDPb3QH_HN-Xs-onoz08l30eGJ2zW7fnlHOv2XqGvuHtdVv_YYfCdHh5D-9TqQPeTr1z5eKVVLDmkuObaPfeqFTrYxiZDdsubuB', desc: 'Deep purple architectural orchids.' },
+            
+            // Artificial
+            { id: 4, category: 'artificial', title: 'Velvet Protea Silk', price: 240, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD_bOdnNg8stI3Vi6LqCQCWI-mR46D2Z_RF5FHGsP_sIIFx989vZQSyrVlH4TfK8r6yG6H2ze75WdIP1Bj39SNf-x-JgMp7RxvVMsZlG-Dy6gVZAMSL5lh1AaeFOU0DJ6yrOcJIM84gs_fo4604YeL5V9Jvn2-ycnIc1CoJTXMYTMmBPNF21G7pAjXgrpMTc2mMDsSaHtoaqe_HfXCeMl5CXbB9855UcMFIQ7SVGzg7soAgdVWwLGYrgc1PSNYUeXYocBO4dnNZd-YO', desc: 'Permanent architectural statement.' },
+            { id: 5, category: 'artificial', title: 'Sunset Silk Bunch', price: 195, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlCv45ut_AX92Rh55LHFcS1LphH1GGnXewwmLfdwHW35dV6OtDX42ytIzSTqmV3C5m-epV8kPZNikO9g6I6u6EtWoVQdnbOIh8_hmhm_RB21CyyNhwyFICQVcPnR9nvOb1QFqDd8m_Z2d0_87ptGzpfuhYOCtQ1YHwwahq563-DvgHPFYhOLt71qfCku6I0vOQ6cQulLdJxwuZ1tHfLVNrDPW1xe7mWvGrblUIM-un2GlnvZU71So7ztmL2Ch2td2FJbMW6VwXE6WI', desc: 'Everlasting warm sunset hues.' },
+
+            // Baby
+            { id: 6, category: 'baby', title: 'Pink Blossom Cradle', price: 320, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCL-OpoRIwU7GJ8lNcOcKWicFHSLscvggtIvL9RzRTdde9Q99pWE1eAJ8U-SCldek3ZCUZUSA3rrh6OezD4n4wWyCEYHxd4c4X6bbgXbHnbhDhMh0_-DJ-gOY0OHgWxc3OdlpHWfaBy-Ke28CUCcJYjZ5nMRh2M3KVIwN3ADuPQWiroLXkImzIWvRaXn0D_5uyaMg44O9H3TYtQ0Wb5VioqgPBLj-PmL_lyXTOY23WREbApkpdvfKgy2_bvPNLgZznzNQBVUvyPUe6w', desc: 'Soft peonies + baby essentials.' },
+            { id: 7, category: 'baby', title: 'Azure Sky Welcome', price: 320, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCA0JvoIsiaBnOLvbiA1Bde37KPorUmv3qF_pZFJpTdpsxOhndYFbpN543ra9QwMAX09WY8vNJEcGlLuDrGiwKQiiPfMFArRzkMc5hPNTD8KcUmfdy3uWxaizZe1tksLTjihpFPXxEDXgk6PE59-OqCGhke40aG7ktjPwhnFDp3P7YbCUD2A_EkEPtx1bOuNdN0_5MsmKovXpMw4YYfPOH7q1kXwawG0pp1payDtHqtd7bbYNE9OrgzzIEt0j0pJbQo_BmWrVZObmHj', desc: 'Blue hydrangeas + wooden keepsakes.' },
+
+            // Vases
+            { id: 8, category: 'vases', title: 'Travertine Column', price: 450, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC4aN4W0OhYCMXKcu5avF5SYNR7I7GrG2oHzpdC4NEfZOBuSAlw3sNoqQxv4DRl2Il1R9H-HqVjSVYzwYIhJf_TP3pzw2Fcbal2MN4lyW4P8u22BardIMK7lVn5rOVcuFp5LFLHVA4Z-Ci2TcKoy4bh3F86QCLsXH05agw5ITFcwMSD7hTdQKf35SNnNXlkx3D9OkLXrXJqtUR0OO6pw13gLUHRev-w5VCbgBZk9TbgiV-0Uqz8HgU9IXCyCMgHL8dZFGK-W9LwbdWr', desc: 'Marble-finish tall artisanal vase.' },
+            { id: 9, category: 'vases', title: 'Blown Glass Globe', price: 380, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD5zhvLBbYOuyBi3Qf5dCO_zCNH0SzaygjN7XOrgANC3tGO7EOmA_tc0A0-9M2VFQYHlaZu7Mse94lh8tdeQTbLG9QDz4-H6qIiLDB3APZB6IYd6accvHphm-UL2YASmlofmhadlNgUIJkCKW-eEFkIQxy7YT5y_ABqa9sDgrqvNMviHzXcOiaPC_pYXAOAlyoJ16yiLuz5rLO_6adlBSCWDHGDLCcd-kaE9Xo-9cmKiIjtfCKv47baw4HkImi6MWkUFtsPVOTcc8dP', desc: 'Organic shaped hand-blown glass.' },
+
+            // Balloons
+            { id: 10, category: 'balloons', title: 'Princess Bouquet', price: 220, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBh1H3b11g8wsqgh3fEhn56ozWizkMUc9to3e893z5pWABE2g4zPqPXxiYs5F_xJ5bn5s9u-epczZdEc1dpeVfnN2JIGXrWXdAba8LyO8P4a0PG0C9lkS8b9vx9N5_PqRM8wgrOsGbZcgZADQmDchYPELrMpEeuUGvzLfilH8l6a3U4gndkgaFHo1WaXXmnX-8wR0f-DxeaX38zLI2y018tIzQFT-zc20ieHd-QLln8Kaafl3ZNig8RvH9O6Jzyy-JKLq74_qVr_Gnq', desc: 'Helium crown foil + pink set.' },
+
+            // Gifts
+            { id: 11, category: 'gifts', title: 'Rose & Chocolate Box', price: 350, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBh1H3b11g8wsqgh3fEhn56ozWizkMUc9to3e893z5pWABE2g4zPqPXxiYs5F_xJ5bn5s9u-epczZdEc1dpeVfnN2JIGXrWXdAba8LyO8P4a0PG0C9lkS8b9vx9N5_PqRM8wgrOsGbZcgZADQmDchYPELrMpEeuUGvzLfilH8l6a3U4gndkgaFHo1WaXXmnX-8wR0f-DxeaX38zLI2y018tIzQFT-zc20ieHd-QLln8Kaafl3ZNig8RvH9O6Jzyy-JKLq74_qVr_Gnq', desc: 'Premium luxury gift combo.' },
+            { id: 12, category: 'gifts', title: 'Executive Noir Set', price: 380, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD_bOdnNg8stI3Vi6LqCQCWI-mR46D2Z_RF5FHGsP_sIIFx989vZQSyrVlH4TfK8r6yG6H2ze75WdIP1Bj39SNf-x-JgMp7RxvVMsZlG-Dy6gVZAMSL5lh1AaeFOU0DJ6yrOcJIM84gs_fo4604YeL5V9Jvn2-ycnIc1CoJTXMYTMmBPNF21G7pAjXgrpMTc2mMDsSaHtoaqe_HfXCeMl5CXbB9855UcMFIQ7SVGzg7soAgdVWwLGYrgc1PSNYUeXYocBO4dnNZd-YO', desc: 'Bold arrangement for him.' },
+        ];
+
+        function renderProducts(filter = 'all') {
+            const container = document.getElementById('product-container');
+            container.innerHTML = '';
+            
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+            const lang = document.documentElement.lang || 'en';
+            const priceSuffix = lang === 'ar' ? ' ر.س' : ' SAR';
+
+            filtered.forEach((p, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card fade-up';
+                card.innerHTML = `
+                    <div style="overflow:hidden;"><img class="product-card-img" src="${p.img}" alt="${p.title}" /></div>
+                    <div class="product-card-body">
+                        <p class="product-card-title">${p.title}</p>
+                        <p class="product-card-desc">${p.desc}</p>
+                        <div class="product-card-footer">
+                            <span class="product-price">${p.price}${priceSuffix}</span>
+                            <button class="order-btn">
+                                <span class="material-symbols-outlined" style="font-size:15px;">chat</span>
+                                <span data-i18n="common.order_wa">WhatsApp</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+                setTimeout(() => card.classList.add('visible'), index * 50);
+            });
+        }
+
+        // Filter Logic
+        document.getElementById('category-filters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                renderProducts(e.target.dataset.category);
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            const savedLang = localStorage.getItem('selectedLanguage') || 'ar';
+            setLanguage(savedLang);
+        });
+
+        // Language toggle override for this page
+        const originalSetLanguage = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguage === 'function') originalSetLanguage(lang);
+            renderProducts(document.querySelector('.filter-btn.active').dataset.category);
+            
+            // Brand update
+            const brandText = document.getElementById('brand-text');
+            const footerBrand = document.getElementById('footer-brand');
+            if (lang === 'ar') {
+                brandText.textContent = 'يونيك فلاورز';
+                footerBrand.textContent = 'يونيك فلاورز';
+            } else {
+                brandText.textContent = 'Unique Flowers';
+                footerBrand.textContent = 'Unique Flowers';
+            }
+        };
+    </script>
+</body>
 </html>

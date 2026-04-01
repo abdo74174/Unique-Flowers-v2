@@ -5,11 +5,13 @@ const translations = {
         "headingFont": "'Plus Jakarta Sans', sans-serif",
         "nav": {
             "brand": "Unique Flowers",
-            "natural": "Fresh Flowers",
+            "natural": "Natural Flowers",
             "artificial": "Artificial Flowers",
             "gifts": "Gifts",
             "vases": "Vases",
-            "balloons": "Balloons"
+            "balloons": "Balloons",
+            "baby": "Baby Gifts",
+            "cart": "Cart"
         },
         "hero": {
             "title": "Fresh Flowers for Every Occasion",
@@ -127,7 +129,17 @@ const translations = {
             "journal_sub": "Journal Subscription",
             "journal_ritual": "Receive seasonal floral trends and care rituals in your inbox.",
             "email_addr": "Email address",
-            "join": "Join"
+            "join": "Join",
+            "catalog": {
+                "label": "Our Collection",
+                "title": "Explore Botanical Gallery",
+                "desc": "From fresh farm blooms to everlasting silk arrangements, find the perfect piece for your space.",
+                "all": "All Pieces"
+            },
+            "common": {
+                "order_wa": "WhatsApp",
+                "shop_now": "Shop Now"
+            }
         },
         "catalog_page": {
             "brand_tagline": "The Digital Florist",
@@ -239,11 +251,13 @@ const translations = {
         "headingFont": "'Cairo', sans-serif",
         "nav": {
             "brand": "يونيك فلاورز",
-            "natural": "زهور طبيعية",
-            "artificial": "زهور صناعية",
+            "natural": "ورد طبيعي",
+            "artificial": "ورد صناعي",
             "gifts": "هدايا",
             "vases": "فازات",
-            "balloons": "بالونات"
+            "balloons": "بالونات",
+            "baby": "مواليد",
+            "cart": "السلة"
         },
         "hero": {
             "title": "زهور نضرة لكل مناسبة",
@@ -465,6 +479,16 @@ const translations = {
             "total": "الإجمالي",
             "guarantee": "يتم تنسيق كل باقة يدوياً من قبل خبراء الزهور لدينا وتسليمها في تغليف مستدام يتم التحكم في درجة حرارته.",
             "back_shop": "العودة للمتجر"
+        },
+        "catalog": {
+            "label": "مجموعتنا",
+            "title": "استكشف المعرض النباتي",
+            "desc": "من زهور المزارع النضرة إلى التنسيقات الحريرية الدائمة، اعثر على القطعة المثالية لمساحتك.",
+            "all": "كل القطع"
+        },
+        "common": {
+            "order_wa": "واتساب",
+            "shop_now": "تسوق الآن"
         }
     }
 };
