@@ -270,7 +270,8 @@
                 const btn = document.getElementById('main-confirm-btn');
                 const btnText = btn.querySelector('[data-i18n]');
                 if (product.method === 'online') {
-                    btnText.innerText = 'Pay Online Now';
+                    const soonText = localStorage.getItem('selectedLanguage') === 'ar' ? 'قريباً' : 'Soon';
+                    btnText.innerText = `${btnText.innerText} (${soonText})`;
                     btnText.removeAttribute('data-i18n');
                 }
             }
@@ -292,8 +293,10 @@
                 const whatsappUrl = `https://wa.me/966535228284?text=${message}`;
                 window.open(whatsappUrl, '_blank');
             } else {
-                // For online payment, we could redirect to a payment gateway
-                alert('Online payment system is being integrated. Please choose WhatsApp for now.');
+                const alertMsg = localStorage.getItem('selectedLanguage') === 'ar' 
+                    ? 'خيار الدفع عبر الإنترنت قيد التجهيز حالياً. يرجى استخدام واتساب لإتمام طلبك.' 
+                    : 'Online payment is currently being prepared. Please use WhatsApp to complete your order.';
+                alert(alertMsg);
             }
         }
     </script>

@@ -741,28 +741,38 @@
             .nav-links {
                 display: none;
             }
+
             #menu-btn {
                 display: flex !important;
             }
         }
 
         @media(max-width:1024px) {
-            .cat-grid-4, .cat-grid-3 {
+
+            .cat-grid-4,
+            .cat-grid-3 {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
-            #art-grid, #gifts-split {
+
+            #art-grid,
+            #gifts-split {
                 grid-template-columns: 1fr !important;
             }
-            .balloons-grid, #footer-cols {
+
+            .balloons-grid,
+            #footer-cols {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
+
             #steps-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
+
             div[style*="repeat(6,1fr)"] {
                 grid-template-columns: repeat(3, 1fr) !important;
             }
-            #art-grid > a {
+
+            #art-grid>a {
                 height: 400px !important;
             }
         }
@@ -771,33 +781,47 @@
             .navbar-inner {
                 padding: 0 1.5rem;
             }
+
             .cart-btn span.cart-label {
                 display: none;
             }
-            .cat-grid-4, .cat-grid-3, .cat-grid-2, .balloons-grid, #footer-cols, #steps-grid {
+
+            .cat-grid-4,
+            .cat-grid-3,
+            .cat-grid-2,
+            .balloons-grid,
+            #footer-cols,
+            #steps-grid {
                 grid-template-columns: 1fr !important;
             }
+
             div[style*="repeat(6,1fr)"] {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
+
             section {
                 padding: 4rem 1.5rem !important;
             }
+
             footer {
                 padding: 3rem 1.5rem 1.5rem !important;
             }
-            #art-grid > a {
+
+            #art-grid>a {
                 height: 300px !important;
             }
-            #art-grid > div {
+
+            #art-grid>div {
                 height: auto !important;
                 grid-template-rows: auto !important;
             }
+
             .product-card[style*="display:flex"] {
                 flex-direction: column !important;
             }
-            .product-card > div[style*="width:130px"],
-            .product-card > div[style*="width:120px"] {
+
+            .product-card>div[style*="width:130px"],
+            .product-card>div[style*="width:120px"] {
                 width: 100% !important;
                 height: 200px !important;
                 border-radius: 12px 12px 0 0 !important;
@@ -811,23 +835,28 @@
                 flex-direction: column;
                 align-items: center;
             }
+
             .hero-badge {
                 margin: 0 auto 1.5rem !important;
                 text-align: center;
             }
+
             .hero-content h1 {
                 font-size: clamp(2rem, 10vw, 3.2rem) !important;
                 text-align: center;
             }
+
             .hero-content p {
                 text-align: center;
                 font-size: 1rem !important;
             }
+
             #hero-btns {
                 flex-direction: column !important;
                 align-items: center !important;
                 width: 100%;
             }
+
             .hero-btn-primary,
             .hero-btn-wa {
                 width: 100% !important;
@@ -842,13 +871,16 @@
         html[lang="ar"] .hero-content {
             text-align: center;
         }
+
         html[lang="ar"] .hero-badge {
             margin-left: auto;
             margin-right: auto;
         }
+
         html[lang="ar"] #hero-btns {
             justify-content: center;
-            direction: ltr; /* Keep buttons LTR so they center properly */
+            direction: ltr;
+            /* Keep buttons LTR so they center properly */
         }
     </style>
 </head>
@@ -934,7 +966,8 @@
                     data-i18n="hero.subtitle">
                     Beautiful bouquets crafted with love
                 </p>
-                <div id="hero-btns" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;align-items:center;">
+                <div id="hero-btns"
+                    style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;align-items:center;">
                     <a href="#natural" class="hero-btn-primary"
                         style="background:linear-gradient(135deg,#315a44,#49735b);color:white;padding:14px 34px;border-radius:12px;font-weight:600;font-size:0.9rem;letter-spacing:0.04em;text-decoration:none;box-shadow:0 8px 24px rgba(49,90,68,0.4);transition:all .2s ease;display:inline-flex;align-items:center;justify-content:center;text-align:center;"
                         data-i18n="hero.cta_shop">
@@ -1709,7 +1742,7 @@
                     <div
                         style="display:flex;flex-direction:column;gap:1rem;color:rgba(255,255,255,0.5);font-size:0.82rem;">
                         <div style="display:flex;align-items:center;gap:.75rem;"><span class="material-symbols-outlined"
-                                style="font-size:16px;">call</span> +20 100 000 0000</div>
+                                style="font-size:16px;">call</span> +966 53 522 8284</div>
                         <div style="display:flex;align-items:center;gap:.75rem;"><span class="material-symbols-outlined"
                                 style="font-size:16px;">location_on</span> <span data-i18n="footer.address">Cairo,
                                 Egypt</span></div>
@@ -1726,7 +1759,7 @@
     </footer>
 
     <!-- WhatsApp FAB -->
-    <a href="https://wa.me/201000000000" target="_blank" class="whatsapp-fab" title="Order on WhatsApp">
+    <a href="https://wa.me/966535228284" target="_blank" class="whatsapp-fab" title="Order on WhatsApp">
         <span class="material-symbols-outlined" style="font-size:26px;">chat</span>
     </a>
 

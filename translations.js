@@ -163,7 +163,7 @@ const translations = {
             "grand": "Grand",
             "include_card": "Include Hand-written Card (+5 SAR)",
             "eco_wrap": "Eco-friendly Premium Wrapping",
-            "pay_online": "Complete Payment Online",
+            "pay_online": "Complete Payment Online (Soon)",
             "same_day": "Same Day Delivery",
             "sustainable": "Sustainably Sourced",
             "art_title": "The Art of the Ethereal Blush",
@@ -259,7 +259,8 @@ const translations = {
             "shop_now": "Shop Now",
             "order_wa": "WhatsApp",
             "price_prefix": "",
-            "price_suffix": " SAR"
+            "price_suffix": " SAR",
+            "soon": "Soon"
         },
         "featured": {
             "cta_order": "Order via WhatsApp"
@@ -443,7 +444,7 @@ const translations = {
             "grand": "كبير",
             "include_card": "تضمين بطاقة مكتوبة بخط اليد (+٥ ر.س)",
             "eco_wrap": "تغليف بريميوم صديق للبيئة",
-            "pay_online": "إتمام الدفع عبر الإنترنت",
+            "pay_online": "إتمام الدفع عبر الإنترنت (قريباً)",
             "same_day": "توصيل في نفس اليوم",
             "sustainable": "مصادر مستدامة",
             "art_title": "فن إيثريال بلاش",
@@ -539,7 +540,8 @@ const translations = {
             "shop_now": "تسوق الآن",
             "order_wa": "واتساب",
             "price_prefix": "",
-            "price_suffix": " ر.س"
+            "price_suffix": " ر.س",
+            "soon": "قريباً"
         },
         "featured": {
             "cta_order": "طلب عبر الواتساب"
