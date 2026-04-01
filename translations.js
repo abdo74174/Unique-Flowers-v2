@@ -27,9 +27,9 @@ const translations = {
             "remove": "Remove from Favorites"
         },
         "hero": {
-            "badge": "New Season Collection",
-            "title": "Fresh Flowers for Every Occasion",
-            "subtitle": "Beautiful bouquets crafted with love",
+            "badge": "Exclusive Boutique",
+            "title": "Unique Flowers",
+            "subtitle": "Boutique for natural and artificial flowers, gifts, and coordination.",
             "cta_shop": "Shop Flowers",
             "cta_whatsapp": "Order on WhatsApp",
             "scroll": "Scroll"
@@ -107,7 +107,7 @@ const translations = {
             "title": "Follow Our Beauty"
         },
         "footer": {
-            "brand_desc": "Curating nature's finest moments for your everyday space.",
+            "brand_desc": "Boutique for natural and artificial flowers, gifts, and coordination. Delivery and gifting services available.",
             "shop": "Shop",
             "discover": "Discover",
             "contact": "Contact",
@@ -116,12 +116,14 @@ const translations = {
             "journal_desc": "Join our list for seasonal floral guides.",
             "email_placeholder": "Your Email",
             "subscribe": "Subscribe",
-            "address": "Riyadh, Saudi Arabia",
+            "address": "Turkey, Abdullah bin Abbas St, opposite Skyrise",
+            "working_hours": "Daily: 3:00 PM - 11:00 PM",
             "links": {
                 "contact_us": "Contact Us",
                 "shipping": "Shipping Policy",
                 "sustainability": "Sustainability",
                 "instagram": "Instagram",
+                "snapchat": "Snapchat",
                 "pinterest": "Pinterest"
             },
             "copyright": "© 2024 Unique Flowers. The Digital Florist’s Atelier."
@@ -321,9 +323,9 @@ const translations = {
             "remove": "إزالة من المفضلات"
         },
         "hero": {
-            "badge": "مجموعة الموسم الجديد",
-            "title": "ورود طازجة لكل مناسبة",
-            "subtitle": "باقات رائعة مصنوعة بعناية وحب",
+            "badge": "بوتيك حصري",
+            "title": "يونيك فلاورز ✨",
+            "subtitle": "بوتيك للورد الطبيعي والصناعي والهدايا والتنسيق 💐🎁",
             "cta_shop": "تسوق الآن",
             "cta_whatsapp": "اطلب عبر واتساب",
             "scroll": "انتقل"
@@ -401,7 +403,7 @@ const translations = {
             "title": "تابع جمالنا"
         },
         "footer": {
-            "brand_desc": "ننسق أجمل لحظات الطبيعة لمساحتك اليومية.",
+            "brand_desc": "بوتيك للورد الطبيعي والصناعي والهدايا والتنسيق. يوجد لدينا خدمة إهداء وتوصيل.",
             "shop": "تسوق",
             "discover": "اكتشف",
             "contact": "تواصل",
@@ -410,12 +412,14 @@ const translations = {
             "journal_desc": "انضم لقائمتنا للحصول على أدلة الزهور الموسمية.",
             "email_placeholder": "بريدك الإلكتروني",
             "subscribe": "اشتراك",
-            "address": "الرياض، المملكة العربية السعودية",
+            "address": "تركيا، شارع عبد الله بن عباس، مقابل سكرايز",
+            "working_hours": "يومياً: من 3:00 عصراً حتى 11 مساءً",
             "links": {
                 "contact_us": "اتصل بنا",
                 "shipping": "سياسة الشحن",
                 "sustainability": "الاستدامة",
                 "instagram": "إنستغرام",
+                "snapchat": "سناب شات",
                 "pinterest": "بينتيريست"
             },
             "copyright": "© ٢٠٢٤ يونيك فلاورز. صُنع لحياة راقية."
