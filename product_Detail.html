@@ -240,14 +240,14 @@
                     </div>
                     <!-- CTAs -->
                     <div class="flex flex-col gap-4">
-                        <button
+                        <button onclick="checkout('whatsapp')"
                             class="w-full bg-botanical-gradient text-on-primary py-5 rounded-xl font-bold flex items-center justify-center gap-3 group overflow-hidden relative">
                             <span
                                 class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">chat</span>
                             <span class="uppercase tracking-widest text-sm" data-i18n="hero.cta_whatsapp">Order on
                                 WhatsApp</span>
                         </button>
-                        <button
+                        <button onclick="checkout('online')"
                             class="w-full bg-surface-container-lowest border border-outline-variant/30 text-primary py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-container hover:text-white transition-all"
                             data-i18n="product.pay_online">
                             Complete Payment Online
@@ -466,6 +466,18 @@
             </div>
         </div>
     </footer>
+    <script>
+        function checkout(method) {
+            const product = {
+                title: document.querySelector('[data-i18n="product.ethereal_title"]').innerText,
+                price: parseFloat(document.querySelector('.text-3xl.font-headline.text-primary').innerText),
+                image: document.querySelector('main img').src,
+                method: method
+            };
+            localStorage.setItem('checkoutProduct', JSON.stringify(product));
+            window.location.href = 'checkOut_ConfirmPage.html';
+        }
+    </script>
 </body>
 
 </html>

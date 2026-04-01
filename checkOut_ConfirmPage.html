@@ -133,14 +133,14 @@
                         <div class="grid grid-cols-1 gap-6">
                             <div class="relative">
                                 <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.full_name">Full Name</label>
-                                <input
+                                <input id="fullname"
                                     class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
                                     placeholder="Florence Nightingale" type="text" data-i18n="checkout.name_placeholder" />
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.phone">Phone Number</label>
-                                    <input
+                                    <input id="phone"
                                         class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
                                         placeholder="+44 7700 900000" type="tel" data-i18n="checkout.phone_placeholder" />
                                 </div>
@@ -153,7 +153,7 @@
                             </div>
                             <div class="relative">
                                 <label class="block font-body text-sm text-stone-500 mb-1" data-i18n="checkout.address">Street Address</label>
-                                <input
+                                <input id="address"
                                     class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
                                     placeholder="The Rose Cottage, Floral Lane" type="text" data-i18n="checkout.addr_placeholder" />
                             </div>
@@ -174,9 +174,9 @@
                         </div>
                     </div>
                     <div class="pt-6">
-                        <button
+                        <button onclick="confirmAndPay()"
                             class="w-full py-5 rounded-lg bg-velvet-gradient text-white font-body font-bold flex items-center justify-center gap-3 shadow-xl shadow-primary/10 hover:opacity-90 transition-all active:scale-[0.98]"
-                            type="button">
+                            type="button" id="main-confirm-btn">
                             <span class="material-symbols-outlined"
                                 style="font-variation-settings: 'FILL' 1;">chat</span>
                             <span data-i18n="checkout.confirm_btn">Confirm Order &amp; Pay via WhatsApp</span>
@@ -194,22 +194,22 @@
                     <h2 class="font-headline text-2xl text-stone-900 mb-8" data-i18n="checkout.summary">Order Summary</h2>
                     <div class="flex gap-6 mb-8">
                         <div class="w-32 h-40 bg-stone-200 rounded-lg overflow-hidden flex-shrink-0">
-                            <img class="w-full h-full object-cover"
+                            <img id="summary-img" class="w-full h-full object-cover"
                                 data-alt="Close up of a luxury floral arrangement featuring muted pink peonies and dried eucalyptus in a ceramic vase, soft botanical lighting"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPc9QOhCLEkbb3A9VTY9dV0dimA_SpeqmJ4fZkQUNCdBuX0QD1cVjlqRgV33Fu22OT4W4B4pjtLdRe7lxo3B9XidXCRbvDj6QmtDsZ4NzusHVeyAnBIcKh7tCrFg9H69X2B6REtSvoXdmOeqydYdGFqxx_O3O1PGuMUMlsystWQxSM0CQHp7Kzq4ls0bdinUyGlgsIjRHAUiI1r5u4SLfFa0UgRMfhBIOOdgOtN9FA9Ads18IZRuqZ6quvtnM470Tw9tPFWEAFI_jw" />
                         </div>
                         <div class="flex flex-col justify-between py-2">
                             <div>
-                                <h3 class="font-headline text-xl leading-tight" data-i18n="catalog_page.p1_title">The Velvet Petal Bouquet</h3>
+                                <h3 id="summary-title" class="font-headline text-xl leading-tight" data-i18n="catalog_page.p1_title">The Velvet Petal Bouquet</h3>
                                 <p class="font-body text-sm text-stone-500 mt-1" data-i18n="product.exclusive">Premium Seasonal Selection</p>
                             </div>
-                             <span class="font-body font-bold text-lg text-primary">185.00 <span data-i18n="common.price_suffix">SAR</span></span>
+                             <span class="font-body font-bold text-lg text-primary"><span id="summary-price">185.00</span> <span data-i18n="common.price_suffix">SAR</span></span>
                         </div>
                     </div>
                     <div class="space-y-4 border-t border-outline-variant/20 pt-8">
                         <div class="flex justify-between font-body text-stone-600">
                             <span data-i18n="checkout.subtotal">Subtotal</span>
-                            <span>185.00 <span data-i18n="common.price_suffix">SAR</span></span>
+                            <span><span id="summary-subtotal">185.00</span> <span data-i18n="common.price_suffix">SAR</span></span>
                         </div>
                         <div class="flex justify-between font-body text-stone-600">
                             <span data-i18n="checkout.del_type">Bespoke Delivery</span>
@@ -217,7 +217,7 @@
                         </div>
                         <div class="flex justify-between font-headline text-2xl text-stone-900 pt-4">
                             <span data-i18n="checkout.total">Total</span>
-                            <span class="font-bold">185.00 <span data-i18n="common.price_suffix">SAR</span></span>
+                            <span class="font-bold"><span id="summary-total">185.00</span> <span data-i18n="common.price_suffix">SAR</span></span>
                         </div>
                     </div>
                     <div class="mt-8 bg-white/50 p-4 rounded-lg flex items-start gap-3">
@@ -252,6 +252,51 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = JSON.parse(localStorage.getItem('checkoutProduct'));
+            if (product) {
+                document.getElementById('summary-img').src = product.image;
+                const titleEl = document.getElementById('summary-title');
+                titleEl.removeAttribute('data-i18n'); // Stop translation from overwriting
+                titleEl.innerText = product.title;
+                
+                const priceElements = ['summary-price', 'summary-subtotal', 'summary-total'];
+                priceElements.forEach(id => {
+                    document.getElementById(id).innerText = product.price.toFixed(2);
+                });
+
+                // Update confirm button text if it's online payment
+                const btn = document.getElementById('main-confirm-btn');
+                const btnText = btn.querySelector('[data-i18n]');
+                if (product.method === 'online') {
+                    btnText.innerText = 'Pay Online Now';
+                    btnText.removeAttribute('data-i18n');
+                }
+            }
+        });
+
+        function confirmAndPay() {
+            const product = JSON.parse(localStorage.getItem('checkoutProduct'));
+            const fullname = document.getElementById('fullname').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+
+            if (!fullname || !phone || !address) {
+                alert('Please fill in all delivery details.');
+                return;
+            }
+
+            if (product.method === 'whatsapp') {
+                const message = `*New Order from Unique Flowers*%0A%0A*Customer Details:*%0A- Name: ${fullname}%0A- Phone: ${phone}%0A- Address: ${address}%0A%0A*Order Details:*%0A- Flower: ${product.title}%0A- Total: ${product.price} SAR%0A%0AThank you!`;
+                const whatsappUrl = `https://wa.me/966535228284?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                // For online payment, we could redirect to a payment gateway
+                alert('Online payment system is being integrated. Please choose WhatsApp for now.');
+            }
+        }
+    </script>
 </body>
 
 </html>

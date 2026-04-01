@@ -481,7 +481,7 @@
                         <p class="product-card-desc" data-i18n="${p.descKey}"></p>
                         <div class="product-card-footer">
                             <span class="product-price">${p.price} <span data-i18n="common.price_suffix">SAR</span></span>
-                            <button class="order-btn" onclick="event.stopPropagation()">
+                            <button class="order-btn" onclick="event.stopPropagation(); catalogCheckout(${p.id})">
                                 <span class="material-symbols-outlined" style="font-size:15px;">chat</span>
                                 <span data-i18n="common.order_wa">WhatsApp</span>
                             </button>
@@ -489,7 +489,7 @@
                     </div>
                 `;
                 card.addEventListener('click', () => {
-                    window.location.href = 'product_Detail.html';
+                    window.location.href = `product_Detail.html?id=${p.id}`;
                 });
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('visible'), index * 50);
@@ -498,6 +498,28 @@
             if (typeof applyTranslations === 'function') {
                 applyTranslations(document.documentElement.lang || 'ar');
             }
+        }
+
+        function catalogCheckout(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            // Get translated title (or use key if not translated yet)
+            const lang = document.documentElement.lang || 'ar';
+            const t = translations[lang];
+            let title = product.titleKey;
+            if (t && t.catalog_items && t.catalog_items[product.titleKey.split('.')[1]]) {
+                title = t.catalog_items[product.titleKey.split('.')[1]];
+            }
+
+            const checkoutData = {
+                title: title,
+                price: product.price,
+                image: product.img,
+                method: 'whatsapp'
+            };
+            localStorage.setItem('checkoutProduct', JSON.stringify(checkoutData));
+            window.location.href = 'checkOut_ConfirmPage.html';
         }
 
         // Filter Logic
