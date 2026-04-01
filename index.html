@@ -736,10 +736,34 @@
             color: #315a44;
         }
 
-        /* Responsive navbar */
+        /* Comprehensive Responsive Overrides */
         @media(max-width:1100px) {
             .nav-links {
                 display: none;
+            }
+            #menu-btn {
+                display: flex !important;
+            }
+        }
+
+        @media(max-width:1024px) {
+            .cat-grid-4, .cat-grid-3 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            #art-grid, #gifts-split {
+                grid-template-columns: 1fr !important;
+            }
+            .balloons-grid, #footer-cols {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            #steps-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            div[style*="repeat(6,1fr)"] {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+            #art-grid > a {
+                height: 400px !important;
             }
         }
 
@@ -747,9 +771,36 @@
             .navbar-inner {
                 padding: 0 1.5rem;
             }
-
             .cart-btn span.cart-label {
                 display: none;
+            }
+            .cat-grid-4, .cat-grid-3, .cat-grid-2, .balloons-grid, #footer-cols, #steps-grid {
+                grid-template-columns: 1fr !important;
+            }
+            div[style*="repeat(6,1fr)"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            section {
+                padding: 4rem 1.5rem !important;
+            }
+            footer {
+                padding: 3rem 1.5rem 1.5rem !important;
+            }
+            #art-grid > a {
+                height: 300px !important;
+            }
+            #art-grid > div {
+                height: auto !important;
+                grid-template-rows: auto !important;
+            }
+            .product-card[style*="display:flex"] {
+                flex-direction: column !important;
+            }
+            .product-card > div[style*="width:130px"],
+            .product-card > div[style*="width:120px"] {
+                width: 100% !important;
+                height: 200px !important;
+                border-radius: 12px 12px 0 0 !important;
             }
         }
     </style>
