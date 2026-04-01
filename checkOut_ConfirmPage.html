@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Checkout | Unique Flowers</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#504940",
+                        "surface-variant": "#e4e2de",
+                        "outline-variant": "#d3c3c1",
+                        "secondary-fixed-dim": "#b7ccb5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ef",
+                        "surface-dim": "#dbdad6",
+                        "on-surface-variant": "#4f4443",
+                        "surface-container-high": "#eae8e4",
+                        "surface-container": "#efeeea",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0e1f10",
+                        "surface-tint": "#715956",
+                        "background": "#fbf9f5",
+                        "on-primary-fixed-variant": "#57423f",
+                        "surface": "#fbf9f5",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#5b4542",
+                        "tertiary-container": "#c3b9ae",
+                        "surface-bright": "#fbf9f5",
+                        "inverse-primary": "#dec0bb",
+                        "surface-container-highest": "#e4e2de",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1b1c1a",
+                        "primary-fixed-dim": "#dec0bb",
+                        "primary-fixed": "#fcdbd7",
+                        "tertiary-fixed": "#ece1d5",
+                        "on-primary": "#ffffff",
+                        "outline": "#817472",
+                        "inverse-on-surface": "#f2f0ed",
+                        "primary-container": "#d2b4b0",
+                        "secondary-fixed": "#d3e8d0",
+                        "on-secondary-fixed-variant": "#394b39",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary": "#715956",
+                        "tertiary": "#655d54",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#281715",
+                        "on-tertiary-fixed-variant": "#4c463d",
+                        "on-secondary-container": "#546754",
+                        "on-tertiary-fixed": "#201b13",
+                        "inverse-surface": "#30312e",
+                        "secondary": "#506350",
+                        "tertiary-fixed-dim": "#cfc5b9",
+                        "secondary-container": "#d0e6cd",
+                        "on-background": "#1b1c1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bg-velvet-gradient {
+            background: linear-gradient(45deg, #715956 0%, #d2b4b0 100%);
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf9f5;
+            color: #1b1c1a;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen">
+    <!-- Top Navigation (Shell Supression Applied: No full nav for checkout focus) -->
+    <header class="bg-stone-50/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+            <div class="flex items-center gap-4">
+                <img alt="Unique Flowers Logo" class="h-10 w-10 object-contain"
+                    data-alt="Minimalist floral emblem logo featuring a stylized single rose in soft earth tones and delicate lines"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOinAq84cURd_sO40JILLII7p1ZoDf3oltenOaYrUQSziF44EpGebqFlAnkf831NjF7X0NlVlHB7mV0CJ67SZHkN-W7iWKWm8i4aDF8wGVRLL8-vjxLU_Ktndlfr6j6rtMRcXx-QJJagE0WkHZ0cvyF8WCs2cQ6d-e_1ezE4qgbMC7-PKqmHIA8o18Nsb0kTsoa4TPafz1Sbvd1i1BuUnTzYdh0gZMcucaAls8iw1L4SRgmpKdZzVSDPN8cktK1RRRfcdmyFmb0Nm" />
+                <span class="text-2xl font-headline text-stone-900 italic tracking-tighter">Unique Flowers</span>
+            </div>
+            <a class="flex items-center gap-2 text-stone-500 font-label tracking-widest text-[0.6875rem] uppercase hover:text-stone-900 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                Back to Shop
+            </a>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <!-- Column 1: Delivery Details -->
+            <div class="lg:col-span-7">
+                <h1 class="font-headline text-4xl mb-2 italic">Checkout</h1>
+                <p class="font-body text-stone-500 mb-10">We'll send your code via SMS now.</p>
+                <form class="space-y-8">
+                    <div class="space-y-6">
+                        <h2 class="font-headline text-2xl text-secondary">Delivery Details</h2>
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="relative">
+                                <label class="block font-body text-sm text-stone-500 mb-1">Full Name</label>
+                                <input
+                                    class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
+                                    placeholder="Florence Nightingale" type="text" />
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="relative">
+                                    <label class="block font-body text-sm text-stone-500 mb-1">Phone Number</label>
+                                    <input
+                                        class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
+                                        placeholder="+44 7700 900000" type="tel" />
+                                </div>
+                                <div class="relative">
+                                    <label class="block font-body text-sm text-stone-500 mb-1">SMS Verification
+                                        Code</label>
+                                    <input
+                                        class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
+                                        placeholder="Enter 6-digit code" type="text" />
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <label class="block font-body text-sm text-stone-500 mb-1">Street Address</label>
+                                <input
+                                    class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
+                                    placeholder="The Rose Cottage, Floral Lane" type="text" />
+                            </div>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="relative">
+                                    <label class="block font-body text-sm text-stone-500 mb-1">City</label>
+                                    <input
+                                        class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
+                                        placeholder="London" type="text" />
+                                </div>
+                                <div class="relative">
+                                    <label class="block font-body text-sm text-stone-500 mb-1">Postcode</label>
+                                    <input
+                                        class="w-full bg-transparent border-b border-outline-variant/20 py-3 focus:outline-none focus:border-primary transition-colors placeholder:text-stone-300 font-body"
+                                        placeholder="W1 1AB" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <button
+                            class="w-full py-5 rounded-lg bg-velvet-gradient text-white font-body font-bold flex items-center justify-center gap-3 shadow-xl shadow-primary/10 hover:opacity-90 transition-all active:scale-[0.98]"
+                            type="button">
+                            <span class="material-symbols-outlined"
+                                style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Confirm Order &amp; Pay via WhatsApp
+                        </button>
+                        <p
+                            class="text-center text-[0.6875rem] font-label uppercase tracking-widest text-stone-400 mt-4">
+                            Safe &amp; Secure Floral Transactions</p>
+                    </div>
+                </form>
+            </div>
+            <!-- Column 2: Order Summary -->
+            <div class="lg:col-span-5">
+                <div
+                    class="bg-surface-container-low rounded-xl p-8 sticky top-32 border border-outline-variant/10 shadow-sm">
+                    <h2 class="font-headline text-2xl text-stone-900 mb-8">Order Summary</h2>
+                    <div class="flex gap-6 mb-8">
+                        <div class="w-32 h-40 bg-stone-200 rounded-lg overflow-hidden flex-shrink-0">
+                            <img class="w-full h-full object-cover"
+                                data-alt="Close up of a luxury floral arrangement featuring muted pink peonies and dried eucalyptus in a ceramic vase, soft botanical lighting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPc9QOhCLEkbb3A9VTY9dV0dimA_SpeqmJ4fZkQUNCdBuX0QD1cVjlqRgV33Fu22OT4W4B4pjtLdRe7lxo3B9XidXCRbvDj6QmtDsZ4NzusHVeyAnBIcKh7tCrFg9H69X2B6REtSvoXdmOeqydYdGFqxx_O3O1PGuMUMlsystWQxSM0CQHp7Kzq4ls0bdinUyGlgsIjRHAUiI1r5u4SLfFa0UgRMfhBIOOdgOtN9FA9Ads18IZRuqZ6quvtnM470Tw9tPFWEAFI_jw" />
+                        </div>
+                        <div class="flex flex-col justify-between py-2">
+                            <div>
+                                <h3 class="font-headline text-xl leading-tight">The Velvet Petal Bouquet</h3>
+                                <p class="font-body text-sm text-stone-500 mt-1">Premium Seasonal Selection</p>
+                            </div>
+                            <span class="font-body font-bold text-lg text-primary">£85.00</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4 border-t border-outline-variant/20 pt-8">
+                        <div class="flex justify-between font-body text-stone-600">
+                            <span>Subtotal</span>
+                            <span>£85.00</span>
+                        </div>
+                        <div class="flex justify-between font-body text-stone-600">
+                            <span>Bespoke Delivery</span>
+                            <span>£0.00</span>
+                        </div>
+                        <div class="flex justify-between font-headline text-2xl text-stone-900 pt-4">
+                            <span>Total</span>
+                            <span class="font-bold">£85.00</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 bg-white/50 p-4 rounded-lg flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary text-xl">verified_user</span>
+                        <p class="text-xs font-body text-stone-500 leading-relaxed">
+                            Every bouquet is hand-curated by our master florists and delivered in temperature-controlled
+                            sustainable packaging.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Simple Footer (Focused version) -->
+    <footer class="bg-stone-100 py-16 px-8 mt-20 border-t border-stone-200/20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl mx-auto">
+            <div>
+                <span class="font-headline italic text-xl text-stone-900">Unique Flowers</span>
+                <p class="mt-4 font-body text-stone-600 leading-relaxed">
+                    © 2024 Unique Flowers. The Digital Florist’s Atelier.
+                </p>
+            </div>
+            <div class="md:col-span-2 flex flex-wrap gap-x-12 gap-y-4 justify-end items-center">
+                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all"
+                    href="#">Instagram</a>
+                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all" href="#">Our
+                    Location</a>
+                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all"
+                    href="#">WhatsApp Support</a>
+                <a class="font-body text-stone-600 hover:underline decoration-stone-300 transition-all" href="#">Terms
+                    &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="translations.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Cairo:wght@200..1000&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#8b1900",
+                        "on-tertiary-fixed": "#3d0600",
+                        "surface-tint": "#3d6750",
+                        "outline-variant": "#c1c8c1",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a4d1b4",
+                        "surface-container-low": "#f8f2f2",
+                        "on-tertiary-container": "#ffe7e1",
+                        "on-secondary-fixed": "#1f1a1b",
+                        "secondary-container": "#ebe0e0",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#a4d1b4",
+                        "tertiary": "#a01f00",
+                        "surface": "#fdf8f7",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed-variant": "#254f39",
+                        "surface-dim": "#ded9d8",
+                        "primary-container": "#49735b",
+                        "background": "#fdf8f7",
+                        "inverse-surface": "#323030",
+                        "tertiary-container": "#cc2a00",
+                        "surface-container": "#f2edec",
+                        "secondary-fixed-dim": "#cec4c4",
+                        "secondary": "#645d5d",
+                        "tertiary-fixed-dim": "#ffb4a3",
+                        "surface-container-high": "#ece7e6",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e6e1e1",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#315a44",
+                        "surface-bright": "#fdf8f7",
+                        "outline": "#717973",
+                        "on-primary-fixed": "#002112",
+                        "on-surface-variant": "#414943",
+                        "surface-variant": "#e6e1e1",
+                        "secondary-fixed": "#ebe0e0",
+                        "on-primary-container": "#c8f6d8",
+                        "on-secondary-container": "#6a6363",
+                        "primary-fixed": "#bfedd0",
+                        "inverse-on-surface": "#f5f0ef",
+                        "on-secondary-fixed-variant": "#4c4546",
+                        "on-background": "#1d1b1b",
+                        "on-surface": "#1d1b1b",
+                        "on-error-container": "#93000a"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .font-noto-serif {
+            font-family: 'Noto Serif', serif;
+        }
+
+        .font-plus-jakarta-sans {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .bg-botanical-gradient {
+            background: linear-gradient(135deg, #315a44 0%, #49735b 100%);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- Header / TopNavBar -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl">
+        <nav class="flex justify-between items-center px-6 md:px-12 py-6 max-w-screen-2xl mx-auto">
+            <div class="text-2xl font-headline italic text-emerald-900 tracking-tighter" data-i18n="nav.brand">The Botanical Editorial</div>
+            <div class="hidden md:flex items-center space-gap-8 gap-x-8">
+                <a class="text-zinc-500 font-medium hover:text-emerald-800 transition-colors uppercase text-xs tracking-widest"
+                    href="product_category.html" data-i18n="nav.natural">Natural</a>
+                <a class="text-zinc-500 font-medium hover:text-emerald-800 transition-colors uppercase text-xs tracking-widest"
+                    href="product_Catlog.html" data-i18n="nav.artificial">Artificial</a>
+                <a class="text-zinc-500 font-medium hover:text-emerald-800 transition-colors uppercase text-xs tracking-widest"
+                    href="gift_Collections.html" data-i18n="nav.gifts">Gifts</a>
+                <a class="text-zinc-500 font-medium hover:text-emerald-800 transition-colors uppercase text-xs tracking-widest"
+                    href="#" data-i18n="nav.vases">Vases</a>
+                <a class="text-zinc-500 font-medium hover:text-emerald-800 transition-colors uppercase text-xs tracking-widest"
+                    href="#" data-i18n="nav.balloons">Balloons</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center bg-zinc-100 dark:bg-zinc-800 rounded-full p-1 h-8">
+                    <button onclick="setLanguage('en')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-en">EN</button>
+                    <button onclick="setLanguage('ar')" class="px-2 py-0 text-[10px] font-bold rounded-full transition-all hover:bg-white dark:hover:bg-zinc-700" id="lang-ar">AR</button>
+                </div>
+                <button class="hover:opacity-80 transition-opacity duration-300">
+                    <span class="material-symbols-outlined text-primary">search</span>
+                </button>
+                <button class="hover:opacity-80 transition-opacity duration-300 relative">
+                    <span class="material-symbols-outlined text-primary">shopping_bag</span>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full"></span>
+                </button>
+                <button class="hover:opacity-80 transition-opacity duration-300">
+                    <span class="material-symbols-outlined text-primary">person</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main class="pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto">
+        <!-- Breadcrumb -->
+        <nav class="mb-12 flex items-center gap-2 text-xs uppercase tracking-widest text-zinc-400">
+            <a class="hover:text-primary transition-colors" href="#">Shop</a>
+            <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="#">Floral Arrangements</a>
+            <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+            <span class="text-primary font-semibold">Ethereal Blush Bouquet</span>
+        </nav>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <!-- Product Gallery (Asymmetric Layout) -->
+            <div class="lg:col-span-7 grid grid-cols-6 gap-4">
+                <div class="col-span-6 rounded-xl overflow-hidden aspect-[4/5] bg-surface-container-low group">
+                    <img alt="Ethereal Blush Bouquet main view"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        data-alt="Stunning luxury bouquet featuring pale pink roses, white hydrangeas, and delicate lilies in a clear glass vase with soft morning light."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL1bI-6-EBQJsh9IqJmI4teLIMgBdO19_XT_j5e7yl9I6qq_t7whMzoT2voVosuwJ0dvBhehnUBSGqPeIhAvzcM0KgNHnHfHPHlIalr-is-as05Z-bca9vUTk1iE6TOvmuw9DZgZZeY8TunXqV1o64mSyAWUJOZlaMTAMcIZwnLHA7bFMjxVLz3Y8aJDG81b9_CpeqIzIaWzr7TXG1Bmbp9gm_ckceiJidKhd8044CTTzmKVi-zSQSOy_a8r3A1WDTwv1U48sylaD_" />
+                </div>
+                <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low">
+                    <img alt="Ethereal Blush Bouquet detail"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="Macro close-up of a soft pink rose petal with tiny dew drops and soft bokeh background."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwlNRc6x7-1G9kn_ZsX27AjD8qPU5CNLuqwZTs81xjhdlM1uCwmsurkCnmsCGMJu1zhc07ZqcPUUP0vPXL38CX39GRM1J3EyGEDajoP8fUPbRIvlncYyWE0MbhrDs1i5HlVO6-2-6tG5wHGPZtKJj15gLqmEArRmSiX7rY2CMV-00lEdVdwhhI6C6thHOvrXZprMLWRl9Kq94aFUVJZ275uvVki7mij3DQL_rRHmuG6ErzO0yKE42HObr0BTYJuN4kk1AGO-NvkvwI" />
+                </div>
+                <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low">
+                    <img alt="Ethereal Blush Bouquet hydrangea detail"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="Close up view of white hydrangeas and green foliage in a floral arrangement, high key lighting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4w-ZHCPy707SwN7OGU7lRxAwKPzGnGj8WrUqByMBxgz14g0ivUay8elDAogejbTllRUcc5J1pA4EJav4G68cJ59UAjoVJi0DchxwikwTHGBRhS7oUANr6RmavNVXufCiLiZFMTBBiwlMSYDxcQnybgYVvBuGJTDAAEcstIJ9H1q28zMdeD0q5i_SsyBMo2pXARQMPQZYmh1LJag6S8JOmPJXeVFiL4lGwyk85cBhxgNjxBeTatGLiTxs4CCAbu9KztGpF_OYU1LCd" />
+                </div>
+                <div
+                    class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low flex items-center justify-center border border-dashed border-outline-variant/30">
+                    <span class="material-symbols-outlined text-outline text-4xl">play_circle</span>
+                </div>
+            </div>
+            <!-- Product Info -->
+            <div class="lg:col-span-5 sticky top-32">
+                <div class="mb-8">
+                    <span class="text-tertiary font-bold text-xs uppercase tracking-[0.2em] mb-2 block" data-i18n="product.exclusive">Exclusive
+                        Seasonal Collection</span>
+                    <h1 class="text-5xl md:text-6xl font-headline text-emerald-900 leading-tight mb-4" data-i18n="product.ethereal_title">Ethereal Blush
+                        Bouquet</h1>
+                    <div class="flex items-baseline gap-4">
+                        <span class="text-3xl font-headline text-primary">$185.00</span>
+                        <span class="text-zinc-400 line-through text-lg">$210.00</span>
+                    </div>
+                </div>
+                <div class="space-y-6 text-on-surface-variant leading-relaxed">
+                    <p class="font-body text-lg italic border-l-2 border-primary/20 pl-6" data-i18n="product.ethereal_tagline">
+                        A curated symphony of soft textures and delicate hues, designed for moments of pure serenity.
+                    </p>
+                    <p data-i18n="product.ethereal_desc">
+                        Our master florists have selected the finest <span class="text-primary font-medium">O’Hara
+                            Garden Roses</span>, clouds of <span class="text-primary font-medium">Snowy
+                            Hydrangeas</span>, and statuesque <span class="text-primary font-medium">White Oriental
+                            Lilies</span> to create this ethereal masterpiece.
+                    </p>
+                </div>
+                <!-- Custom Options -->
+                <div class="mt-12 space-y-8">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest font-bold mb-4" data-i18n="product.select_size">Select Size</label>
+                        <div class="flex gap-4">
+                            <button
+                                class="flex-1 py-3 px-4 rounded-full border border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-white transition-all" data-i18n="product.petite">Petite</button>
+                            <button
+                                class="flex-1 py-3 px-4 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/20" data-i18n="product.signature">Signature</button>
+                            <button
+                                class="flex-1 py-3 px-4 rounded-full border border-outline-variant text-zinc-500 font-semibold text-sm hover:border-primary hover:text-primary transition-all" data-i18n="product.grand">Grand</button>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary"
+                                type="checkbox" />
+                            <span class="text-sm font-medium group-hover:text-primary transition-colors" data-i18n="product.include_card">Include
+                                Hand-written Card (+$5)</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary"
+                                type="checkbox" />
+                            <span class="text-sm font-medium group-hover:text-primary transition-colors" data-i18n="product.eco_wrap">Eco-friendly
+                                Premium Wrapping</span>
+                        </label>
+                    </div>
+                    <!-- CTAs -->
+                    <div class="flex flex-col gap-4">
+                        <button
+                            class="w-full bg-botanical-gradient text-on-primary py-5 rounded-xl font-bold flex items-center justify-center gap-3 group overflow-hidden relative">
+                            <span
+                                class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">chat</span>
+                            <span class="uppercase tracking-widest text-sm" data-i18n="hero.cta_whatsapp">Order on WhatsApp</span>
+                        </button>
+                        <button
+                            class="w-full bg-surface-container-lowest border border-outline-variant/30 text-primary py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-container hover:text-white transition-all" data-i18n="product.pay_online">
+                            Complete Payment Online
+                        </button>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-400 font-bold pt-4">
+                        <div class="flex items-center gap-2" data-i18n="product.same_day">
+                            <span class="material-symbols-outlined text-sm">local_shipping</span>
+                            Same Day Delivery
+                        </div>
+                        <div class="flex items-center gap-2" data-i18n="product.sustainable">
+                            <span class="material-symbols-outlined text-sm">eco</span>
+                            Sustainably Sourced
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Detailed Description Section (Editorial Style) -->
+        <section class="mt-32 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-4xl font-headline text-emerald-900 mb-8 leading-tight" data-i18n="product.art_title">The Art of the <br />Ethereal
+                    Blush</h2>
+                <div class="space-y-6 text-on-surface-variant text-lg">
+                    <p data-i18n="product.art_desc">Every arrangement is a unique piece of living art. We don't just place flowers; we compose
+                        stories. The Ethereal Blush is inspired by the first light of dawn hitting a dew-covered garden
+                        in early June.</p>
+                    <ul class="space-y-4">
+                        <li class="flex gap-4">
+                            <span class="text-primary font-bold">01.</span>
+                            <span data-i18n="product.step1">Carefully de-thorned and prepped garden roses for maximum vase life.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-primary font-bold">02.</span>
+                            <span data-i18n="product.step2">Scented Oriental lilies that bloom progressively over 7-10 days.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-primary font-bold">03.</span>
+                            <span data-i18n="product.step3">Wrapped in our signature pH-neutral silk paper and linen ribbon.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="order-1 md:order-2 rounded-2xl overflow-hidden aspect-video shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+                <img alt="Floral arrangement process" class="w-full h-full object-cover"
+                    data-alt="Artistic overhead shot of florist hands arranging delicate pink and white flowers on a wooden table with scattered petals."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzjppJfICjGO_FzMp1Ndu1W6jWKrPXLScv9XoZRYSSNRx1x3OgqQ28UnPzgGf69H44LgEjsyh6AaXBwUddiWR6fwpG6wy23mEQYU0YB2MGW9vs9PCngouEFWb69qmyt5iObwBlvPSmAk648QFs4b53SA6WsQA_SsfRYeW7Pv0ulC0CJtHoIIn3h1r8MqrIjfVxHBtNsnIo2GAiEYqjkxQsh02slxxV29ZHErxtr80yPxtKSzR_nFgXMnMCetsm6vIAhGwmx6SVf5pW" />
+            </div>
+        </section>
+        <!-- Related Products -->
+        <section class="mt-40">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] font-bold text-primary mb-4 block" data-i18n="product.related_label">You may also
+                        admire</span>
+                    <h3 class="text-4xl font-headline text-emerald-900" data-i18n="product.related_title">Complementary Arrangements</h3>
+                </div>
+                <a class="text-xs uppercase tracking-widest font-bold border-b border-primary pb-1 hover:text-primary transition-colors mb-2"
+                    href="#" data-i18n="product.view_collection">View Collection</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Related Item 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img alt="Verdant Whimsy"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Lush green and white bouquet with eucalyptus leaves and white carnations against a minimalist beige background."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxLD19NiBDugA_c3QROlsfIJcvNNbMLSXZmW3bHZKWDIo8JJgv3tEjDAUmRzRWv7fEelGF-cW2vvZfKCuqyTG-s11mlsJbZU2aZ07FLsLiZxNHy5JcnyuXU8QovTUkiBs8haNDVkRU-vRX9nJIZddsPRY1LCUSefwdkTh-SvCjZyakhFFLW5PoW5hX9uptIG6ooae-X77sImfssApHgxzuY3wNvPJAaGfkCmBxsqrJhuDUISEDtp90b_B3vo_fOFYMlg4TGXvOyeCm" />
+                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button
+                                class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-xl">add</span>
+                            </button>
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-headline text-emerald-900 mb-1" data-i18n="product.r1_title">Verdant Whimsy</h4>
+                    <p class="text-xs uppercase tracking-widest text-zinc-400 mb-4" data-i18n="product.r1_tag">Greens &amp; Whites</p>
+                    <span class="text-lg font-headline text-primary">$145.00</span>
+                </div>
+                <!-- Related Item 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img alt="Velvet Midnight"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Dramatic bouquet of deep red roses and dark purple calla lilies with moody shadows and elegant presentation."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGwJTv6CIibg_bTpI9u4yn7OLDqOqH0xp4PiwPZajARgplce_c80r5aMSFvFRR0z4zwkt0gZNQlxjFXuKU_tUDDOjQRxc9W0FfCygW2QcOuEl3NhDI57JsneU29bZm4Kot8jSTXnsCn7OtrmdtnvjKiASFdgpd9IGLWhTxyCzvx4fVp3wNF1VVs03l9l2giz9hU_s_vuGniTav0LsIG6dnx2RgUXKn4uv4fHh-TwpCvTvsUSMulIXWwdp0Ct0i77fUWUuqewoBZaK0" />
+                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button
+                                class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-xl">add</span>
+                            </button>
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-headline text-emerald-900 mb-1" data-i18n="product.r2_title">Velvet Midnight</h4>
+                    <p class="text-xs uppercase tracking-widest text-zinc-400 mb-4" data-i18n="product.r2_tag">Deep Crimson</p>
+                    <span class="text-lg font-headline text-primary">$210.00</span>
+                </div>
+                <!-- Related Item 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img alt="Golden Hour"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Bright yellow sunflowers and orange marigolds in a rustic arrangement with warm sunset lighting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp__v44uo-_jjRpGK3TzZEJmRZiFnERxvCmfPjTrS_7A0QY8-w7rvpzs3WHBG94yUQ_E4EG7eSv1toOg0i5p36TggcGiPf3Gaynxc9pA2U1tIRmbaHpNH5Bp7mL3XNOIJFUnsmmPiVGVN9rR233gBVDwddlKq1wGcWrnPWqZbtWbfPEA3dDzduJi1aesQbrZPon4K0BTKH5C1tdonuin-av7_F3j2tqQiVxHeuFfgYg_tbdD8D4jozAzRSsKIwM1vtCqdgXvZsysFT" />
+                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button
+                                class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-xl">add</span>
+                            </button>
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-headline text-emerald-900 mb-1" data-i18n="product.r3_title">Golden Hour</h4>
+                    <p class="text-xs uppercase tracking-widest text-zinc-400 mb-4" data-i18n="product.r3_tag">Yellows &amp; Golds</p>
+                    <span class="text-lg font-headline text-primary">$130.00</span>
+                </div>
+                <!-- Related Item 4 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img alt="Pure Serenity"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Minimalist all-white tulip arrangement in a tall ceramic vase against a clean white wall."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbPRerfAxq63CczsrU5RfblRZxKnKQB98M2K14MtfGap-HgoH-fxhxx_oWD0pU69yVvZrRphERTRmfaToDTgt5Hzyiuc7NLkHnqZd3q96hRbIHgh98AElP4aZGnHEdwESy5NWlziqq9oJqQRE96l3fmJDRyuBol-h9W0DXOnYGBrXYN59MHOqEbS_XLsvNHyx03Xo3iQIiJZmvF3nsqhYhfxP6CsllWs8rOI1WGr7EgoxCtngtjrU7WrvQ0eU29Xs8_xO_KQBMOaNX" />
+                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button
+                                class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-xl">add</span>
+                            </button>
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-headline text-emerald-900 mb-1" data-i18n="product.r4_title">Pure Serenity</h4>
+                    <p class="text-xs uppercase tracking-widest text-zinc-400 mb-4" data-i18n="product.r4_tag">Minimalist White</p>
+                    <span class="text-lg font-headline text-primary">$95.00</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-20 px-6 md:px-12 border-t border-zinc-100 bg-stone-50">
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            <div>
+                <span class="font-headline text-3xl mb-8 block text-emerald-900" data-i18n="nav.brand">THE BOTANICAL EDITORIAL</span>
+                <p class="text-zinc-500 max-w-xs leading-relaxed font-body text-sm" data-i18n="footer.brand_desc">Curating nature's finest
+                    masterpieces for the modern atelier. Every petal tells a story of elegance and grace.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h5
+                        class="font-plus-jakarta-sans text-xs uppercase tracking-widest text-emerald-900 font-bold mb-6" data-i18n="product.experience">
+                        Experience</h5>
+                    <a class="block text-zinc-400 hover:text-emerald-700 transition-colors uppercase text-[10px] tracking-widest"
+                        href="#">Instagram</a>
+                    <a class="block text-zinc-400 hover:text-emerald-700 transition-colors uppercase text-[10px] tracking-widest"
+                        href="#">Pinterest</a>
+                    <a class="block text-zinc-400 hover:text-emerald-700 transition-colors uppercase text-[10px] tracking-widest"
+                        href="#">Contact Us</a>
+                </div>
+                <div class="space-y-4">
+                    <h5
+                        class="font-plus-jakarta-sans text-xs uppercase tracking-widest text-emerald-900 font-bold mb-6" data-i18n="product.services">
+                        Services</h5>
+                    <a class="block text-zinc-400 hover:text-emerald-700 transition-colors uppercase text-[10px] tracking-widest"
+                        href="#">Shipping Policy</a>
+                    <a class="block text-zinc-400 hover:text-emerald-700 transition-colors uppercase text-[10px] tracking-widest"
+                        href="#">Sustainability</a>
+                </div>
+            </div>
+            <div class="bg-surface p-8 rounded-xl border border-outline-variant/20">
+                <h5 class="font-plus-jakarta-sans text-xs uppercase tracking-widest text-emerald-900 font-bold mb-4" data-i18n="product.journal_sub">
+                    Journal Subscription</h5>
+                <p class="text-xs text-zinc-500 mb-6 leading-relaxed" data-i18n="product.journal_ritual">Receive seasonal floral trends and care rituals in
+                    your inbox.</p>
+                <div class="relative">
+                    <input
+                        class="w-full bg-transparent border-b border-zinc-200 py-3 text-sm focus:outline-none focus:border-primary placeholder:text-zinc-300"
+                        placeholder="Email address" type="email" data-i18n="product.email_addr" />
+                    <button
+                        class="absolute right-0 bottom-3 text-primary font-bold text-[10px] uppercase tracking-widest" data-i18n="product.join">Join</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-6">
+            <span class="font-plus-jakarta-sans text-[10px] uppercase tracking-widest text-zinc-400 text-center" data-i18n="footer.copyright">© 2024
+                THE BOTANICAL EDITORIAL. CRAFTED FOR THE CURATED LIFE.</span>
+            <div class="flex gap-8">
+                <span class="material-symbols-outlined text-zinc-300">payments</span>
+                <span class="material-symbols-outlined text-zinc-300">security</span>
+                <span class="material-symbols-outlined text-zinc-300">local_shipping</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
