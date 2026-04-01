@@ -473,6 +473,7 @@
             filtered.forEach((p, index) => {
                 const card = document.createElement('div');
                 card.className = 'product-card fade-up';
+                card.style.cursor = 'pointer';
                 card.innerHTML = `
                     <div style="overflow:hidden;"><img class="product-card-img" src="${p.img}" alt="Product image" /></div>
                     <div class="product-card-body">
@@ -480,13 +481,16 @@
                         <p class="product-card-desc" data-i18n="${p.descKey}"></p>
                         <div class="product-card-footer">
                             <span class="product-price">${p.price} <span data-i18n="common.price_suffix">SAR</span></span>
-                            <button class="order-btn">
+                            <button class="order-btn" onclick="event.stopPropagation()">
                                 <span class="material-symbols-outlined" style="font-size:15px;">chat</span>
                                 <span data-i18n="common.order_wa">WhatsApp</span>
                             </button>
                         </div>
                     </div>
                 `;
+                card.addEventListener('click', () => {
+                    window.location.href = 'product_Detail.html';
+                });
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('visible'), index * 50);
             });

@@ -1780,6 +1780,34 @@
         }
         handleResponsive();
         window.addEventListener('resize', handleResponsive);
+
+        // ══════════════════════════════════════════
+        // PRODUCT CARD NAVIGATION
+        // ══════════════════════════════════════════
+        document.addEventListener('DOMContentLoaded', () => {
+            // Make all product cards clickable → product detail
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', (e) => {
+                    // Don't navigate if clicked on the order button
+                    if (e.target.closest('.order-btn')) return;
+                    window.location.href = 'product_Detail.html';
+                });
+            });
+
+            // WhatsApp buttons stop propagation so they don't trigger card navigation
+            document.querySelectorAll('.order-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => e.stopPropagation());
+            });
+
+            // Cat-hero banners also go to product detail
+            document.querySelectorAll('.cat-hero').forEach(hero => {
+                hero.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'product_Detail.html';
+                });
+            });
+        });
     </script>
 </body>
 
