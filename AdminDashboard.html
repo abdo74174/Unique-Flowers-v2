@@ -99,8 +99,11 @@
                         </div>
 
                         <div>
-                            <label class="text-xs uppercase tracking-widest block mb-2 opacity-60">Image URL</label>
-                            <input type="url" id="imageUrl" class="input-field" placeholder="https://..." required>
+                            <label class="text-xs uppercase tracking-widest block mb-2 opacity-60">Product Image (File or URL)</label>
+                            <div class="flex gap-2">
+                                <input type="file" id="imageFile" class="input-field text-xs" accept="image/*">
+                                <input type="url" id="imageUrl" class="input-field" placeholder="or paste URL">
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
@@ -203,25 +206,30 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const id = document.getElementById('productId').value;
-            const data = {
-                titleEn: document.getElementById('titleEn').value,
-                titleAr: document.getElementById('titleAr').value,
-                descriptionEn: document.getElementById('descEn').value,
-                descriptionAr: document.getElementById('descAr').value,
-                imageUrl: document.getElementById('imageUrl').value,
-                price: parseFloat(document.getElementById('price').value),
-                category: document.getElementById('category').value,
-                stock: parseInt(document.getElementById('stock').value) || 0
-            };
+            
+            // Use FormData for multipart/form-data
+            const formData = new FormData();
+            formData.append('titleEn', document.getElementById('titleEn').value);
+            formData.append('titleAr', document.getElementById('titleAr').value);
+            formData.append('descriptionEn', document.getElementById('descEn').value);
+            formData.append('descriptionAr', document.getElementById('descAr').value);
+            formData.append('imageUrl', document.getElementById('imageUrl').value);
+            formData.append('price', document.getElementById('price').value);
+            formData.append('category', document.getElementById('category').value);
+            formData.append('stock', document.getElementById('stock').value || 0);
+            
+            const fileInput = document.getElementById('imageFile');
+            if (fileInput.files[0]) {
+                formData.append('imageFile', fileInput.files[0]);
+            }
 
             const method = id ? 'PUT' : 'POST';
             const url = id ? `${API_URL}/${id}` : API_URL;
 
             try {
                 const res = await fetch(url, {
-                    method,
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    method: method,
+                    body: formData // No Content-Type header needed for FormData
                 });
 
                 if (res.ok) {

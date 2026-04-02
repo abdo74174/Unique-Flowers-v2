@@ -720,8 +720,56 @@
             localStorage.setItem('flowerFavorites', JSON.stringify(favorites));
         }
 
+        // --- DYNAMIC LOADING FROM API ---
+        async function loadProductDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            if (!productId) return;
+
+            const API_URL = `http://localhost:5009/api/products/${productId}`;
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Product not found');
+                const p = await response.json();
+                const lang = document.documentElement.lang || 'ar';
+
+                // Update UI elements
+                const title = lang === 'ar' ? p.titleAr : p.titleEn;
+                const desc = lang === 'ar' ? p.descriptionAr : p.descriptionEn;
+                
+                // Title & Breadcrumb
+                document.querySelectorAll('[data-i18n="product.ethereal_title"]').forEach(el => el.innerText = title);
+                document.querySelector('h1').innerText = title;
+                
+                // Price
+                const priceSpans = document.querySelectorAll('.text-3xl.font-headline.text-primary, .text-lg.font-headline.text-primary');
+                if (priceSpans[0]) {
+                   priceSpans[0].innerHTML = `${p.price} <span data-i18n="common.price_suffix">${lang === 'ar' ? 'ريال' : 'SAR'}</span>`;
+                }
+                
+                // Image
+                const mainImg = document.querySelector('main img');
+                if (mainImg) mainImg.src = p.imageUrl;
+                
+                // Description
+                const descP = document.querySelector('[data-i18n="product.ethereal_desc"]');
+                if (descP) descP.innerText = desc || '';
+                
+                const taglineP = document.querySelector('[data-i18n="product.ethereal_tagline"]');
+                if (taglineP) taglineP.innerText = p.category || '';
+
+                // Store current product for checkout/cart
+                window.currentProduct = p;
+
+            } catch (err) {
+                console.error('Failed to load product detail:', err);
+            }
+        }
+
         // Check if cart or fav has items
         document.addEventListener('DOMContentLoaded', () => {
+            loadProductDetail();
+            
             const cart = JSON.parse(localStorage.getItem('flowerCart')) || [];
             if (cart.length > 0) {
                 document.getElementById('cart-dot').classList.remove('hidden');
