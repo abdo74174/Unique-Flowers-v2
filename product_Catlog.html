@@ -591,18 +591,6 @@
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('visible'), index * 50);
             });
-            
-            if (typeof applyTranslations === 'function') {
-            const favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
-            // Match by title (simulated title resolution)
-            const lang = document.documentElement.lang || 'ar';
-            const t = translations[lang];
-            let title = product.titleKey;
-            if (t && t.catalog_items && t.catalog_items[product.titleKey.split('.')[1]]) {
-                title = t.catalog_items[product.titleKey.split('.')[1]];
-            }
-            return favorites.some(f => f.title === title);
-        }
 
         function catalogToggleFav(productId, btn) {
             const product = products.find(p => p.id === productId);
