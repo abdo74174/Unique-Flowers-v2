@@ -543,11 +543,13 @@
         async function fetchAndRenderProducts(filter = 'all') {
             try {
                 const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('API down');
                 allProducts = await response.json();
                 renderProducts(filter);
             } catch (error) {
                 console.error('Error fetching products:', error);
-                document.getElementById('product-container').innerHTML = '<p class="text-center py-10 opacity-50">Atelier is currently resting. Please check back soon.</p>';
+                document.getElementById('product-container').innerHTML = 
+                    '<div class="col-span-full text-center py-20 opacity-50"><p>Atelier is currently resting. Please check back soon.</p></div>';
             }
         }
 
@@ -569,7 +571,7 @@
                 card.innerHTML = `
                     <div style="overflow:hidden;" class="relative">
                         <img class="product-card-img" src="${p.imageUrl}" alt="${title}" />
-                        <button onclick="event.stopPropagation(); catalogToggleFav(${p.id}, this)" class="absolute top-3 right-3 w-8 h-8 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-white transition-all">
+                        <button onclick="event.stopPropagation(); toggleFav(${p.id}, this)" class="absolute top-3 right-3 w-8 h-8 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-white transition-all">
                              <span class="material-symbols-outlined" style="font-size:18px; ${isFav(p.id) ? 'font-variation-settings:\'FILL\' 1' : ''}">favorite</span>
                         </button>
                     </div>
@@ -578,7 +580,7 @@
                         <p class="product-card-desc">${desc || ''}</p>
                         <div class="product-card-footer">
                             <span class="product-price">${p.price} <span data-i18n="common.price_suffix">SAR</span></span>
-                            <button class="order-btn" onclick="event.stopPropagation(); catalogAddToCart(${p.id})">
+                            <button class="order-btn" onclick="event.stopPropagation(); addToCart(${p.id})">
                                 <span class="material-symbols-outlined" style="font-size:15px;">add_shopping_cart</span>
                                 <span data-i18n="nav.cart">Add to Cart</span>
                             </button>
@@ -591,123 +593,76 @@
                 container.appendChild(card);
                 setTimeout(() => card.classList.add('visible'), index * 50);
             });
+            
+            if (window.applyTranslations) window.applyTranslations(lang);
+        }
 
-        function catalogToggleFav(productId, btn) {
-            const product = products.find(p => p.id === productId);
+        function isFav(id) {
+            const favs = JSON.parse(localStorage.getItem('flowerFavorites') || '[]');
+            return favs.some(f => f.id === id);
+        }
+
+        function toggleFav(id, btn) {
+            const product = allProducts.find(p => p.id === id);
             if (!product) return;
-            
-            const lang = document.documentElement.lang || 'ar';
-            const t = translations[lang];
-            let title = product.titleKey;
-            if (t && t.catalog_items && t.catalog_items[product.titleKey.split('.')[1]]) {
-                title = t.catalog_items[product.titleKey.split('.')[1]];
-            }
 
-            const item = {
-                title: title,
-                price: product.price,
-                image: product.img
-            };
-
-            let favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
-            const index = favorites.findIndex(f => f.title === item.title);
+            let favs = JSON.parse(localStorage.getItem('flowerFavorites') || '[]');
+            const index = favs.findIndex(f => f.id === id);
             const icon = btn.querySelector('.material-symbols-outlined');
-            
+
             if (index > -1) {
-                favorites.splice(index, 1);
+                favs.splice(index, 1);
                 icon.style.fontVariationSettings = "'FILL' 0";
             } else {
-                favorites.push(item);
+                favs.push(product);
                 icon.style.fontVariationSettings = "'FILL' 1";
             }
-            
-            localStorage.setItem('flowerFavorites', JSON.stringify(favorites));
+            localStorage.setItem('flowerFavorites', JSON.stringify(favs));
         }
 
-        function showToast(message) {
-            let container = document.getElementById('toast-container');
-            if (!container) {
-                container = document.createElement('div');
-                container.id = 'toast-container';
-                container.className = 'toast-container';
-                document.body.appendChild(container);
-            }
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `<span class="material-symbols-outlined text-primary">check_circle</span> <span>${message}</span>`;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transform = 'translateY(-20px)';
-                toast.style.transition = 'all 0.5s ease';
-                setTimeout(() => toast.remove(), 500);
-            }, 3000);
-        }
-
-        function catalogAddToCart(productId) {
-            const product = products.find(p => p.id === productId);
+        function addToCart(id) {
+            const product = allProducts.find(p => p.id === id);
             if (!product) return;
 
-            // Get translated title (or use key if not translated yet)
-            const lang = document.documentElement.lang || 'ar';
-            const t = translations[lang];
-            let title = product.titleKey;
-            if (t && t.catalog_items && t.catalog_items[product.titleKey.split('.')[1]]) {
-                title = t.catalog_items[product.titleKey.split('.')[1]];
-            }
-
-            const item = {
-                title: title,
-                price: product.price,
-                image: product.img,
-                quantity: 1
-            };
-
-            let cart = JSON.parse(localStorage.getItem('flowerCart')) || [];
-            const index = cart.findIndex(i => i.title === item.title);
+            let cart = JSON.parse(localStorage.getItem('flowerCart') || '[]');
+            const index = cart.findIndex(i => i.id === id);
             if (index > -1) {
                 cart[index].quantity += 1;
             } else {
-                cart.push(item);
+                cart.push({ ...product, quantity: 1 });
             }
-
             localStorage.setItem('flowerCart', JSON.stringify(cart));
-            const msg = lang === 'ar' ? 'تمت الإضافة للسلة!' : 'Added to cart!';
-            showToast(msg);
+            
+            const lang = localStorage.getItem('selectedLanguage') || 'ar';
+            alert(lang === 'ar' ? 'تمت الإضافة للسلة!' : 'Added to cart!');
         }
 
-        // Filter Logic
-        document.getElementById('category-filters').addEventListener('click', (e) => {
-            if (e.target.classList.contains('filter-btn')) {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                e.target.classList.add('active');
-                renderProducts(e.target.dataset.category);
-            }
-        });
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                document.getElementById('navbar').classList.add('scrolled');
-            } else {
-                document.getElementById('navbar').classList.remove('scrolled');
-            }
-        });
-
-        // Initialize
+        // Initialize 
         document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            const savedLang = localStorage.getItem('selectedLanguage') || 'ar';
-            setLanguage(savedLang);
+            fetchAndRenderProducts();
+
+            // Category Filter Click
+            document.getElementById('category-filters').addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderProducts(e.target.dataset.category);
+                }
+            });
+
+            // Listen for Global Language Changes
+            document.addEventListener('languageChanged', (e) => {
+                const activeBtn = document.querySelector('.filter-btn.active');
+                renderProducts(activeBtn ? activeBtn.dataset.category : 'all');
+            });
         });
 
-        // Language toggle override for this page
-        const originalSetLanguage = window.setLanguage;
-        window.setLanguage = function (lang) {
-            // We call original setLanguage first to persist and apply other DOM elements
-            if (typeof originalSetLanguage === 'function') originalSetLanguage(lang);
-            // Then re-render products which will auto-translate via its own internal call
-            renderProducts(document.querySelector('.filter-btn.active').dataset.category);
-        };
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
     </script>
 </body>
 
