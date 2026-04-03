@@ -450,15 +450,78 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+            transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1), visibility 1s;
         }
         #splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .splash-content { text-align: center; animation: splash-entry 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
-        .splash-logo { width: 160px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 10px 20px rgba(49, 90, 68, 0.1)); }
-        .splash-loader { width: 40px; height: 2px; background: rgba(49, 90, 68, 0.1); margin: 0 auto; position: relative; overflow: hidden; border-radius: 2px; }
-        .splash-loader-bar { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: #315a44; animation: loader-progress 2s infinite linear; }
-        @keyframes splash-entry { 0% { transform: scale(0.9); opacity: 0; filter: blur(10px); } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
-        @keyframes loader-progress { 0% { left: -100%; } 100% { left: 100%; } }
+        
+        .splash-content { 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .splash-logo-container {
+            position: relative;
+            margin-bottom: 30px;
+            animation: splash-float 3s ease-in-out infinite;
+        }
+        
+        .splash-logo { 
+            width: 200px; 
+            height: auto; 
+            animation: splash-reveal 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        .splash-logo-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            animation: splash-shimmer 3s infinite;
+            animation-delay: 1.5s;
+        }
+
+        .splash-loader { 
+            width: 60px; 
+            height: 1.5px; 
+            background: rgba(49, 90, 68, 0.08); 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 1px; 
+        }
+        
+        .splash-loader-bar { 
+            position: absolute; 
+            top: 0; left: -100%; 
+            width: 100%; height: 100%; 
+            background: #315a44; 
+            animation: loader-progress 2s infinite cubic-bezier(0.65, 0, 0.35, 1); 
+        }
+
+        @keyframes splash-reveal {
+            0% { transform: translateY(20px) scale(0.95); opacity: 0; filter: blur(10px); }
+            100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+        }
+
+        @keyframes splash-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes splash-shimmer {
+            0% { left: -150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes loader-progress {
+            0% { left: -100%; width: 30%; }
+            50% { left: 0%; width: 60%; }
+            100% { left: 100%; width: 30%; }
+        }
+
         body.loading { overflow: hidden !important; }
     </style>
 </head>
@@ -468,7 +531,9 @@
     <!-- ═══ SPLASH SCREEN ═══ -->
     <div id="splash-screen">
         <div class="splash-content">
-            <img src="asessts/images/logo.png" alt="Unique Flowers Logo" class="splash-logo">
+            <div class="splash-logo-container">
+                <img src="asessts/images/logo.png" alt="Unique Flowers Logo" class="splash-logo">
+            </div>
             <div class="splash-loader">
                 <div class="splash-loader-bar"></div>
             </div>

@@ -241,7 +241,7 @@
             100% { background-position: -200% 0; }
         }
         .loading-text { color: transparent !important; border-radius: 4px; }
-        
+
         /* --- SPLASH SCREEN --- */
         #splash-screen {
             position: fixed;
@@ -251,15 +251,81 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+            transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1), visibility 1s;
         }
         #splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .splash-content { text-align: center; animation: splash-entry 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
-        .splash-logo { width: 160px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 10px 20px rgba(49, 90, 68, 0.1)); }
-        .splash-loader { width: 40px; height: 2px; background: rgba(49, 90, 68, 0.1); margin: 0 auto; position: relative; overflow: hidden; border-radius: 2px; }
-        .splash-loader-bar { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: #315a44; animation: loader-progress 2s infinite linear; }
-        @keyframes splash-entry { 0% { transform: scale(0.9); opacity: 0; filter: blur(10px); } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
-        @keyframes loader-progress { 0% { left: -100%; } 100% { left: 100%; } }
+        
+        .splash-content { 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .splash-logo-container {
+            position: relative;
+            margin-bottom: 30px;
+            animation: splash-float 3s ease-in-out infinite;
+        }
+        
+        .splash-logo { 
+            width: 200px; 
+            height: auto; 
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+            animation: splash-reveal 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        /* Premium Shimmer Effect */
+        .splash-logo-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            animation: splash-shimmer 3s infinite;
+            animation-delay: 1.5s;
+        }
+
+        .splash-loader { 
+            width: 60px; 
+            height: 1.5px; 
+            background: rgba(49, 90, 68, 0.08); 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 1px; 
+        }
+        
+        .splash-loader-bar { 
+            position: absolute; 
+            top: 0; left: -100%; 
+            width: 100%; height: 100%; 
+            background: #315a44; 
+            animation: loader-progress 2s infinite cubic-bezier(0.65, 0, 0.35, 1); 
+        }
+
+        @keyframes splash-reveal {
+            0% { transform: translateY(20px) scale(0.95); opacity: 0; filter: blur(10px); }
+            100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+        }
+
+        @keyframes splash-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes splash-shimmer {
+            0% { left: -150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes loader-progress {
+            0% { left: -100%; width: 30%; }
+            50% { left: 0%; width: 60%; }
+            100% { left: 100%; width: 30%; }
+        }
+
         body.loading { overflow: hidden !important; }
     </style>
 </head>
@@ -269,12 +335,15 @@
     <!-- ═══ SPLASH SCREEN ═══ -->
     <div id="splash-screen">
         <div class="splash-content">
-            <img src="asessts/images/logo.png" alt="Unique Flowers Logo" class="splash-logo">
+            <div class="splash-logo-container">
+                <img src="asessts/images/logo.png" alt="Unique Flowers Logo" class="splash-logo">
+            </div>
             <div class="splash-loader">
                 <div class="splash-loader-bar"></div>
             </div>
         </div>
     </div>
+
     <!-- Header / TopNavBar -->
     <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl" id="navbar">
         <nav class="flex justify-between items-center px-6 md:px-12 py-6 max-w-screen-2xl mx-auto">
@@ -753,11 +822,27 @@
             localStorage.setItem('flowerFavorites', JSON.stringify(favorites));
         }
 
+        function hideSplashScreen() {
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.classList.add('hidden');
+                document.body.classList.remove('loading');
+                const content = splash.querySelector('.splash-content');
+                if (content) {
+                    content.style.transform = 'scale(1.1)';
+                    content.style.transition = 'transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
+                }
+            }
+        }
+
         // --- DYNAMIC LOADING FROM API ---
         async function loadProductDetail() {
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
-            if (!productId) return;
+            if (!productId) {
+                setTimeout(hideSplashScreen, 500);
+                return;
+            };
 
             const API_URL = `http://localhost:5009/api/products/${productId}`;
             try {
@@ -779,26 +864,9 @@
                 
                 // Price
                 const priceLabel = lang === 'ar' ? 'ريال' : 'SAR';
-                document.getElementById('product-container').innerHTML = 
-                    '<div class="col-span-full text-center py-20 opacity-50"><p>Atelier is currently resting. Please check back soon.</p></div>';
-            } finally {
-                setTimeout(hideSplashScreen, 800);
-            }
-        }
-
-        function hideSplashScreen() {
-            const splash = document.getElementById('splash-screen');
-            if (splash) {
-                splash.classList.add('hidden');
-                document.body.classList.remove('loading');
-                const content = splash.querySelector('.splash-content');
-                if (content) {
-                    content.style.transform = 'scale(1.1)';
-                    content.style.transition = 'transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
-                }
-            }
-        }
-        // Image
+                document.getElementById('product-price-detail').innerHTML = `${p.price} <span class="text-sm font-sans">${priceLabel}</span>`;
+                
+                // Image
                 const mainImg = document.getElementById('main-product-img');
                 if (mainImg) {
                     mainImg.src = p.imageUrl;
@@ -831,22 +899,8 @@
 
             } catch (err) {
                 console.error('Failed to load product detail:', err);
-                // Optionally redirect to 404 or show error
             } finally {
                 setTimeout(hideSplashScreen, 800);
-            }
-        }
-
-        function hideSplashScreen() {
-            const splash = document.getElementById('splash-screen');
-            if (splash) {
-                splash.classList.add('hidden');
-                document.body.classList.remove('loading');
-                const content = splash.querySelector('.splash-content');
-                if (content) {
-                    content.style.transform = 'scale(1.1)';
-                    content.style.transition = 'transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
-                }
             }
         }
 
@@ -861,9 +915,13 @@
 
             // Check favorite state for this product
             const favorites = JSON.parse(localStorage.getItem('flowerFavorites')) || [];
-            const productTitle = document.querySelector('[data-i18n="product.ethereal_title"]').innerText;
-            if (favorites.some(f => f.title === productTitle)) {
-                document.getElementById('detail-fav-icon').style.fontVariationSettings = "'FILL' 1";
+            const productTitleEl = document.querySelector('[data-i18n="product.ethereal_title"]');
+            if (productTitleEl) {
+                const productTitle = productTitleEl.innerText;
+                if (favorites.some(f => f.title === productTitle)) {
+                    const favIcon = document.getElementById('detail-fav-icon');
+                    if (favIcon) favIcon.style.fontVariationSettings = "'FILL' 1";
+                }
             }
         });
     </script>
