@@ -644,6 +644,22 @@
                 console.error('Error fetching products:', error);
                 document.getElementById('product-container').innerHTML = 
                     '<div class="col-span-full text-center py-20 opacity-50"><p>Atelier is currently resting. Please check back soon.</p></div>';
+            } finally {
+                // Ensure splash screen is hidden
+                setTimeout(hideSplashScreen, 800);
+            }
+        }
+
+        function hideSplashScreen() {
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.classList.add('hidden');
+                document.body.classList.remove('loading');
+                const content = splash.querySelector('.splash-content');
+                if (content) {
+                    content.style.transform = 'scale(1.1)';
+                    content.style.transition = 'transform 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
+                }
             }
         }
 
