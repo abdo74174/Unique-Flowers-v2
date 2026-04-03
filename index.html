@@ -1708,15 +1708,20 @@
         // ══════════════════════════════════════════
         // SCROLL ANIMATION
         // ══════════════════════════════════════════
-        const fadeEls = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((e, i) => {
+            entries.forEach((e) => {
                 if (e.isIntersecting) {
-                    setTimeout(() => e.target.classList.add('visible'), i * 80);
+                    e.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.08 });
-        fadeEls.forEach(el => observer.observe(el));
+        }, { threshold: 0.1 });
+
+        function initAnimations() {
+            document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+        }
+        
+        // Initial call for static content
+        initAnimations();
 
         // Responsive grids
         // Enhanced Navbar Scroll Logic
@@ -1875,6 +1880,16 @@
                     const catProducts = products.filter(p => p.category.toLowerCase() === cat.toLowerCase()).slice(0, 4);
                     grid.innerHTML = '';
 
+                    if (catProducts.length === 0) {
+                        grid.innerHTML = `
+                            <div style="grid-column: 1/-1; text-align: center; padding: 3rem; opacity: 0.5;">
+                                <span class="material-symbols-outlined" style="font-size: 48px; margin-bottom: 1rem; display: block;">nature</span>
+                                <p>${lang === 'ar' ? 'لا توجد منتجات في هذا القسم حالياً' : 'No products available in this section yet.'}</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
                     catProducts.forEach(p => {
                         const title = lang === 'ar' ? p.titleAr : p.titleEn;
                         const desc = lang === 'ar' ? p.descriptionAr : p.descriptionEn;
@@ -1899,6 +1914,9 @@
                         grid.appendChild(card);
                     });
                 });
+                
+                // Re-initialize animations for new products
+                initAnimations();
             } catch (err) {
                 console.error('Failed to load home products:', err);
             }

@@ -52,9 +52,46 @@
             border-color: var(--brand-primary);
             background: white;
         }
+
+        /* Loader Overlay */
+        #loaderOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 46, 34, 0.3);
+            backdrop-filter: blur(12px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="p-8">
+    <div id="loaderOverlay">
+        <div class="spinner"></div>
+        <p class="text-xs uppercase tracking-[0.2em] font-medium text-white opacity-80 animate-pulse">Synchronizing Atelier</p>
+    </div>
     <div class="max-w-6xl mx-auto">
         <header class="flex justify-between items-center mb-12">
             <div>
@@ -163,13 +200,20 @@
         document.addEventListener('DOMContentLoaded', fetchProducts);
 
         async function fetchProducts() {
+            toggleLoader(true);
             try {
                 const response = await fetch(API_URL);
                 const products = await response.json();
                 renderProducts(products);
             } catch (error) {
                 console.error('Error fetching products:', error);
+            } finally {
+                toggleLoader(false);
             }
+        }
+
+        function toggleLoader(show) {
+            document.getElementById('loaderOverlay').style.display = show ? 'flex' : 'none';
         }
 
         function renderProducts(products) {
@@ -207,6 +251,10 @@
             e.preventDefault();
             const id = document.getElementById('productId').value;
             
+            toggleLoader(true);
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+
             // Use FormData for multipart/form-data
             const formData = new FormData();
             formData.append('titleEn', document.getElementById('titleEn').value);
@@ -236,13 +284,16 @@
                     form.reset();
                     document.getElementById('productId').value = '';
                     submitLabel.textContent = 'Capture Product';
-                    fetchProducts();
+                    await fetchProducts();
                 } else {
                     const err = await res.json();
                     alert('Error: ' + JSON.stringify(err.errors || err.message));
                 }
             } catch (error) {
                 alert('Connection failure');
+            } finally {
+                toggleLoader(false);
+                submitBtn.disabled = false;
             }
         });
 
@@ -270,11 +321,13 @@
 
         async function deleteProduct(id) {
             if(!confirm('Are you sure you want to remove this piece from the atelier?')) return;
+            toggleLoader(true);
             try {
                 const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-                if(res.ok) fetchProducts();
+                if(res.ok) await fetchProducts();
             } catch (error) {
                 console.error(error);
+                toggleLoader(false);
             }
         }
 
