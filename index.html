@@ -154,6 +154,100 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
+        /* ── SECTION HEADERS ── */
+        .section-header {
+            margin-bottom: 3.5rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-header.centered {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: #49735b;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        
+        .section-divider {
+            width: 48px;
+            height: 2px;
+            background: #49735b;
+            display: block;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+        
+        .view-all-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #315a44;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .view-all-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: currentColor;
+            opacity: 0.3;
+            transition: width 0.3s ease;
+        }
+        
+        .view-all-link:hover::after {
+            width: 100%;
+        }
+        
+        .view-all-link:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+        
+        html[lang="ar"] .view-all-link:hover .arrow-icon {
+            transform: translateX(-4px);
+        }
+
+        html[lang="ar"] .section-header {
+            flex-direction: row-reverse;
+        }
+        
+        html[lang="ar"] .section-divider {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        html[lang="ar"] .arrow-icon {
+            transform: scaleX(-1);
+        }
+        
+        html[lang="ar"] .section-label {
+            text-align: right;
+            letter-spacing: 0;
+        }
+
         .navbar-inner {
             max-width: 1400px;
             margin: 0 auto;
@@ -1170,23 +1264,23 @@
 
 
         <!-- ═══ 1. NATURAL FLOWERS ═══ -->
-        <section id="natural" style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
-            <div
-                style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <section id="natural" style="padding:6rem 3rem;" class="fade-up">
+            <div class="section-header">
                 <div>
                     <span class="section-label" data-i18n="natural.label">Fresh & Seasonal</span>
-                    <span class="section-divider" style="margin-bottom:1rem;"></span>
+                    <span class="section-divider"></span>
                     <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
                         data-i18n="natural.title">Natural Flowers</h2>
                     <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
                         data-i18n="natural.desc">Farm-fresh blooms sourced daily — peonies, roses, orchids and seasonal
                         arrangements crafted for every moment.</p>
                 </div>
-                    View All <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+                <a href="product_Catlog.html" class="view-all-link" data-i18n="common.view_all">
+                    View All <span class="material-symbols-outlined arrow-icon" style="font-size:18px;">arrow_forward</span>
                 </a>
             </div>
 
-            <div id="grid-natural" class="cat-grid cat-grid-4">
+            <div id="grid-natural" class="cat-grid cat-grid-4 max-width-1400" style="max-width:1400px;margin:0 auto;">
                 <!-- Dynamic Content -->
             </div>
         </section>
@@ -1194,22 +1288,19 @@
 
         <!-- ═══ 2. ARTIFICIAL FLOWERS ═══ -->
         <section id="artificial" style="padding:6rem 3rem;background:#f8f4f3;" class="fade-up">
-            <div style="max-width:1600px;margin:0 auto;">
-                <div
-                    style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div style="max-width:1400px;margin:0 auto;">
+                <div class="section-header">
                     <div>
                         <span class="section-label" data-i18n="artificial.label">Everlasting Beauty</span>
-                        <span class="section-divider" style="margin-bottom:1rem;"></span>
+                        <span class="section-divider"></span>
                         <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
                             data-i18n="artificial.title">Artificial Flowers</h2>
                         <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
                             data-i18n="artificial.desc">Stunning silk and premium fabric blooms that look real, stay
                             forever — no maintenance needed.</p>
                     </div>
-                    <a href="product_Catlog.html"
-                        style="display:inline-flex;align-items:center;gap:6px;color:#315a44;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(49,90,68,0.3);padding-bottom:2px;"
-                        data-i18n="common.view_all">
-                        View All <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+                    <a href="product_Catlog.html" class="view-all-link" data-i18n="common.view_all">
+                        View All <span class="material-symbols-outlined arrow-icon" style="font-size:18px;">arrow_forward</span>
                     </a>
                 </div>
 
@@ -1222,79 +1313,69 @@
 
 
         <!-- ═══ 3. BABY GIFTS ═══ -->
-        <section id="baby-gifts" style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
-            <div style="margin-bottom:3.5rem;">
-                <span class="section-label" data-i18n="baby.label">Welcome Little Ones</span>
-                <span class="section-divider" style="margin-bottom:1rem;"></span>
-                <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-                    <div>
-                        <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
-                            data-i18n="baby.title">Baby Gift Collections</h2>
-                        <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
-                            data-i18n="baby.desc">Celebrate new arrivals with enchanting floral gifts and baby hampers,
-                            beautifully wrapped and delivered.</p>
-                    </div>
-                    <a href="gift_Collections.html"
-                        style="display:inline-flex;align-items:center;gap:6px;color:#315a44;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(49,90,68,0.3);padding-bottom:2px;"
-                        data-i18n="common.view_all">View All <span class="material-symbols-outlined"
-                            style="font-size:16px;">arrow_forward</span></a>
+        <section id="baby-gifts" style="padding:6rem 3rem;" class="fade-up">
+            <div class="section-header">
+                <div>
+                    <span class="section-label" data-i18n="baby.label">Welcome Little Ones</span>
+                    <span class="section-divider"></span>
+                    <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
+                        data-i18n="baby.title">Baby Gift Collections</h2>
+                    <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                        data-i18n="baby.desc">Celebrate new arrivals with enchanting floral gifts and baby hampers,
+                        beautifully wrapped and delivered.</p>
                 </div>
+                <a href="gift_Collections.html" class="view-all-link" data-i18n="common.view_all">
+                    View All <span class="material-symbols-outlined arrow-icon" style="font-size:18px;">arrow_forward</span>
+                </a>
             </div>
 
-            <div id="grid-baby" class="cat-grid cat-grid-3">
+            <div id="grid-baby" class="cat-grid cat-grid-3 max-width-1400" style="max-width:1400px;margin:0 auto;">
                 <!-- Dynamic Content -->
             </div>
         </section>
 
 
         <!-- ═══ 4. VASES ═══ -->
-        <section id="vases" style="padding:6rem 3rem;background:linear-gradient(180deg,#1e3d2d 0%,#2a5238 100%);"
-            class="fade-up">
-            <div style="max-width:1600px;margin:0 auto;">
-                <div
-                    style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-                    <div>
-                        <span
-                            style="font-size:0.7rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:rgba(164,209,180,0.8);display:block;margin-bottom:0.75rem;"
-                            data-i18n="vases.label">For Every Space</span>
-                        <div style="width:48px;height:2px;background:rgba(164,209,180,0.6);margin-bottom:1rem;"></div>
-                        <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:white;"
-                            data-i18n="vases.title">Vases & Planters</h2>
-                        <p style="color:rgba(255,255,255,0.65);margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
-                            data-i18n="vases.desc">Curated ceramic, glass, and artisanal vases to complement any floral
-                            arrangement or stand alone as decor.</p>
-                    </div>
-                    <a href="product_Catlog.html"
-                        style="display:inline-flex;align-items:center;gap:6px;color:rgba(164,209,180,0.9);font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid rgba(164,209,180,0.3);padding-bottom:2px;"
-                        data-i18n="common.view_all">View All <span class="material-symbols-outlined"
-                            style="font-size:16px;">arrow_forward</span></a>
+        <section id="vases" style="padding:6rem 3rem;background:linear-gradient(180deg,#1e3d2d 0%,#2a5238 100%);" class="fade-up">
+            <div class="section-header">
+                <div>
+                    <span class="section-label" style="color:rgba(164,209,180,0.8);" data-i18n="vases.label">For Every Space</span>
+                    <span class="section-divider" style="background:rgba(164,209,180,0.6);"></span>
+                    <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:white;"
+                        data-i18n="vases.title">Vases & Planters</h2>
+                    <p style="color:rgba(255,255,255,0.65);margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
+                        data-i18n="vases.desc">Curated ceramic, glass, and artisanal vases to complement any floral
+                        arrangement or stand alone as decor.</p>
                 </div>
+                <a href="product_Catlog.html" class="view-all-link" style="color:rgba(164,209,180,0.9);" data-i18n="common.view_all">
+                    View All <span class="material-symbols-outlined arrow-icon" style="font-size:18px;">arrow_forward</span>
+                </a>
+            </div>
 
-                <div id="grid-vases" class="cat-grid cat-grid-4">
-                    <!-- Dynamic Content -->
-                </div>
+            <div id="grid-vases" class="cat-grid cat-grid-4 max-width-1400" style="max-width:1400px;margin:0 auto;">
+                <!-- Dynamic Content -->
             </div>
         </section>
 
 
         <!-- ═══ 5. BALLOONS ═══ -->
-        <section id="balloons" style="padding:6rem 3rem;max-width:1600px;margin:0 auto;" class="fade-up">
-            <div
-                style="margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <section id="balloons" style="padding:6rem 3rem;" class="fade-up">
+            <div class="section-header">
                 <div>
                     <span class="section-label" data-i18n="balloons.label">Party & Celebrations</span>
-                    <span class="section-divider" style="margin-bottom:1rem;"></span>
+                    <span class="section-divider"></span>
                     <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
                         data-i18n="balloons.title">Balloons & Decor</h2>
                     <p style="color:#717973;margin-top:.75rem;max-width:480px;font-weight:300;line-height:1.7;"
                         data-i18n="balloons.desc">Helium bouquets, foil balloons, and full party décor sets delivered to
                         your door — ready to celebrate.</p>
                 </div>
-                    View All <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+                <a href="product_Catlog.html" class="view-all-link" data-i18n="common.view_all">
+                    View All <span class="material-symbols-outlined arrow-icon" style="font-size:18px;">arrow_forward</span>
                 </a>
             </div>
 
-            <div id="grid-balloons" class="cat-grid cat-grid-4">
+            <div id="grid-balloons" class="cat-grid cat-grid-4 max-width-1400" style="max-width:1400px;margin:0 auto;">
                 <!-- Dynamic Content -->
             </div>
         </section>
@@ -1307,14 +1388,13 @@
 
         <!-- ═══ 6. GIFTS FOR MEN & WOMEN ═══ -->
         <section id="gifts" style="padding:6rem 3rem;background:#f8f4f3;" class="fade-up">
-            <div style="max-width:1600px;margin:0 auto;">
-                <div style="margin-bottom:3.5rem;text-align:center;">
-                    <span class="section-label" style="justify-content:center;display:flex;" data-i18n="gifts.label">For
-                        Someone Special</span>
-                    <div style="width:48px;height:2px;background:#315a44;margin:0.75rem auto 1rem;"></div>
+            <div style="max-width:1400px;margin:0 auto;">
+                <div class="section-header centered">
+                    <span class="section-label" data-i18n="gifts.label">For Someone Special</span>
+                    <span class="section-divider"></span>
                     <h2 class="font-headline" style="font-size:clamp(2rem,4vw,3rem);color:#1d1b1b;"
                         data-i18n="gifts.title">Gifts for Everyone</h2>
-                    <p style="color:#717973;margin-top:.75rem;max-width:540px;font-weight:300;line-height:1.7;margin-left:auto;margin-right:auto;"
+                    <p style="color:#717973;margin-top:.75rem;max-width:540px;font-weight:300;line-height:1.7;"
                         data-i18n="gifts.desc">Thoughtfully curated gift sets for men and women — from luxury hampers to
                         flower-and-chocolate combos.</p>
                 </div>

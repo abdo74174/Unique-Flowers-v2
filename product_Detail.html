@@ -229,6 +229,18 @@
                 justify-content: center !important;
             }
         }
+
+        /* ── SKELETON LOADING ── */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .loading-text { color: transparent !important; border-radius: 4px; }
     </style>
 </head>
 
@@ -311,23 +323,20 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <!-- Product Gallery (Asymmetric Layout) -->
             <div class="lg:col-span-7 grid grid-cols-6 gap-4">
-                <div class="col-span-6 rounded-xl overflow-hidden aspect-[4/5] bg-surface-container-low group">
-                    <img alt="Ethereal Blush Bouquet main view"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                        data-alt="Stunning luxury bouquet featuring pale pink roses, white hydrangeas, and delicate lilies in a clear glass vase with soft morning light."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL1bI-6-EBQJsh9IqJmI4teLIMgBdO19_XT_j5e7yl9I6qq_t7whMzoT2voVosuwJ0dvBhehnUBSGqPeIhAvzcM0KgNHnHfHPHlIalr-is-as05Z-bca9vUTk1iE6TOvmuw9DZgZZeY8TunXqV1o64mSyAWUJOZlaMTAMcIZwnLHA7bFMjxVLz3Y8aJDG81b9_CpeqIzIaWzr7TXG1Bmbp9gm_ckceiJidKhd8044CTTzmKVi-zSQSOy_a8r3A1WDTwv1U48sylaD_" />
+                <div class="col-span-6 rounded-xl overflow-hidden aspect-[4/5] bg-surface-container-low group skeleton" id="main-img-container">
+                    <img id="main-product-img" alt="Product view"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-0"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" />
                 </div>
-                <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low">
-                    <img alt="Ethereal Blush Bouquet detail"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                        data-alt="Macro close-up of a soft pink rose petal with tiny dew drops and soft bokeh background."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwlNRc6x7-1G9kn_ZsX27AjD8qPU5CNLuqwZTs81xjhdlM1uCwmsurkCnmsCGMJu1zhc07ZqcPUUP0vPXL38CX39GRM1J3EyGEDajoP8fUPbRIvlncYyWE0MbhrDs1i5HlVO6-2-6tG5wHGPZtKJj15gLqmEArRmSiX7rY2CMV-00lEdVdwhhI6C6thHOvrXZprMLWRl9Kq94aFUVJZ275uvVki7mij3DQL_rRHmuG6ErzO0yKE42HObr0BTYJuN4kk1AGO-NvkvwI" />
+                <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low skeleton">
+                    <img id="detail-img-1" alt="Detail view"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 opacity-0"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" />
                 </div>
-                <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low">
-                    <img alt="Ethereal Blush Bouquet hydrangea detail"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                        data-alt="Close up view of white hydrangeas and green foliage in a floral arrangement, high key lighting."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4w-ZHCPy707SwN7OGU7lRxAwKPzGnGj8WrUqByMBxgz14g0ivUay8elDAogejbTllRUcc5J1pA4EJav4G68cJ59UAjoVJi0DchxwikwTHGBRhS7oUANr6RmavNVXufCiLiZFMTBBiwlMSYDxcQnybgYVvBuGJTDAAEcstIJ9H1q28zMdeD0q5i_SsyBMo2pXARQMPQZYmh1LJag6S8JOmPJXeVFiL4lGwyk85cBhxgNjxBeTatGLiTxs4CCAbu9KztGpF_OYU1LCd" />
+                <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low skeleton">
+                    <img id="detail-img-2" alt="Detail view"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 opacity-0"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" />
                 </div>
                 <div
                     class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low flex items-center justify-center border border-dashed border-outline-variant/30">
@@ -335,19 +344,13 @@
                 </div>
             </div>
             <!-- Product Info -->
-            <div class="lg:col-span-5 sticky top-32">
+                <div class="lg:col-span-5 sticky top-32">
                 <div class="mb-8">
-                    <span class="text-tertiary font-bold text-xs uppercase tracking-[0.2em] mb-2 block"
-                        data-i18n="product.exclusive">Exclusive
-                        Seasonal Collection</span>
-                    <h1 class="text-5xl md:text-6xl font-headline text-emerald-900 leading-tight mb-4"
-                        data-i18n="product.ethereal_title">Ethereal Blush
-                        Bouquet</h1>
+                    <span class="text-tertiary font-bold text-xs uppercase tracking-[0.2em] mb-2 block skeleton loading-text w-24 h-4">Exclusive</span>
+                    <h1 class="text-5xl md:text-6xl font-headline text-emerald-900 leading-tight mb-4 skeleton loading-text h-16 w-3/4" id="product-title-detail">...</h1>
                     <div class="flex items-baseline gap-4">
-                        <span class="text-3xl font-headline text-primary">185.00 <span
-                                data-i18n="common.price_suffix">SAR</span></span>
-                        <span class="text-zinc-400 line-through text-lg">210.00 <span
-                                data-i18n="common.price_suffix">SAR</span></span>
+                        <span class="text-3xl font-headline text-primary skeleton loading-text h-10 w-24" id="product-price-detail">0.00</span>
+                        <span class="text-zinc-400 line-through text-lg opacity-0" id="old-price"></span>
                     </div>
                 </div>
                 <div class="space-y-6 text-on-surface-variant leading-relaxed">
@@ -737,19 +740,32 @@
                 const title = lang === 'ar' ? p.titleAr : p.titleEn;
                 const desc = lang === 'ar' ? p.descriptionAr : p.descriptionEn;
                 
+                // Remove skeletons
+                document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton', 'loading-text'));
+
                 // Title & Breadcrumb
                 document.querySelectorAll('[data-i18n="product.ethereal_title"]').forEach(el => el.innerText = title);
-                document.querySelector('h1').innerText = title;
+                document.getElementById('product-title-detail').innerText = title;
                 
                 // Price
-                const priceSpans = document.querySelectorAll('.text-3xl.font-headline.text-primary, .text-lg.font-headline.text-primary');
-                if (priceSpans[0]) {
-                   priceSpans[0].innerHTML = `${p.price} <span data-i18n="common.price_suffix">${lang === 'ar' ? 'ريال' : 'SAR'}</span>`;
-                }
+                const priceLabel = lang === 'ar' ? 'ريال' : 'SAR';
+                document.getElementById('product-price-detail').innerHTML = `${p.price} <span class="text-sm font-sans">${priceLabel}</span>`;
                 
                 // Image
-                const mainImg = document.querySelector('main img');
-                if (mainImg) mainImg.src = p.imageUrl;
+                const mainImg = document.getElementById('main-product-img');
+                if (mainImg) {
+                    mainImg.src = p.imageUrl;
+                    mainImg.style.opacity = '1';
+                }
+                
+                // Update detail thumbnails with same image or related if available
+                ['detail-img-1', 'detail-img-2'].forEach(id => {
+                    const img = document.getElementById(id);
+                    if (img) {
+                        img.src = p.imageUrl;
+                        img.style.opacity = '1';
+                    }
+                });
                 
                 // Description
                 const descP = document.querySelector('[data-i18n="product.ethereal_desc"]');
@@ -758,11 +774,17 @@
                 const taglineP = document.querySelector('[data-i18n="product.ethereal_tagline"]');
                 if (taglineP) taglineP.innerText = p.category || '';
 
+                // Related products title etc
+                document.querySelectorAll('[data-i18n="product.exclusive"]').forEach(el => {
+                    el.innerText = p.category || 'Collection';
+                });
+
                 // Store current product for checkout/cart
                 window.currentProduct = p;
 
             } catch (err) {
                 console.error('Failed to load product detail:', err);
+                // Optionally redirect to 404 or show error
             }
         }
 
