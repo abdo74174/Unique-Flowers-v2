@@ -296,10 +296,19 @@
 
         .product-card-img {
             width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
+            height: 100%;
+            object-fit: contain;
             transition: transform 0.8s ease;
             display: block;
+            padding: 1rem;
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
         }
 
         .product-card:hover .product-card-img {
@@ -679,7 +688,7 @@
                 const desc = lang === 'ar' ? p.descriptionAr : p.descriptionEn;
 
                 card.innerHTML = `
-                    <div style="overflow:hidden;" class="relative">
+                    <div class="product-img-wrapper">
                         <img class="product-card-img" src="${p.imageUrl}" alt="${title}" />
                         <button onclick="event.stopPropagation(); toggleFav(${p.id}, this)" class="absolute top-3 right-3 w-8 h-8 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-white transition-all">
                              <span class="material-symbols-outlined" style="font-size:18px; ${isFav(p.id) ? 'font-variation-settings:\'FILL\' 1' : ''}">favorite</span>

@@ -421,10 +421,10 @@
         </nav>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <!-- Product Gallery (Asymmetric Layout) -->
-            <div class="lg:col-span-7 grid grid-cols-6 gap-4">
-                <div class="col-span-6 rounded-xl overflow-hidden aspect-[4/5] bg-surface-container-low group skeleton" id="main-img-container">
+            <div class="lg:col-span-6 grid grid-cols-6 gap-4">
+                <div class="col-span-6 rounded-2xl overflow-hidden aspect-square bg-white border border-stone-100 group skeleton p-6" id="main-img-container">
                     <img id="main-product-img" alt="Product view"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-0"
+                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-1000 opacity-0"
                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" />
                 </div>
                 <div class="col-span-2 rounded-lg overflow-hidden aspect-square bg-surface-container-low skeleton">
@@ -443,7 +443,7 @@
                 </div>
             </div>
             <!-- Product Info -->
-                <div class="lg:col-span-5 sticky top-32">
+            <div class="lg:col-span-6 sticky top-32">
                 <div class="mb-8">
                     <span class="text-tertiary font-bold text-xs uppercase tracking-[0.2em] mb-2 block skeleton loading-text w-24 h-4">Exclusive</span>
                     <h1 class="text-5xl md:text-6xl font-headline text-emerald-900 leading-tight mb-4 skeleton loading-text h-16 w-3/4" id="product-title-detail">...</h1>
@@ -871,6 +871,7 @@
                 if (mainImg) {
                     mainImg.src = p.imageUrl;
                     mainImg.style.opacity = '1';
+                    mainImg.style.objectFit = 'contain';
                 }
                 
                 // Update detail thumbnails with same image or related if available

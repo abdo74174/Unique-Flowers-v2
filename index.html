@@ -617,10 +617,19 @@
 
         .product-card-img {
             width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
+            height: 100%;
+            object-fit: contain;
             transition: transform 0.8s ease;
             display: block;
+            padding: 1rem;
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
         }
 
         .product-card:hover .product-card-img {
@@ -1338,7 +1347,7 @@
                         data-i18n="hero.cta_shop">
                         Shop Flowers
                     </a>
-                    <a href="https://wa.me/1234567890" target="_blank" class="hero-btn-wa"
+                    <a href="https://wa.me/966535228284" target="_blank" class="hero-btn-wa"
                         style="background:rgba(255,255,255,0.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.3);color:white;padding:14px 34px;border-radius:12px;font-weight:600;font-size:0.9rem;letter-spacing:0.04em;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s ease;">
                         <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
                         <span data-i18n="hero.cta_whatsapp">Order on WhatsApp</span>
