@@ -844,7 +844,7 @@
                 return;
             };
 
-            const API_URL = `http://localhost:5009/api/products/${productId}`;
+            const API_URL = `http://uniqueflowers.runasp.net/api/products/${productId}`;
             try {
                 const response = await fetch(API_URL);
                 if (!response.ok) throw new Error('Product not found');
