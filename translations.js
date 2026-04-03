@@ -593,7 +593,7 @@ const translations = {
     }
 };
 
-function applyTranslations(lang) {
+function applyTranslations(lang, triggerEvent = true) {
     const t = translations[lang];
     if (!t) return;
 
@@ -659,7 +659,9 @@ function applyTranslations(lang) {
     // document.querySelectorAll('.product-price').forEach(el => { ... });
 
     // Dispatch event so pages can react
-    document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang, t } }));
+    if (triggerEvent) {
+        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang, t } }));
+    }
 }
 
 function setLanguage(lang) {
